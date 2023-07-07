@@ -2198,6 +2198,7 @@ responsive
     background-repeat: no-repeat;
     background-size: cover;
     padding: 140px 0px;
+    min-height: 100vh;
 }
 
 
@@ -2354,4 +2355,15 @@ responsive
     100% {
         transform: rotate(360deg);
     }
+}
+
+/* CSS untuk Header */
+
+
+/* CSS untuk Main */
+/* Atur tata letak keseluruhan */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
