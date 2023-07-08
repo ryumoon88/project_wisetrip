@@ -75,5 +75,7 @@ return [
     'register_role_policy' => [
         'enabled' => true,
     ],
-
+    'nav' => [
+        'group' => 'Management'
+    ]
 ];
