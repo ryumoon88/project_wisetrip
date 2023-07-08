@@ -14,15 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
 
 Route::get('/main', function () {
-    return view('layouts.main');
+    return view('layout.main');
 });
+
 Route::get('/login', function () {
-    return view('admin.login');
-});
-Route::get('/register', function () {
-    return view('admin.register');
+    return view('Admin.register');
 });

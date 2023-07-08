@@ -1,121 +1,93 @@
-@extends('layouts.main')
-@push('css')
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            color: #fff;
-        }
-
-        h1 {
-            font-size: 70px;
-            margin-bottom: 10px;
-            text-shadow: 0 10px 50px #000;
-        }
-
-        h2 {
-            font-size: 30px;
-            text-shadow: 0 10px 50px #000;
-        }
-
-        header {
-            z-index: 2;
-            background-color: #000
-        }
-
-        .divider:after,
-        .divider:before {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: #eee;
-        }
-    </style>
-@endpush
+@extends('layout.main')
 @section('content')
-    <section class="vh-100 pt-0">
-        <div class="container h-100">
-            <div class="row d-flex align-items-center justify-content-center h-100">
-                <div class="col-md-8 col-lg-7 col-xl-6">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                        class="img-fluid" alt="Phone image">
+    <div id="modal" class="popupContainer" style="display:none;">
+        <div class="popupHeader">
+            <span class="header_title">Login</span>
+            <span class="modal_close"><i class="fa fa-times"></i></span>
+        </div>
+
+        <section class="popupBody">
+            <!-- Social Login -->
+            <div class="social_login">
+                <div class="">
+                    <a href="#" class="social_box fb">
+                        <span class="icon"><i class="fab fa-facebook"></i></span>
+                        <span class="icon_title">Connect with Facebook</span>
+
+                    </a>
+
+                    <a href="#" class="social_box google">
+                        <span class="icon"><i class="fab fa-google-plus"></i></span>
+                        <span class="icon_title">Connect with Google</span>
+                    </a>
                 </div>
-                <form class="col-12 col-md-6" action="" method="POST">
-                    <div class="mb-3">
-                        <h3 class="fw-bold text-center">Sign Up</h3>
+
+                <div class="centeredText">
+                    <span>Or use your Email address</span>
+                </div>
+
+                <div class="action_btns">
+                    <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
+                    <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
+                </div>
+            </div>
+
+            <!-- Username & Password Login form -->
+            <div class="user_login">
+                <form action="" method="post">
+                    <label>Email / Username</label>
+                    <input name="username" type="text" id="username" />
+                    <br />
+
+                    <label>Password</label>
+                    <input name="password" type="password" id="password" />
+                    <br />
+
+                    <div class="checkbox">
+                        <input id="remember" type="checkbox" />
+                        <label for="remember">Remember me on this computer</label>
                     </div>
-                    @if (session('alert') != null)
-                        <div class="alert alert-{{ session('alert')['type'] }} alert-dismissible fade show mt-1"
-                            role="alert">
-                            <i
-                                class="bi {{ isset(session('alert')['class']) ? session('alert')['class'] : 'bi-check-circle' }} me-1"></i>
-                            {{ session('alert')['message'] }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
-                    @method('POST')
-                    @csrf
-                    <div class="mb-3">
-                        <label for="id_card_number" class="form-label">NIK</label>
-                        <input type="number" name="id_card_number"
-                            class="form-control @error('id_card_number')
-                            is-invalid
-                        @enderror"
-                            id="id_card_number" placeholder="NIK">
-                        @error('id_card_number')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
+
+                    <div class="action_btns">
+                        <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i>
+                                Back</a></div>
+                        <div class="one_half last"><button type="submit" class="btn btn_red">Login</button></div>
                     </div>
-                    <div class="mb-3">
-                        <label for="birth_date" class="form-label">Tanggal Lahir</label>
-                        <input type="date" name="birth_date"
-                            class="form-control @error('birth_date')
-                        is-invalid
-                    @enderror"
-                            id="birth_date" placeholder="Tanggal Lahir">
-                        @error('birth_date')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
+                </form>
+
+                <a href="#" class="forgot_password">Forgot password?</a>
+            </div>
+
+            <!-- Register Form -->
+            <div class="user_register">
+                <form action="" method="post">
+                    <label>Username</label>
+                    <input name="username" type="text" id="username" />
+                    <br />
+
+                    <label>Email Address</label>
+                    <input name="email" type="email" id="email" />
+                    <br />
+
+                    <label>Password</label>
+                    <input name="password" type="password" id="password" />
+                    <br />
+
+                    <div class="checkbox">
+                        <input id="send_updates" type="checkbox" />
+                        <label for="send_updates">Send me occasional email updates</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="mother_name" class="form-label">Nama Ibu</label>
-                        <input type="text" name="mother_name"
-                            class="form-control @error('mother_name')
-                        is-invalid
-                    @enderror"
-                            id="mother_name" placeholder="Nama Ibu">
-                        @error('mother_name')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="mother_birth_date" class="form-label">Tanggal Lahir Ibu</label>
-                        <input type="date" name="mother_birth_date"
-                            class="form-control @error('mother_birth_date')
-                        is-invalid
-                    @enderror"
-                            id="mother_birth_date" placeholder="Tanggal Lahir">
-                        @error('mother_birth_date')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3 text-end">
-                        <button type="submit" class="btn btn-sm btn-primary">Register</button>
+
+                    <div class="action_btns">
+                        <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i>
+                                Back</a></div>
+                        <div class="one_half last"><button type="submit" class="btn btn_red">Register</button></div>
                     </div>
                 </form>
             </div>
-        </div>
-    </section>
+
+        </section>
+    </div>
 @endsection
 @push('js')
 @endpush
