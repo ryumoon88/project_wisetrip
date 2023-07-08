@@ -24,3 +24,10 @@ Route::get('/main', function () {
 Route::get('/login', function () {
     return view('Admin.register');
 });
+
+Route::get('/artikel', function () {
+    return view('customer.artikel');
+});
+Route::get('/wilayah', function () {
+    return view('customer.wilayah');
+});

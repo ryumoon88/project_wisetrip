@@ -48,10 +48,10 @@ https://templatemo.com/tm-576-snapx-photography
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="index.html" class="active">Home</a></li>
-                            <li> <a href="javascript:void(0)">Wilayah</a> </li>
+                            <li> <a href="/wilayah">Wilayah</a> </li>
                             <li><a href="categories.html">Destinasi</a></li>
-                            <li><a href="users.html">Article</a></li>
-                            <li><a href="users.html">Contact</a></li>
+                            <li><a href="/artikel">Article</a></li>
+                            <li><a href="#contact">Contact</a></li>
                         </ul>
                         <div class="border-button">
                             <a id="modal_trigger" href="#modal" class="sign-in-up"><i class="fa fa-user"></i> Sign
@@ -489,7 +489,7 @@ https://templatemo.com/tm-576-snapx-photography
             <div class="row">
                 <div class="col-lg-6">
                     <div class="section-heading">
-                        <h4>WISATA POPULAR</h4>
+                        <h4>TIPS & ARTICLE</h4>
                         <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat odit commodi atque
                             magnam debitis doloremque quam. Ducimus odio provident nihil veritatis, autem ullam possimus
                             quia recusandae sapiente doloribus ipsum alias!</span>

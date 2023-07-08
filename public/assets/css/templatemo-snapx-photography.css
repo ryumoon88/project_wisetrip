@@ -117,6 +117,18 @@ html[xmlns] .clearfix {
     height: 1%;
 }
 
+.d-flex {
+    display: flex !important;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 ul,
 li {
     padding: 0;
@@ -285,6 +297,7 @@ section {
     text-transform: capitalize;
     color: #212741;
 }
+
 
 .section-heading h4 em {
     color: #00bdfe;
@@ -2161,8 +2174,12 @@ Contest Details Page
     text-align: center;
 }
 
+.contest-waiting {
+    padding: 10px;
+}
+
 .contest-waiting h5 {
-    font-size: 20px;
+    font-size: 50px;
     font-weight: 700;
     margin-bottom: 35px;
 }
@@ -2170,6 +2187,8 @@ Contest Details Page
 .contest-waiting .waiting-item img {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    height: 100%;
+
 }
 
 .contest-waiting .waiting-item .down-content {
@@ -2177,6 +2196,7 @@ Contest Details Page
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     padding: 25px;
+    height: 200px;
 }
 
 .contest-waiting .waiting-item .down-content h4 {
@@ -3038,7 +3058,7 @@ section.apply-now {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 140px 0px;
+    padding: 0px 0px;
 }
 
 
@@ -3068,7 +3088,7 @@ section.apply-now-article {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 140px 0px;
+
 }
 
 section.apply-now-article .item {
@@ -3135,7 +3155,7 @@ section.apply-now-article {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 140px 0px;
+    padding: 5px 0px;
 }
 
 section.apply-now-article .item {
