@@ -31,11 +31,13 @@ class ArticleResource extends Resource
                 //     ->maxLength(255),
                 Forms\Components\FileUpload::make('thumbnail')
                     ->image()
+                    ->required()
                     ->multiple(false),
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
                 TiptapEditor::make('body')
+                    ->required()
                 // Forms\Components\RichEditor::make('body')
             ])
             ->columns(1);
