@@ -2,732 +2,615 @@
 <html lang="en">
 
 <head>
-
+    <title>DirEngine - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
-    <meta name="author" content="templatemo">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
 
-    <title>WISE TRIP</title>
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
 
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-snapx-photography.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <!--
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
 
-TemplateMo 576 SnapX Photography
 
-https://templatemo.com/tm-576-snapx-photography
-
--->
 </head>
 
 <body>
 
-
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            <img src="assets/images/logo.png" alt="SnapX Photography Template">
-                        </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li><a href="index.html" class="active">Home</a></li>
-                            <li> <a href="/wilayah">Wilayah</a> </li>
-                            <li><a href="categories.html">Destinasi</a></li>
-                            <li><a href="/artikel">Article</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                        <div class="border-button">
-                            <a id="modal_trigger" href="#modal" class="sign-in-up"><i class="fa fa-user"></i> Sign
-                                In/Up</a>
-                        </div>
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
+            <a class="navbar-brand" href="#">
+                <img src="images/lgo.png" alt="Logo" style="height: 80px; width: auto;">
+            </a>
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="tour.html" class="nav-link">Tour</a></li>
+                    <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item cta"><a href="contact.html" class="nav-link"><span>Add listing</span></a></li>
+                </ul>
             </div>
         </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
+    </nav>
+    <!-- END nav -->
 
-    <div id="modal" class="popupContainer" style="display:none;">
-        <div class="popupHeader">
-            <span class="header_title">Login</span>
-            <span class="modal_close"><i class="fa fa-times"></i></span>
+    <div class="hero-wrap js-fullheight" style="background-image: url('images/Museum_Adityawarman_20211213.jpg');">
+        <div class="overlay"></div>
+        <!-- <div class="container">
+   <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+    data-scrollax-parent="true">
+    <div class="col-md-9 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+     <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><strong>Explore
+       <br></strong> your amazing city</h1>
+     <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Find great places to stay, eat,
+      shop, or visit from local experts</p>
+     <div class="block-17 my-4">
+      <form action="" method="post" class="d-block d-flex">
+       <div class="fields d-block d-flex">
+        <div class="textfield-search one-third">
+         <input type="text" class="form-control" placeholder="Ex: food, service, hotel">
         </div>
-
-        <section class="popupBody">
-            <!-- Social Login -->
-            <div class="social_login">
-                <div class="">
-                    <a href="#" class="social_box fb">
-                        <span class="icon"><i class="fab fa-facebook"></i></span>
-                        <span class="icon_title">Connect with Facebook</span>
-
-                    </a>
-
-                    <a href="#" class="social_box google">
-                        <span class="icon"><i class="fab fa-google-plus"></i></span>
-                        <span class="icon_title">Connect with Google</span>
-                    </a>
-                </div>
-
-                <div class="centeredText">
-                    <span>Or use your Email address</span>
-                </div>
-
-                <div class="action_btns">
-                    <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
-                    <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
-                </div>
-            </div>
-
-            <!-- Username & Password Login form -->
-            <div class="user_login">
-                <form action="" method="post">
-                    <label>Email / Username</label>
-                    <input name="username" type="text" id="username" />
-                    <br />
-
-                    <label>Password</label>
-                    <input name="password" type="password" id="password" />
-                    <br />
-
-                    <div class="checkbox">
-                        <input id="remember" type="checkbox" />
-                        <label for="remember">Remember me on this computer</label>
-                    </div>
-
-                    <div class="action_btns">
-                        <div class="one_half"><a href="#" class="btn back_btn"><i
-                                    class="fa fa-angle-double-left"></i> Back</a></div>
-                        <div class="one_half last"><button type="submit" class="btn btn_red">Login</button></div>
-                    </div>
-                </form>
-
-                <a href="#" class="forgot_password">Forgot password?</a>
-            </div>
-
-            <!-- Register Form -->
-            <div class="user_register">
-                <form action="" method="post">
-                    <label>Username</label>
-                    <input name="username" type="text" id="username" />
-                    <br />
-
-                    <label>Email Address</label>
-                    <input name="email" type="email" id="email" />
-                    <br />
-
-                    <label>Password</label>
-                    <input name="password" type="password" id="password" />
-                    <br />
-
-                    <div class="checkbox">
-                        <input id="send_updates" type="checkbox" />
-                        <label for="send_updates">Send me occasional email updates</label>
-                    </div>
-
-                    <div class="action_btns">
-                        <div class="one_half"><a href="#" class="btn back_btn"><i
-                                    class="fa fa-angle-double-left"></i> Back</a></div>
-                        <div class="one_half last"><button type="submit" class="btn btn_red">Register</button></div>
-                    </div>
-                </form>
-            </div>
-
-        </section>
+        <div class="select-wrap one-third">
+         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+         <select name="" id="" class="form-control" placeholder="Keyword search">
+          <option value="">Where</option>
+          <option value="">San Francisco USA</option>
+          <option value="">Berlin Germany</option>
+          <option value="">Lodon United Kingdom</option>
+          <option value="">Paris Italy</option>
+         </select>
+        </div>
+       </div>
+       <input type="submit" class="search-submit btn btn-primary" value="Search">
+      </form>
+     </div>
+     <p>Or browse the highlights</p>
+     <p class="browse d-md-flex">
+      <span class="d-flex justify-content-md-center align-items-md-center"><a href="#"><i
+         class="flaticon-fork"></i>Restaurant</a></span>
+      <span class="d-flex justify-content-md-center align-items-md-center"><a href="#"><i
+         class="flaticon-hotel"></i>Hotel</a></span>
+      <span class="d-flex justify-content-md-center align-items-md-center"><a href="#"><i
+         class="flaticon-meeting-point"></i>Places</a></span>
+      <span class="d-flex justify-content-md-center align-items-md-	center"><a href="#"><i
+         class="flaticon-shopping-bag"></i>Shopping</a></span>
+     </p>
+    </div>
+   </div>
+  </div> -->
     </div>
 
-    <!-- ***** Main Banner Area Start ***** -->
-    <div class="main-banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="header-text">
-                        <h2><em>SUMATERA BARAT</em> </h2>
 
-                        <div class="buttons">
-                            <div class="big-border-button">
-                                <a href="contests.html">Explore SnapX Contest</a>
-                            </div>
-                            <div class="icon-button">
-                                <a href="https://youtube.com/templatemo" target="_blank"><i class="fa fa-play"></i>
-                                    Watch Our Video Now</a>
+    <!-- INFORMASI ADAT -->
+    <section class="ftco-section services-section ">
+        <div class="container">
+            <div class="row justify-content-start mb-5 pb-3">
+                <div class="col-md-12">
+                    <div class="destination-slider owl-carousel ftco-animate">
+                        <div class="item">
+                            <div class="destination">
+                                <a href="#" class="img d-flex justify-content-center align-items-center"
+                                    style="background-image: url(images/pacujawi.jpg);">
+                                    <div class="icon d-flex justify-content-center align-items-center">
+                                        <span class="icon-search2"></span>
+                                    </div>
+                                </a>
+                                <div class="text p-3">
+                                    <h3><a href="#">Pacu Jawi</a></h3>
+                                    <span class="listing">Pariaman</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
+    </section>
+    <!-- ---------------------------------------------------------------------- -->
+
+    <!-- <section class="ftco-section ftco-destination">
+  <div class="container">
+   <div class="row justify-content-start mb-5 pb-3">
+    <div class="col-md-7 heading-section ftco-animate">
+     <span class="subheading">Featured</span>
+     <h2 class="mb-4"><strong>Featured</strong> Destination</h2>
     </div>
-    <!-- ***** Main Banner Area End ***** -->
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <div class="destination-slider owl-carousel ftco-animate">
+      <div class="item">
+       <div class="destination">
+        <a href="#" class="img d-flex justify-content-center align-items-center"
+         style="background-image: url(images/destination-1.jpg);">
+         <div class="icon d-flex justify-content-center align-items-center">
+          <span class="icon-search2"></span>
+         </div>
+        </a>
+        <div class="text p-3">
+         <h3><a href="#">Paris, Italy</a></h3>
+         <span class="listing">15 Listing</span>
+        </div>
+       </div>
+      </div>
+      <div class="item">
+       <div class="destination">
+        <a href="#" class="img d-flex justify-content-center align-items-center"
+         style="background-image: url(images/destination-2.jpg);">
+         <div class="icon d-flex justify-content-center align-items-center">
+          <span class="icon-search2"></span>
+         </div>
+        </a>
+        <div class="text p-3">
+         <h3><a href="#">San Francisco, USA</a></h3>
+         <span class="listing">20 Listing</span>
+        </div>
+       </div>
+      </div>
+      <div class="item">
+       <div class="destination">
+        <a href="#" class="img d-flex justify-content-center align-items-center"
+         style="background-image: url(images/destination-3.jpg);">
+         <div class="icon d-flex justify-content-center align-items-center">
+          <span class="icon-search2"></span>
+         </div>
+        </a>
+        <div class="text p-3">
+         <h3><a href="#">Lodon, UK</a></h3>
+         <span class="listing">10 Listing</span>
+        </div>
+       </div>
+      </div>
+      <div class="item">
+       <div class="destination">
+        <a href="#" class="img d-flex justify-content-center align-items-center"
+         style="background-image: url(images/destination-4.jpg);">
+         <div class="icon d-flex justify-content-center align-items-center">
+          <span class="icon-search2"></span>
+         </div>
+        </a>
+        <div class="text p-3">
+         <h3><a href="#">Lion, Singapore</a></h3>
+         <span class="listing">3 Listing</span>
+        </div>
+       </div>
+      </div>
+      <div class="item">
+       <div class="destination">
+        <a href="#" class="img d-flex justify-content-center align-items-center"
+         style="background-image: url(images/destination-5.jpg);">
+         <div class="icon d-flex justify-content-center align-items-center">
+          <span class="icon-search2"></span>
+         </div>
+        </a>
+        <div class="text p-3">
+         <h3><a href="#">Australia</a></h3>
+         <span class="listing">3 Listing</span>
+        </div>
+       </div>
+      </div>
+      <div class="item">
+       <div class="destination">
+        <a href="#" class="img d-flex justify-content-center align-items-center"
+         style="background-image: url(images/destination-6.jpg);">
+         <div class="icon d-flex justify-content-center align-items-center">
+          <span class="icon-search2"></span>
+         </div>
+        </a>
+        <div class="text p-3">
+         <h3><a href="#">Paris, Italy</a></h3>
+         <span class="listing">3 Listing</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section> -->
 
-    {{-- ADAT ISTIADAT --}}
-    <section class="featured-items" id="featured-items">
+    <!-- WISATA POPULAR -->
+    <section class="ftco-section bg-light">
         <div class="container">
+            <div class="row justify-content-start mb-5 pb-3">
+                <div class="col-md-7 heading-section ftco-animate">
+
+                    <h2 class="mb-4"><strong>Wisata Popular</strong></h2>
+                    <span class="subheading">SIn publishing and graphic design, Lorem ipsum is a placeholder text
+                        commonly used to demonstrate the visual form of a document or a typeface without relying on
+                        meaningful content.</span>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="owl-features owl-carousel" style="position: relative; z-index: 5;">
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/images/tabuik.jpg" alt="">
-                                <div class="hover-effect">
-                                    <div class="content">
-                                        <h4>TABUIK</h4>
-                                        <ul>
-                                            <li><span>Padang Pariaman</li>
-                                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Consectetur maiores aperiam aliquam repudiandae. Sapiente odio
-                                                perferendis velit modi alias numquam ab totam eum! Aliquid odio vel
-                                                libero vitae esse nihil.</li>
-
-                                        </ul><br>
-                                        <button class="view-details-button">View Details</button>
-                                    </div>
-                                </div>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="destination">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
+                            style="background-image: url(images/restaurant-1.jpg);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-search2"></span>
                             </div>
+                        </a>
+                        <div class="text p-3">
+                            <h3><a href="#">Luxury Restaurant</a></h3>
+
+                            <p>Far far away, behind the word mountains, far from the countries</p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                <span class="ml-auto"><a href="#">Discover</a></span>
+                            </p>
                         </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/images/pacu.jpg" alt="">
-                                <div class="hover-effect">
-                                    <div class="content">
-                                        <h4>PACU JAWI</h4>
-                                        <ul>
-                                            <li><span>TANAH DATAR</li>
-                                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Consectetur maiores aperiam aliquam repudiandae. Sapiente odio
-                                                perferendis velit modi alias numquam ab totam eum! Aliquid odio vel
-                                                libero vitae esse nihil.</li>
-
-                                        </ul><br>
-                                        <button class="view-details-button">View Details</button>
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="destination">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
+                            style="background-image: url(images/restaurant-2.jpg);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-search2"></span>
                             </div>
+                        </a>
+                        <div class="text p-3">
+                            <h3><a href="#">Luxury Restaurant</a></h3>
+
+                            <p>Far far away, behind the word mountains, far from the countries</p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                <span class="ml-auto"><a href="#">Book Now</a></span>
+                            </p>
                         </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/images/Upacara.jpg" alt="">
-                                <div class="hover-effect">
-                                    <div class="content">
-                                        <h4>Upacara Adat</h4>
-                                        <ul>
-                                            <li><span>SUMATERA BARAT</li>
-                                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Consectetur maiores aperiam aliquam repudiandae. Sapiente odio
-                                                perferendis velit modi alias numquam ab totam eum! Aliquid odio vel
-                                                libero vitae esse nihil.</li>
-
-                                        </ul><br>
-                                        <button class="view-details-button">View Details</button>
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="destination">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
+                            style="background-image: url(images/restaurant-3.jpg);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-search2"></span>
                             </div>
+                        </a>
+                        <div class="text p-3">
+                            <h3><a href="#">Luxury Restaurant</a></h3>
+
+                            <p>Far far away, behind the word mountains, far from the countries</p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                <span class="ml-auto"><a href="#">Book Now</a></span>
+                            </p>
                         </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/images/tabuik.jpg" alt="">
-                                <div class="hover-effect">
-                                    <div class="content">
-                                        <h4>TABUIK</h4>
-                                        <ul>
-                                            <li><span>Padang Pariaman</li>
-                                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Consectetur maiores aperiam aliquam repudiandae. Sapiente odio
-                                                perferendis velit modi alias numquam ab totam eum! Aliquid odio vel
-                                                libero vitae esse nihil.</li>
-
-                                        </ul><br>
-                                        <button class="view-details-button">View Details</button>
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="destination">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
+                            style="background-image: url(images/restaurant-4.jpg);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-search2"></span>
                             </div>
+                        </a>
+                        <div class="text p-3">
+                            <h3><a href="#">Luxury Restaurant</a></h3>
+
+                            <p>Far far away, behind the word mountains, far from the countries</p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                <span class="ml-auto"><a href="#">Book Now</a></span>
+                            </p>
                         </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/images/pacu.jpg" alt="">
-                                <div class="hover-effect">
-                                    <div class="content">
-                                        <h4>PACU JAWI</h4>
-                                        <ul>
-                                            <li><span>TANAH DATAR</li>
-                                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Consectetur maiores aperiam aliquam repudiandae. Sapiente odio
-                                                perferendis velit modi alias numquam ab totam eum! Aliquid odio vel
-                                                libero vitae esse nihil.</li>
-
-                                        </ul><br>
-                                        <button class="view-details-button">View Details</button>
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="destination">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
+                            style="background-image: url(images/restaurant-1.jpg);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-search2"></span>
                             </div>
+                        </a>
+                        <div class="text p-3">
+                            <h3><a href="#">Luxury Restaurant</a></h3>
+
+                            <p>Far far away, behind the word mountains, far from the countries</p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                <span class="ml-auto"><a href="#">Discover</a></span>
+                            </p>
                         </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <img src="assets/images/Upacara.jpg" alt="">
-                                <div class="hover-effect">
-                                    <div class="content">
-                                        <h4>Upacara Adat</h4>
-                                        <ul>
-                                            <li><span>SUMATERA BARAT</li>
-                                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Consectetur maiores aperiam aliquam repudiandae. Sapiente odio
-                                                perferendis velit modi alias numquam ab totam eum! Aliquid odio vel
-                                                libero vitae esse nihil.</li>
-
-                                        </ul><br>
-                                        <button class="view-details-button">View Details</button>
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="destination">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
+                            style="background-image: url(images/restaurant-2.jpg);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-search2"></span>
                             </div>
+                        </a>
+                        <div class="text p-3">
+                            <h3><a href="#">Luxury Restaurant</a></h3>
+
+                            <p>Far far away, behind the word mountains, far from the countries</p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                <span class="ml-auto"><a href="#">Book Now</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="destination">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
+                            style="background-image: url(images/restaurant-3.jpg);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-search2"></span>
+                            </div>
+                        </a>
+                        <div class="text p-3">
+                            <h3><a href="#">Luxury Restaurant</a></h3>
+
+                            <p>Far far away, behind the word mountains, far from the countries</p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                <span class="ml-auto"><a href="#">Book Now</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="destination">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
+                            style="background-image: url(images/restaurant-4.jpg);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-search2"></span>
+                            </div>
+                        </a>
+                        <div class="text p-3">
+                            <h3><a href="#">Luxury Restaurant</a></h3>
+
+                            <p>Far far away, behind the word mountains, far from the countries</p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span><i class="icon-map-o"></i> San Franciso, CA</span>
+                                <span class="ml-auto"><a href="#">Book Now</a></span>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    {{-- END ADAT ISTIADAT --}}
 
-    {{-- WISATA POPULER --}}
-    <section class="popular-categories">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-heading">
-                        <h4>WISATA POPULAR</h4>
-                        <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat odit commodi atque
-                            magnam debitis doloremque quam. Ducimus odio provident nihil veritatis, autem ullam possimus
-                            quia recusandae sapiente doloribus ipsum alias!</span>
 
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="main-button">
-                        <a href="categories.html">Discover All Categories</a>
-                    </div>
-                </div>
+
+    <!-- VIDEO -->
+    <section class="ftco-destination">
+        <div class="container-fluid py-5">
+            <div class="container pt-5">
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="meeting-item">
-                            <div class="thumb">
-                                <div class="price">
-                                    <span>Padang</span>
-                                </div>
-                                <a href="meeting-details.html"><img src="assets/images/masjid.jpg"
-                                        alt="New Lecturer Meeting"></a>
-                            </div>
-                            <div class="down-content">
-                                <div class="date">
-                                    <img src={{ asset('assets/images/icon-01.png') }} alt="Logo" width="30"
-                                        height="30">
-                                </div>
-                                <h4>Masjid Raya Sumatera Barat</h4></a>
-                                <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
-                            </div>
+                    <div class="col-lg-6" style="min-height: 500px;">
+                        <div class="position-relative h-100">
+                            <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE" target="_blank">
+                                <img class="position-absolute w-100 h-100" src="images/destination-1.jpg"
+                                    style="object-fit: cover;">
+                                <img class="play-icon position-absolute w-10 h-10" src="images/playbutton.png "
+                                    style="width: 80px; height: 80px;">
+                            </a>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="meeting-item">
-                            <div class="thumb">
-                                <div class="price">
-                                    <span>Padang</span>
-                                </div>
-                                <a href="meeting-details.html"><img src="assets/images/masjid.jpg"
-                                        alt="New Lecturer Meeting"></a>
-                            </div>
-                            <div class="down-content">
-                                <div class="date">
-                                    <img src={{ asset('assets/images/icon-01.png') }} alt="Logo" width="30"
-                                        height="30">
-                                </div>
-                                <h4>Masjid Raya Sumatera Barat</h4></a>
-                                <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="meeting-item">
-                            <div class="thumb">
-                                <div class="price">
-                                    <span>Padang</span>
-                                </div>
-                                <a href="meeting-details.html"><img src="assets/images/masjid.jpg"
-                                        alt="New Lecturer Meeting"></a>
-                            </div>
-                            <div class="down-content">
-                                <div class="date">
-                                    <img src={{ asset('assets/images/icon-01.png') }} alt="Logo" width="30"
-                                        height="30">
-                                </div>
-                                <h4>Masjid Raya Sumatera Barat</h4></a>
-                                <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="meeting-item">
-                            <div class="thumb">
-                                <div class="price">
-                                    <span>Padang</span>
-                                </div>
-                                <a href="meeting-details.html"><img src="assets/images/masjid.jpg"
-                                        alt="New Lecturer Meeting"></a>
-                            </div>
-                            <div class="down-content">
-                                <div class="date">
-                                    <img src={{ asset('assets/images/icon-01.png') }} alt="Logo" width="30"
-                                        height="30">
-                                </div>
-                                <h4>Masjid Raya Sumatera Barat</h4></a>
-                                <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="meeting-item">
-                            <div class="thumb">
-                                <div class="price">
-                                    <span>Padang</span>
-                                </div>
-                                <a href="meeting-details.html"><img src="assets/images/masjid.jpg"
-                                        alt="New Lecturer Meeting"></a>
-                            </div>
-                            <div class="down-content">
-                                <div class="date">
-                                    <img src={{ asset('assets/images/icon-01.png') }} alt="Logo" width="30"
-                                        height="30">
-                                </div>
-                                <h4>Masjid Raya Sumatera Barat</h4></a>
-                                <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="meeting-item">
-                            <div class="thumb">
-                                <div class="price">
-                                    <span>Padang</span>
-                                </div>
-                                <a href="meeting-details.html"><img src="assets/images/masjid.jpg"
-                                        alt="New Lecturer Meeting"></a>
-                            </div>
-                            <div class="down-content">
-                                <div class="date">
-                                    <img src={{ asset('assets/images/icon-01.png') }} alt="Logo" width="30"
-                                        height="30">
-                                </div>
-                                <h4>Masjid Raya Sumatera Barat</h4></a>
-                                <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="col-lg-6 pt-5 pb-lg-5">
+                        <div class="video bg-white p-4 p-lg-5 my-lg-5">
+                            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
+                            <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
+                            <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum
+                                labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat
+                                duo eos et erat sed diam duo</p>
 
+                            <a href="" class="btn btn-primary mt-1">Book Now</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    {{-- END WISATA POPULER --}}
 
-    {{-- VIDEO --}}
-    <section class="apply-now" id="apply">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="cardText">
-                        <h3> Lets watching video destination in sumatera barat</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, neque quaerat id
-                            voluptatem reiciendis assumenda rem nesciunt! Est architecto laborum odit, officia tempore
-                            esse consequatur perferendis repellendus quis vel fugiat!</p><br>
-                        <div class="col-lg-6">
-                            <div class="main-button">
-                                <a href="categories.html">Explore More</a>
-                            </div>
-                        </div>
+    <!-- ARTIKEL -->
+    <section class="ftco-destination bg-light">
+        <div class="container-fluid py-5">
+            <div class="container pt-5">
+                <div class="row">
+                    <div class="col-md-7 heading-section ftco-animate">
 
+                        <h2 class="mb-4"><strong>Tips & Artikel</strong></h2>
+                        <span class="subheading">SIn publishing and graphic design, Lorem ipsum is a placeholder text
+                            commonly used to demonstrate the visual form of a document or a typeface without relying on
+                            meaningful content.</span>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <a href="https://www.youtube.com/watch?v=VIDEO_ID">
-                            <div class="thumbnail-container">
-                                <img src="assets/images/museum.jpg" alt="Video Thumbnail" class="video-thumbnail">
-                                <div class="play-icon">
-                                    <img src="assets/images/playbutton.png" alt="Play Icon">
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-    </section>
-    {{-- END VIDEO --}}
-
-    {{-- TIPS&ARTICLE --}}
-    <section class="apply-now-article" id="apply">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-heading">
-                        <h4>TIPS & ARTICLE</h4>
-                        <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat odit commodi atque
-                            magnam debitis doloremque quam. Ducimus odio provident nihil veritatis, autem ullam possimus
-                            quia recusandae sapiente doloribus ipsum alias!</span>
-
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="main-button">
-                        <a href="categories.html">Discover All Categories</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="CardImage" style="padding-bottom: 20px;">
-                        <img src="assets/images/gd.jpg" alt=""><br>
-                        <h3>Lets watching video destination in sumatera barat</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias temporibus a velit voluptatem
-                            distinctio, rerum asperiores harum, reiciendis error, molestias veritatis earum possimus.
-                            Laboriosam, odio impedit sequi obcaecati architecto deserunt!</p>
-                        <div class="col-lg-6">
-                            <div class="main-button">
-                                <a href="categories.html">See More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-6 ">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="item">
-                                <h3>9 Popular Travel Destination on sale in 2023</h3>
-                                <p>You are allowed to use this edu meeting CSS template for your school or university or
-                                    business. You can feel free to modify or edit this layout.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias temporibus a velit
-                                    voluptatem distinctio, rerum asperiores harum, reiciendis error, molestias veritatis
-                                    earum possimus.
+                    <div class="col-lg-6" style="min-height: 400px;">
+                        <div class="card">
+                            <img class="card-img-top" src="images/destination-1.jpg" alt="Destination Image">
+                            <div class="card-body">
+                                <h6 class="text-primary text-uppercase" style="letter-spacing: 1px;">Cerita | Tips
+                                </h6>
+                                <h2 class="mb-3">Travel Stories</h2>
+                                <p class="card-text">Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore
+                                    sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed
+                                    ipsum et kasd ut. Erat duo eos et erat sed diam duo Dolores lorem lorem ipsum sit et
+                                    ipsum. Sadip sea amet diam dolore sed et. Sit rebum
                                 </p>
-                                <div class="col-lg-6">
-                                    <div class="main-button">
-                                        <a href="categories.html">See More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="item">
-                                <h3>How are we going to travel in 2023</h3>
-                                <p>You are not allowed to redistribute the template ZIP file on any other template
-                                    website. Please contact us for more information.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias temporibus a velit
-                                    voluptatem distinctio, rerum asperiores harum, reiciendis error, molestias veritatis
-                                    earum possimus. Laboriosam, odio impedit sequi obcaecati architecto deserunt!
-                                </p>
-                                <div class="col-lg-6">
-                                    <div class="main-button">
-                                        <a href="categories.html">See More</a>
-                                    </div>
-                                </div>
+                                <a href="" class="btn btn-primary mt-1">Read More</a>
                             </div>
                         </div>
                     </div>
-                </div>
 
+                    <div class="col-lg-6">
+                        <div class="bg-white p-4 p-lg-5 ">
+                            <h6 class="text-primary text-uppercase" style="letter-spacing: 1px;">Destinasi | Travel
+                            </h6>
+                            <h2 class="mb-3">We Provide Best Tour Packages In Your Budget</h2>
+                            <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum
+                                labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat
+                                duo eos et erat sed diam duo</p>
+
+                            <a href="" class="btn btn-primary mt-1">Read More</a>
+                        </div> <br>
+                        <div class="bg-white p-4 p-lg-5 ">
+                            <h6 class="text-primary text-uppercase" style="letter-spacing: 1px;">Tips | Travel</h6>
+                            <h2 class="mb-3">We Provide Best Tour Packages In Your Budget</h2>
+                            <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum
+                                labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat
+                                duo eos et erat sed diam duo</p>
+
+                            <a href="" class="btn btn-primary mt-1">Read More</a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
+
     </section>
-    {{--  END TIPS&ARTICLE --}}
 
-    {{-- CONTACT US --}}
-    <section id="contact" class="contact">
-        <div class="container" data-aos="fade-up">
 
-            <div class="section-heading">
-                <h2>Contact Us</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, pariatur recusandae? Et
-                    dignissimos consequatur iste, esse similique distinctio magnam mollitia ullam deserunt, magni sint
-                    voluptatem eius minus exercitationem consequuntur ex?</p>
-            </div><br>
 
-            <div class="row gx-lg-0 gy-4">
-
-                <div class="col-lg-4">
-
-                    <div class="info-container d-flex flex-column align-items-center justify-content-center">
-                        <div class="info-item d-flex">
-                            <i class="bi bi-geo-alt flex-shrink-0"></i>
-                            <div>
-                                <h4>Location:</h4>
-                                <p>A108 Adam Street, New York, NY 535022</p>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="info-item d-flex">
-                            <i class="bi bi-envelope flex-shrink-0"></i>
-                            <div>
-                                <h4>Email:</h4>
-                                <p>info@example.com</p>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="info-item d-flex">
-                            <i class="bi bi-phone flex-shrink-0"></i>
-                            <div>
-                                <h4>Call:</h4>
-                                <p>+1 5589 55488 55</p>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="info-item d-flex">
-                            <i class="bi bi-clock flex-shrink-0"></i>
-                            <div>
-                                <h4>Open Hours:</h4>
-                                <p>Mon-Sat: 11AM - 23PM</p>
-                            </div>
-                        </div><!-- End Info Item -->
-                    </div>
-
-                </div>
-
-                <div class="col-lg-8">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                        <div class="row">
-                            <div class="col-md-6 form-group">
-                                <input type="text" name="name" class="form-control" id="name"
-                                    placeholder="Your Name" required>
-                            </div>
-                            <div class="col-md-6 form-group mt-3 mt-md-0">
-                                <input type="email" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" required>
-                            </div>
-                        </div>
-                        <div class="form-group mt-3">
-                            <input type="text" class="form-control" name="subject" id="subject"
-                                placeholder="Subject" required>
-                        </div>
-                        <div class="form-group mt-3">
-                            <textarea class="form-control" name="message" rows="7" placeholder="Message" required></textarea>
-                        </div>
-                        <div class="my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                        </div>
-                        <center>
-                            <div class="btn btn-primary" style="padding:10px;">Send Message</div>
-                        </center>
-                    </form>
-                </div><!-- End Contact Form -->
-
-            </div>
-
-        </div>
-    </section><!-- End Contact Section -->
-
-    {{-- FOOTER --}}
-    <footer id="footer" class="footer">
-
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
-            <div class="row gy-4">
-                <div class="col-lg-5 col-md-12 footer-info">
-                    <a href="index.html" class="logo d-flex align-items-center">
-                        <span>Impact</span>
-                    </a>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
-                        valies darta
-                        donna mare fermentum iaculis eu non diam phasellus.</p>
-                    <div class="social-links d-flex mt-4">
-                        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">dirEngine</h2>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                            there live the blind texts.</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="col-lg-2 col-6 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
-                    </ul>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">Information</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">About</a></li>
+                            <li><a href="#" class="py-2 d-block">Service</a></li>
+                            <li><a href="#" class="py-2 d-block">Terms and Conditions</a></li>
+                            <li><a href="#" class="py-2 d-block">Become a partner</a></li>
+                            <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li>
+                            <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
+                        </ul>
+                    </div>
                 </div>
-
-                <div class="col-lg-2 col-6 footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Product Management</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Graphic Design</a></li>
-                    </ul>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Customer Support</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">FAQ</a></li>
+                            <li><a href="#" class="py-2 d-block">Payment Option</a></li>
+                            <li><a href="#" class="py-2 d-block">Booking Tips</a></li>
+                            <li><a href="#" class="py-2 d-block">How it works</a></li>
+                            <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+                        </ul>
+                    </div>
                 </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St.
+                                        Mountain
+                                        View, San Francisco, California, USA</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2
+                                            392 3929
+                                            210</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span
+                                            class="text">info@yourdomain.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
 
-                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                    <h4>Contact Us</h4>
                     <p>
-                        A108 Adam Street <br>
-                        New York, NY 535022<br>
-                        United States <br><br>
-                        <strong>Phone:</strong> +1 5589 55488 55<br>
-                        <strong>Email:</strong> info@example.com<br>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved | This template
+                        is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                            target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
-
                 </div>
-
             </div>
         </div>
-
-        <div class="container mt-4">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Impact</span></strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/impact-bootstrap-business-website-template/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-        </div>
-
     </footer>
-    <!-- End Footer -->
 
-    <!-- Scripts -->
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="assets/js/isotope.min.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
 
-    <script src="assets/js/tabs.js"></script>
-    <script src="assets/js/popup.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                stroke-miterlimit="10" stroke="#F96D00" />
+        </svg></div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 
