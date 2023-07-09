@@ -33,6 +33,7 @@ class RoleResource extends Resource implements HasShieldPermissions
             'update',
             'delete',
             'delete_any',
+            'reorder'
         ];
     }
 
@@ -147,7 +148,8 @@ class RoleResource extends Resource implements HasShieldPermissions
                     ->label(__('filament-shield::filament-shield.column.name'))
                     ->formatStateUsing(fn ($state): string => Str::headline($state))
                     ->colors(['primary'])
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\BadgeColumn::make('guard_name')
                     ->label(__('filament-shield::filament-shield.column.guard_name')),
                 Tables\Columns\BadgeColumn::make('permissions_count')
@@ -158,6 +160,8 @@ class RoleResource extends Resource implements HasShieldPermissions
                     ->label(__('filament-shield::filament-shield.column.updated_at'))
                     ->dateTime(),
             ])
+            ->defaultSort('sort')
+            ->reorderable('sort')
             ->filters([
                 //
             ])
