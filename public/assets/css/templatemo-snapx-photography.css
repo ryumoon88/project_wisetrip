@@ -314,6 +314,11 @@ section {
 Header Style
 ---------------------------------------------
 */
+.header-text {
+    padding: 30px;
+    margin-top: -50px;
+    margin-bottom: 50px;
+}
 
 .background-header {
     background-color: #fff;
@@ -1045,7 +1050,7 @@ Banner Style
 */
 
 .main-banner {
-    background-image: url(../images/r.jpg);
+    background-image: url(../images/museum.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -1249,10 +1254,16 @@ popular categories
 
 section.popular-categories {
     padding: 0px 65px;
+    background-image: url(../images/closed-bg.jpg);
 }
 
 section.popular-categories .main-button {
     text-align: right;
+    margin-top: -140px;
+}
+
+section.popular-categories .section-heading {
+    margin-top: -150px;
 }
 
 .popular-item {
@@ -1358,6 +1369,7 @@ section.popular-categories .main-button {
     width: 100%;
     text-align: center;
 }
+
 
 
 /*
@@ -3053,7 +3065,8 @@ apply now
 
 section.apply-now {
     /* background-image: url(../images/apply-bg.jpg); */
-    background-image: url(../images/closed-bg.jpg);
+    /* background-image: url(../images/closed-bg.jpg); */
+    background-color: white;
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -3083,11 +3096,12 @@ section.apply-now .item p {
 
 section.apply-now-article {
     /* background-image: url(../images/apply-bg.jpg); */
-    background-color: white;
+    background-image: url(../images/closed-bg.jpg);
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+    padding: 10px;
 
 }
 
@@ -3112,6 +3126,7 @@ section.apply-now-article .item p {
 
 section.apply-now-article .main-button {
     text-align: right;
+
 }
 
 .card {

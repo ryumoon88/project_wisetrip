@@ -7,7 +7,7 @@
                 <div class="col-lg-10 offset-lg-1">
                     <div class="header-text">
                         <h2><em>SUMATERA BARAT</em> </h2>
-
+                        {{--
                         <div class="buttons">
                             <div class="big-border-button">
                                 <a href="contests.html">Explore SnapX Contest</a>
@@ -16,7 +16,7 @@
                                 <a href="https://youtube.com/templatemo" target="_blank"><i class="fa fa-play"></i>
                                     Watch Our Video Now</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -313,7 +313,8 @@
                     <div class="card">
                         <a href="https://www.youtube.com/watch?v=VIDEO_ID">
                             <div class="thumbnail-container">
-                                <img src="assets/images/museum.jpg" alt="Video Thumbnail" class="video-thumbnail">
+                                <img src="assets/images/taluak.jpg" alt="Video Thumbnail"
+                                    class="video-thumbnail"style="height: 480px">
                                 <div class="play-icon">
                                     <img src="assets/images/playbutton.png" alt="Play Icon">
                                 </div>
