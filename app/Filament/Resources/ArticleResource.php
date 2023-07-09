@@ -47,10 +47,9 @@ class ArticleResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('thumbnail'),
+                // Tables\Columns\TextColumn::make('thumbnail'),
                 Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\TextColumn::make('body'),
-                Tables\Columns\TextColumn::make('user_id'),
+                Tables\Columns\TextColumn::make('user.name'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')

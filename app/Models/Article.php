@@ -16,7 +16,7 @@ class Article extends Model
     {
         parent::boot();
         static::creating(function ($query) {
-            dd($query);
+            $query->user_id = Auth::user()->id;
         });
     }
 
