@@ -10,9 +10,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use FilamentTiptapEditor\TiptapEditor;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class ArticleResource extends Resource
 {
@@ -36,8 +34,9 @@ class ArticleResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                TiptapEditor::make('body')
+                TinyEditor::make('body')
                     ->required()
+                    ->fileAttachmentsDisk('public')
                 // Forms\Components\RichEditor::make('body')
             ])
             ->columns(1);
