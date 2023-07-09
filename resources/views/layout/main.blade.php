@@ -23,6 +23,7 @@
 
     .form-wrapper {
         animation: hideLayer .3s ease-out forwards;
+
     }
 
     .form-wrapper.is-active {

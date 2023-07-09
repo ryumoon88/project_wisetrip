@@ -23,6 +23,7 @@
                 <form class="form form-login">
                     <fieldset>
                         <legend>Please, enter your email and password for login.</legend>
+
                         <div class="input-block">
                             <label for="login-email">E-mail</label>
                             <input id="login-email" type="email" required>
@@ -44,6 +45,14 @@
                     <fieldset>
                         <legend>Please, enter your email, password and password confirmation for sign up.</legend>
                         <div class="input-block">
+                            <label for="name">Name</label>
+                            <input id="name" type="text" required>
+                        </div>
+                        <div class="input-block">
+                            <label for="username">Username</label>
+                            <input id="username" type="text" required>
+                        </div>
+                        <div class="input-block">
                             <label for="signup-email">E-mail</label>
                             <input id="signup-email" type="email" required>
                         </div>
@@ -51,10 +60,7 @@
                             <label for="signup-password">Password</label>
                             <input id="signup-password" type="password" required>
                         </div>
-                        <div class="input-block">
-                            <label for="signup-password-confirm">Confirm password</label>
-                            <input id="signup-password-confirm" type="password" required>
-                        </div>
+
                     </fieldset>
                     <button type="submit" class="btn-signup">Continue</button>
                 </form>
