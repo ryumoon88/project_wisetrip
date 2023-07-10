@@ -5,9 +5,11 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    mode: 'jit',
     content: [
         './resources/**/*.blade.php',
         './vendor/filament/**/*.blade.php',
+        './vendor/filament/**/*.php',
         './app/Filament/**/*.php'
     ],
     darkMode: 'class',

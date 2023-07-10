@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('thumbnail');
             $table->integer('kelurahan_id');
             $table->string('title');
-            $table->string('body');
+            $table->longText('body');
             $table->foreignId('user_id');
             $table->timestamps();
         });

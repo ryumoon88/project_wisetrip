@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Laravolt\Indonesia\Models\Village;
 
 class CultureInformation extends Model
@@ -13,6 +14,14 @@ class CultureInformation extends Model
     protected $table = 'culture_information';
 
     protected $guarded = [];
+
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(function ($query) {
+            $query->user_id = Auth::user()->id;
+        });
+    }
 
     public function user()
     {

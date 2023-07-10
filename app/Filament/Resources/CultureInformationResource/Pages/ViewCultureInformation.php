@@ -10,6 +10,8 @@ class ViewCultureInformation extends ViewRecord
 {
     protected static string $resource = CultureInformationResource::class;
 
+    
+
     protected function getActions(): array
     {
         return [
