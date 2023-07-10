@@ -36,7 +36,9 @@ class ArticleResource extends Resource
                     ->maxLength(255),
                 TinyEditor::make('body')
                     ->required()
-                    ->fileAttachmentsDisk('public')
+                    ->getUploadedAttachmentUrlUsing(function(){
+                        
+                    })
                 // Forms\Components\RichEditor::make('body')
             ])
             ->columns(1);

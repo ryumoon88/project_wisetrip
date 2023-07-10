@@ -10,6 +10,8 @@ class ViewArticle extends ViewRecord
 {
     protected static string $resource = ArticleResource::class;
 
+    protected static string $view = 'filament.pages.article-view';
+
     protected function getActions(): array
     {
         return [
