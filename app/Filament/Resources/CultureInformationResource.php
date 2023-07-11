@@ -47,7 +47,10 @@ class CultureInformationResource extends Resource
                             ->maxLength(255),
                         TinyEditor::make('body')
                             ->extraAttributes(['class' => 'h-full'])
-                            ->required(),
+                            ->required()
+                            ->setRelativeUrls(false)
+                            ->setRemoveScriptHost(false)
+                            ->setConvertUrls(true),
                     ])
                 ])
                     ->columnSpan(['xl' => 2, 'default' => 'full']),
