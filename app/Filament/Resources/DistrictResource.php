@@ -15,7 +15,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Laravolt\Indonesia\Models\City;
 use Laravolt\Indonesia\Models\District;
-use Laravolt\Indonesia\Models\Province;
+use Laravolt\Indonesia\Models\Provinsi;
+
+use Laravolt\Indonesia\Facade as Indonesia;
 
 class DistrictResource extends Resource
 {
@@ -29,7 +31,32 @@ class DistrictResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\Select::make('province_code')
+                    ->options(Provinsi::all()->pluck('name', 'id'))
+                    ->required()
+                    ->reactive()
+                    ->searchable()
+                    ->afterStateUpdated(fn ($set) =>  $set('city_code', null))
+                    ->label('Provinsi')
+                    ->dehydrated(false)
+                    ->columnSpan(['lg' => 2]),
+                Forms\Components\Select::make('city_code')
+                    ->options(function ($get) {
+                        if ($get('province_code') != null) {
+                            return Indonesia::findProvince($get('province_code'), ['cities'])->cities->pluck('name', 'id');
+                        }
+                        return null;
+                    })
+                    ->dehydrated(false)
+                    ->reactive()
+                    ->required()
+                    ->searchable()
+                    ->label('Kota')
+                    ->columnSpan(['lg' => 2]),
+                Forms\Components\TextInput::make('code')
+                    ->required(),
+                Forms\Components\TextInput::make('name')
+                    ->required(),
             ]);
     }
 
