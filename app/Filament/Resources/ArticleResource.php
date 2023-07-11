@@ -10,6 +10,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Illuminate\Support\Facades\Storage;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class ArticleResource extends Resource
@@ -36,9 +37,10 @@ class ArticleResource extends Resource
                     ->maxLength(255),
                 TinyEditor::make('body')
                     ->required()
-                    ->getUploadedAttachmentUrlUsing(function(){
-                        
-                    })
+                    ->fileAttachmentsDisk('public')
+                    ->setRelativeUrls(false)
+                    ->setConvertUrls(true)
+                    ->setRemoveScriptHost(false)
                 // Forms\Components\RichEditor::make('body')
             ])
             ->columns(1);
