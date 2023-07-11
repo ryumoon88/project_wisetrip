@@ -30,13 +30,17 @@ class CityResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('province_code')
-                    ->options(Province::all()->pluck('name', 'id'))
+                    ->options(Province::all()->pluck('name', 'code'))
                     ->required()
                     ->reactive()
                     ->searchable()
                     ->label('Provinsi')
-                    ->dehydrated(false)
-                    ->columnSpan(['lg' => 2]),
+                    ->columnSpan(['lg' => 2])
+                    ->formatStateUsing(function (City $record, $context) {
+                        if ($context != 'create') {
+                            return $record->province->code;
+                        }
+                    }),
                 Forms\Components\TextInput::make('code')
                     ->required(),
                 Forms\Components\TextInput::make('name')

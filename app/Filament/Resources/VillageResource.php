@@ -18,7 +18,7 @@ use Laravolt\Indonesia\Models\Province;
 use Laravolt\Indonesia\Models\Village;
 
 use Laravolt\Indonesia\Facade as Indonesia;
-use Laravolt\Indonesia\Models\Provinsi;
+use Laravolt\Indonesia\Models\City;
 
 class VillageResource extends Resource
 {
@@ -33,14 +33,19 @@ class VillageResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('province_code')
-                    ->options(Provinsi::all()->pluck('name', 'id'))
+                    ->options(Province::all()->pluck('name', 'id'))
                     ->required()
                     ->reactive()
                     ->searchable()
                     ->afterStateUpdated(fn ($set) => $set('district_code', null)  & $set('city_code', null))
                     ->label('Provinsi')
                     ->dehydrated(false)
-                    ->columnSpan(['lg' => 2]),
+                    ->columnSpan(['lg' => 2])
+                    ->formatStateUsing(function (Village $record, $context) {
+                        if ($context != 'create') {
+                            return $record->district->city->province->id;
+                        }
+                    }),
                 Forms\Components\Select::make('city_code')
                     ->options(function ($get) {
                         if ($get('province_code') != null) {
@@ -54,21 +59,30 @@ class VillageResource extends Resource
                     ->required()
                     ->searchable()
                     ->label('Kota')
-                    ->columnSpan(['lg' => 2]),
-
+                    ->columnSpan(['lg' => 2])
+                    ->formatStateUsing(function (Village $record, $context, $state) {
+                        if ($context != 'create') {
+                            return $record->district->city->id;
+                        }
+                    }),
                 Forms\Components\Select::make('district_code')
                     ->options(function ($get) {
                         if ($get('city_code') != null) {
-                            return Indonesia::findCity($get('city_code'), ['districts'])->districts->pluck('name', 'id');
+                            // dd($get('city_code'));
+                            return Indonesia::findCity($get('city_code'), ['districts'])->districts->pluck('name', 'code');
                         }
                         return null;
                     })
-                    ->dehydrated(false)
                     ->reactive()
                     ->required()
                     ->searchable()
                     ->label('Kecamatan')
-                    ->columnSpan(['lg' => 2]),
+                    ->columnSpan(['lg' => 2])
+                    ->formatStateUsing(function (Village $record, $context) {
+                        if ($context != 'create') {
+                            return $record->district->code;
+                        }
+                    }),
                 Forms\Components\TextInput::make('code')
                     ->required(),
                 Forms\Components\TextInput::make('name')

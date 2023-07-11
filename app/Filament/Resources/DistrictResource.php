@@ -39,20 +39,29 @@ class DistrictResource extends Resource
                     ->afterStateUpdated(fn ($set) =>  $set('city_code', null))
                     ->label('Provinsi')
                     ->dehydrated(false)
-                    ->columnSpan(['lg' => 2]),
+                    ->columnSpan(['lg' => 2])
+                    ->formatStateUsing(function (District $record, $context) {
+                        if ($context != 'create') {
+                            return $record->city->province->id;
+                        }
+                    }),
                 Forms\Components\Select::make('city_code')
                     ->options(function ($get) {
                         if ($get('province_code') != null) {
-                            return Indonesia::findProvince($get('province_code'), ['cities'])->cities->pluck('name', 'id');
+                            return Indonesia::findProvince($get('province_code'), ['cities'])->cities->pluck('name', 'code');
                         }
                         return null;
                     })
-                    ->dehydrated(false)
                     ->reactive()
                     ->required()
                     ->searchable()
                     ->label('Kota')
-                    ->columnSpan(['lg' => 2]),
+                    ->columnSpan(['lg' => 2])
+                    ->formatStateUsing(function (District $record, $context) {
+                        if ($context != 'create') {
+                            return $record->city->code;
+                        }
+                    }),
                 Forms\Components\TextInput::make('code')
                     ->required(),
                 Forms\Components\TextInput::make('name')
