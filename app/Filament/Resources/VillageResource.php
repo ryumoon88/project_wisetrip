@@ -41,7 +41,7 @@ class VillageResource extends Resource
                     ->label('Provinsi')
                     ->dehydrated(false)
                     ->columnSpan(['lg' => 2])
-                    ->formatStateUsing(function (Village $record, $context) {
+                    ->formatStateUsing(function (?Village $record, $context) {
                         if ($context != 'create') {
                             return $record->district->city->province->id;
                         }
@@ -60,7 +60,7 @@ class VillageResource extends Resource
                     ->searchable()
                     ->label('Kota')
                     ->columnSpan(['lg' => 2])
-                    ->formatStateUsing(function (Village $record, $context, $state) {
+                    ->formatStateUsing(function (?Village $record, $context) {
                         if ($context != 'create') {
                             return $record->district->city->id;
                         }
@@ -78,7 +78,7 @@ class VillageResource extends Resource
                     ->searchable()
                     ->label('Kecamatan')
                     ->columnSpan(['lg' => 2])
-                    ->formatStateUsing(function (Village $record, $context) {
+                    ->formatStateUsing(function (?Village $record, $context) {
                         if ($context != 'create') {
                             return $record->district->code;
                         }

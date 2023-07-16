@@ -40,7 +40,7 @@ class DistrictResource extends Resource
                     ->label('Provinsi')
                     ->dehydrated(false)
                     ->columnSpan(['lg' => 2])
-                    ->formatStateUsing(function (District $record, $context) {
+                    ->formatStateUsing(function (?District $record, $context) {
                         if ($context != 'create') {
                             return $record->city->province->id;
                         }
@@ -57,7 +57,7 @@ class DistrictResource extends Resource
                     ->searchable()
                     ->label('Kota')
                     ->columnSpan(['lg' => 2])
-                    ->formatStateUsing(function (District $record, $context) {
+                    ->formatStateUsing(function (?District $record, $context) {
                         if ($context != 'create') {
                             return $record->city->code;
                         }

@@ -36,7 +36,7 @@ class CityResource extends Resource
                     ->searchable()
                     ->label('Provinsi')
                     ->columnSpan(['lg' => 2])
-                    ->formatStateUsing(function (City $record, $context) {
+                    ->formatStateUsing(function (?City $record, $context) {
                         if ($context != 'create') {
                             return $record->province->code;
                         }
