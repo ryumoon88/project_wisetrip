@@ -16,10 +16,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $super_admin = Role::findByName('super_admin');
-
-        $user = User::factory()->create(['name' => 'Naufal Hady', 'username' => 'naufal_hady', 'email' => 'naufalhady08@gmail.com']);
-
-        $user->assignRole($super_admin);
+        User::factory()->create(['name' => 'Naufal Hady', 'username' => 'naufal_hady', 'email' => 'naufalhady08@yahoo.com']);
     }
 }
