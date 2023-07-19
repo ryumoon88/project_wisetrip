@@ -10,7 +10,13 @@ class DestinationPackage extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function destination(){
+    public function destination()
+    {
         return $this->belongsTo(Destination::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(DestinationPackageOrder::class, 'package_id');
     }
 }
