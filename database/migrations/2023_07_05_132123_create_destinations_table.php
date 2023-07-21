@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->string('description');
             $table->integer('kelurahan');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
