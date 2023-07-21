@@ -10,15 +10,18 @@ class DestinationTicketOrder extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function destination(){
+    public function destination()
+    {
         return $this->belongsTo(Destination::class);
     }
 
-    public function ticket(){
-        return $this->belongsTo(User::class);
+    public function ticket()
+    {
+        return $this->belongsTo(DestinationTicket::class, 'ticket_id');
     }
 }
