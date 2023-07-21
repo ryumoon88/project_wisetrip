@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->string('description');
-            $table->integer('kelurahan');
+            $table->longText('description');
+            $table->foreignId('kelurahan_id');
             $table->foreignId('user_id');
             $table->timestamps();
         });
