@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('destinations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('thumbnail')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->longText('description');
             $table->foreignId('kelurahan_id');

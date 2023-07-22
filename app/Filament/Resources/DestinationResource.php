@@ -99,9 +99,10 @@ class DestinationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('status'),
-                Tables\Columns\TextColumn::make('kelurahan.name'),
+                Tables\Columns\TextColumn::make('kelurahan.name')
             ])
             ->filters([
                 //
@@ -112,6 +113,10 @@ class DestinationResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
+            ])
+            ->contentGrid([
+                'md' => 2,
+                'xl' => 3
             ]);
     }
 
