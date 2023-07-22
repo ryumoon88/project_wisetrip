@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('thumbnail')->nullable();
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->boolean('visible');
             $table->longText('description');
             $table->foreignId('kelurahan_id');
             $table->foreignId('user_id');
