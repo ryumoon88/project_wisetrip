@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('thumbnail')->nullable();
-            $table->boolean('visible');
+            $table->boolean('visible')->default(true);
             $table->longText('description');
             $table->foreignId('kelurahan_id');
             $table->foreignId('user_id');
