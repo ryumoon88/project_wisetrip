@@ -37,8 +37,6 @@ class DestinationResource extends Resource
                         ->image()
                         ->multiple(false),
                     Forms\Components\TextInput::make('name'),
-                    Forms\Components\Select::make('status')
-                        ->options(['active', 'inactive']),
                     TinyEditor::make('description')
                         ->setRelativeUrls(false)
                         ->setConvertUrls(true)
