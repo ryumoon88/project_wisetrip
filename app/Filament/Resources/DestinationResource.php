@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\DestinationResource\Pages;
 use App\Filament\Resources\DestinationResource\RelationManagers;
+use App\Filament\Resources\DestinationResource\RelationManagers\PackagesRelationManager;
 use App\Filament\Resources\DestinationResource\RelationManagers\TicketsRelationManager;
 use App\Models\Destination;
 use Filament\Forms;
@@ -133,6 +134,7 @@ class DestinationResource extends Resource
     {
         return [
             TicketsRelationManager::class,
+            PackagesRelationManager::class
         ];
     }
 
