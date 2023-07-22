@@ -16,4 +16,9 @@ class ViewDestination extends ViewRecord
             Actions\EditAction::make(),
         ];
     }
+
+    public function hasCombinedRelationManagerTabsWithForm(): bool
+    {
+        return true;
+    }
 }

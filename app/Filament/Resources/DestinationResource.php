@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\DestinationResource\Pages;
 use App\Filament\Resources\DestinationResource\RelationManagers;
+use App\Filament\Resources\DestinationResource\RelationManagers\TicketsRelationManager;
 use App\Models\Destination;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -22,11 +23,19 @@ class DestinationResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?string $navigationGroup = 'Trips';
+
+    protected static ?string $recordTitleAttribute = 'name';
+
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\Group::make([
+                    Forms\Components\FileUpload::make('thumbnail')
+                        ->image()
+                        ->multiple(false),
                     Forms\Components\TextInput::make('name'),
                     Forms\Components\Select::make('status')
                         ->options(['active', 'inactive']),
@@ -101,6 +110,8 @@ class DestinationResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
+                Tables\Columns\ImageColumn::make('thumbnail')
+                    ->size('full'),
                 Tables\Columns\TextColumn::make('status'),
                 Tables\Columns\TextColumn::make('kelurahan.name')
             ])
@@ -112,7 +123,7 @@ class DestinationResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                // Tables\Actions\DeleteBulkAction::make(),
             ])
             ->contentGrid([
                 'md' => 2,
@@ -123,7 +134,7 @@ class DestinationResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            TicketsRelationManager::class,
         ];
     }
 
