@@ -38,14 +38,14 @@ class Locations extends Page
         ];
     }
 
-    public function setActiveTab($value)
-    {
-        $this->activeTab = $value;
-        $this->emit('refresh');
-    }
+    // public function setActiveTab($value)
+    // {
+    //     $this->activeTab = $value;
+    //     $this->emit('refresh');
+    // }
 
-    protected function getBreadcrumbs(): array
-    {
-        return ['Locations'];
-    }
+    // protected function getBreadcrumbs(): array
+    // {
+    //     return ['Locations'];
+    // }
 }

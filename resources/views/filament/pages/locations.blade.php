@@ -1,7 +1,11 @@
 @props(['activeTab'])
 
-<x-filament::page :active-tab="$activeTab" :actions="null">
-    {{-- {{ $table }} --}}
+<x-filament::page>
+    
+</x-filament::page>
+
+{{-- <x-filament::page :active-tab="$activeTab" :actions="null">
+
     <div class="flex justify-center">
         <x-filament::tabs>
             @foreach ($tables as $key => $resource)
@@ -16,4 +20,4 @@
             @livewire($resource, key($key))
         </div>
     @endforeach
-</x-filament::page>
+</x-filament::page> --}}
