@@ -30,22 +30,11 @@ class Locations extends Page
     {
         return [
             'tables' => [
-                'provinces' => 'filament.resources.province-resource.pages.list-provinces',
-                'cities' => 'filament.resources.city-resource.pages.list-cities',
-                'districts' => 'filament.resources.district-resource.pages.list-districts',
-                'villages' => 'filament.resources.village-resource.pages.list-villages',
+                'provinces' => 'locations.province-table',
+                'cities' => 'locations.city-table',
+                'districts' => 'locations.district-table',
+                'villages' => 'locations.village-table',
             ]
         ];
     }
-
-    // public function setActiveTab($value)
-    // {
-    //     $this->activeTab = $value;
-    //     $this->emit('refresh');
-    // }
-
-    // protected function getBreadcrumbs(): array
-    // {
-    //     return ['Locations'];
-    // }
 }
