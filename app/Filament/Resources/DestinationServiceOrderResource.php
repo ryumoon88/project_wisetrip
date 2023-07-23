@@ -7,6 +7,7 @@ use App\Filament\Resources\DestinationServiceOrderResource\RelationManagers;
 use App\Models\Destination;
 use App\Models\DestinationService;
 use App\Models\DestinationServiceOrder;
+use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -14,8 +15,9 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Gate;
 
-class DestinationServiceOrderResource extends Resource
+class DestinationServiceOrderResource extends Resource implements HasShieldPermissions
 {
     protected static ?string $model = DestinationServiceOrder::class;
 
@@ -24,6 +26,34 @@ class DestinationServiceOrderResource extends Resource
     protected static ?string $navigationGroup = 'Trips';
 
     protected static ?string $navigationLabel = "Orders";
+
+    public static function getPermissionPrefixes(): array
+    {
+        return [
+            'view',
+            'view_any',
+            'create',
+            'update',
+            'restore',
+            'restore_any',
+            'replicate',
+            'reorder',
+            'delete',
+            'delete_any',
+            'force_delete',
+            'force_delete_any',
+            'view_all'
+        ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        if (Gate::check('view_all_destination')) {
+            return parent::getEloquentQuery();
+        }
+        return parent::getEloquentQuery()->whereBelongsTo(auth()->user());
+    }
+
 
     public static function form(Form $form): Form
     {

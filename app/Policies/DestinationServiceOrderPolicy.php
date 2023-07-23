@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\Destination;
+use App\Models\DestinationServiceOrder;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class DestinationPolicy
+class DestinationServiceOrderPolicy
 {
     use HandlesAuthorization;
 
@@ -18,19 +18,19 @@ class DestinationPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view_any_destination');
+        return $user->can('view_any_destination::service::order');
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Destination  $destination
+     * @param  \App\Models\DestinationServiceOrder  $destinationServiceOrder
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Destination $destination)
+    public function view(User $user, DestinationServiceOrder $destinationServiceOrder)
     {
-        return $user->can('view_destination');
+        return $user->can('view_destination::service::order');
     }
 
     /**
@@ -41,31 +41,31 @@ class DestinationPolicy
      */
     public function create(User $user)
     {
-        return $user->can('create_destination');
+        return $user->can('create_destination::service::order');
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Destination  $destination
+     * @param  \App\Models\DestinationServiceOrder  $destinationServiceOrder
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Destination $destination)
+    public function update(User $user, DestinationServiceOrder $destinationServiceOrder)
     {
-        return $user->can('update_destination');
+        return $user->can('update_destination::service::order');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Destination  $destination
+     * @param  \App\Models\DestinationServiceOrder  $destinationServiceOrder
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Destination $destination)
+    public function delete(User $user, DestinationServiceOrder $destinationServiceOrder)
     {
-        return $user->can('delete_destination');
+        return $user->can('delete_destination::service::order');
     }
 
     /**
@@ -76,19 +76,19 @@ class DestinationPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->can('delete_any_destination');
+        return $user->can('delete_any_destination::service::order');
     }
 
     /**
      * Determine whether the user can permanently delete.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Destination  $destination
+     * @param  \App\Models\DestinationServiceOrder  $destinationServiceOrder
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Destination $destination)
+    public function forceDelete(User $user, DestinationServiceOrder $destinationServiceOrder)
     {
-        return $user->can('force_delete_destination');
+        return $user->can('force_delete_destination::service::order');
     }
 
     /**
@@ -99,19 +99,19 @@ class DestinationPolicy
      */
     public function forceDeleteAny(User $user)
     {
-        return $user->can('force_delete_any_destination');
+        return $user->can('force_delete_any_destination::service::order');
     }
 
     /**
      * Determine whether the user can restore.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Destination  $destination
+     * @param  \App\Models\DestinationServiceOrder  $destinationServiceOrder
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Destination $destination)
+    public function restore(User $user, DestinationServiceOrder $destinationServiceOrder)
     {
-        return $user->can('restore_destination');
+        return $user->can('restore_destination::service::order');
     }
 
     /**
@@ -122,19 +122,19 @@ class DestinationPolicy
      */
     public function restoreAny(User $user)
     {
-        return $user->can('restore_any_destination');
+        return $user->can('restore_any_destination::service::order');
     }
 
     /**
      * Determine whether the user can replicate.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Destination  $destination
+     * @param  \App\Models\DestinationServiceOrder  $destinationServiceOrder
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user, Destination $destination)
+    public function replicate(User $user, DestinationServiceOrder $destinationServiceOrder)
     {
-        return $user->can('replicate_destination');
+        return $user->can('replicate_destination::service::order');
     }
 
     /**
@@ -145,7 +145,12 @@ class DestinationPolicy
      */
     public function reorder(User $user)
     {
-        return $user->can('reorder_destination');
+        return $user->can('reorder_destination::service::order');
     }
 
+
+    public function viewAll(User $user)
+    {
+        return $user->can('view_all_destination::service::order');
+    }
 }
