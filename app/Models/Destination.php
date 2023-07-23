@@ -10,6 +10,7 @@ use Laravolt\Indonesia\Models\Kelurahan;
 class Destination extends Model
 {
     use HasFactory;
+    
     protected $guarded = [];
 
     public static function boot()
@@ -38,6 +39,11 @@ class Destination extends Model
     public function scopeOwned($query)
     {
         return $query->where('user_id', Auth::user()->id);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function kelurahan()

@@ -7,6 +7,7 @@ use App\Filament\Resources\DestinationResource\RelationManagers;
 use App\Filament\Resources\DestinationResource\RelationManagers\PackagesRelationManager;
 use App\Filament\Resources\DestinationResource\RelationManagers\TicketsRelationManager;
 use App\Models\Destination;
+use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -14,11 +15,12 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Gate;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 use Laravolt\Indonesia\Facade as Indonesia;
 use Laravolt\Indonesia\Models\Provinsi;
 
-class DestinationResource extends Resource
+class DestinationResource extends Resource implements HasShieldPermissions
 {
     protected static ?string $model = Destination::class;
 
@@ -28,6 +30,32 @@ class DestinationResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    public static function getPermissionPrefixes(): array
+    {
+        return [
+            'view',
+            'view_any',
+            'create',
+            'update',
+            'restore',
+            'restore_any',
+            'replicate',
+            'reorder',
+            'delete',
+            'delete_any',
+            'force_delete',
+            'force_delete_any',
+            'view_all'
+        ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        if (Gate::check('view_all_destination')) {
+            return parent::getEloquentQuery();
+        }
+        return parent::getEloquentQuery()->whereBelongsTo(auth()->user());
+    }
 
     public static function form(Form $form): Form
     {

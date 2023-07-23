@@ -47,6 +47,7 @@ class UserResource extends Resource
                     ->relationship('roles', 'name')
                     ->searchable()
                     ->multiple()
+                    ->preload()
             ]);
     }
 

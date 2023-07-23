@@ -148,4 +148,8 @@ class DestinationPolicy
         return $user->can('reorder_destination');
     }
 
+    public function viewAll(User $user)
+    {
+        return $user->can('view_all_destination');
+    }
 }
