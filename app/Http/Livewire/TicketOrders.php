@@ -12,11 +12,6 @@ use Livewire\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms;
-use Filament\Tables\Actions\Action;
-use Filament\Tables\Actions\EditAction;
-use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Gate;
 
 class TicketOrders extends Component implements HasTable
 {
@@ -37,10 +32,21 @@ class TicketOrders extends Component implements HasTable
     {
         return [
             Tables\Columns\TextColumn::make('user.name')
-                ->searchable(),
-            Tables\Columns\TextColumn::make('destination.name'),
-            Tables\Columns\TextColumn::make('ticket.name'),
-            Tables\Columns\TextColumn::make('quantity')
+                ->searchable()
+                ->url(function ($record) {
+                    return route('filament.resources.users.view', ['record' => $record]);
+                }),
+            Tables\Columns\TextColumn::make('destination.name')
+                ->url(function ($record) {
+                    return route('filament.resources.destinations.view', ['record' => $record]);
+                }),
+            Tables\Columns\TextColumn::make('ticket.name')
+                ->url(function ($record) {
+                    return route('filament.resources.destinations.view', ['record' => $record, 'activeRelationManager' => 0]);
+                }),
+            Tables\Columns\TextColumn::make('quantity'),
+            Tables\Columns\TextColumn::make('created_at')
+                ->date(),
         ];
     }
 
@@ -61,22 +67,19 @@ class TicketOrders extends Component implements HasTable
     protected function getTableActions(): array
     {
         return [
-            Tables\Actions\ViewAction::make()
-                ->form($this->getFormSchema()),
+            Tables\Actions\ActionGroup::make([
+                Tables\Actions\ViewAction::make()
+                    ->form($this->getFormSchema()),
+            ])
         ];
     }
 
     protected function getTableHeaderActions(): array
     {
         return [
-            Tables\Actions\CreateAction::make()
-                ->form($this->getFormSchema()),
+            // Tables\Actions\CreateAction::make()
+            //     ->form($this->getFormSchema()),
         ];
-    }
-
-    protected function getTableHeading(): string|Htmlable|Closure|null
-    {
-        return 'Tickets';
     }
 
     protected function getTableBulkActions(): array
@@ -84,6 +87,11 @@ class TicketOrders extends Component implements HasTable
         return [
             // ...
         ];
+    }
+
+    protected function getTableRecordActionUsing(): ?Closure
+    {
+        return fn (): string => 'view';
     }
 
     protected function getTableQueryStringIdentifier(): string

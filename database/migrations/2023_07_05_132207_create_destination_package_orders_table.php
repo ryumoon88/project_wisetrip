@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('destination_id');
             $table->foreignId('package_id');
-            $table->string('status');
+            $table->string('status')->default('Sent');
             $table->integer('quantity');
             $table->timestamps();
         });

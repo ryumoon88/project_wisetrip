@@ -14,6 +14,10 @@ class Orders extends Page
 
     public string $activeTab = 'ticket-orders';
 
+    protected $queryString = [
+        'activeTab'
+    ];
+
     protected function getViewData(): array
     {
         return [

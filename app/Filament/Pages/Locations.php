@@ -26,6 +26,10 @@ class Locations extends Page
 
     public $activeTab = 'provinces';
 
+    protected $queryString = [
+        'activeTab'
+    ];
+
     protected function getViewData(): array
     {
         return [

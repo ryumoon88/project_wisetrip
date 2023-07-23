@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\DestinationPackage;
 use App\Models\DestinationPackageOrder;
 use Closure;
 use Filament\Tables;
@@ -34,7 +35,17 @@ class PackageOrders extends Component implements HasTable
     protected function getFormSchema(): array
     {
         return [
-            Forms\Components\TextInput::make('user_id'),
+            Forms\Components\Select::make('user_id')
+                ->relationship('user', 'name'),
+            Forms\Components\Select::make('destination_id')
+                ->relationship('destination', 'name')
+                ->reactive(),
+            Forms\Components\Select::make('package_id')
+                ->hidden(fn ($get) => $get('destination_id') == null)
+                ->options(function ($get) {
+                    return DestinationPackage::where('destination_id', $get('destination_id'))->pluck('name', 'id');
+                }),
+            Forms\Components\TextInput::make('quantity'),
         ];
     }
 
