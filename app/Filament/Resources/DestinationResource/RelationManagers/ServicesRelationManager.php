@@ -9,6 +9,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class ServicesRelationManager extends RelationManager
 {
@@ -20,10 +21,17 @@ class ServicesRelationManager extends RelationManager
     {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('destination_id')
+                    ->formatStateUsing(function ($livewire) {
+                        return $livewire->ownerRecord->id;
+                    })
+                    ->hidden(),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-            ]);
+                TinyEditor::make('description'),
+                Forms\Components\TextInput::make('price'),
+            ])->columns(1);
     }
 
     public static function table(Table $table): Table
@@ -45,5 +53,5 @@ class ServicesRelationManager extends RelationManager
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
-    }    
+    }
 }
