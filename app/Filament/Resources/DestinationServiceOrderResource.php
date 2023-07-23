@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\DestinationServiceOrderResource\Pages;
 use App\Filament\Resources\DestinationServiceOrderResource\RelationManagers;
 use App\Models\Destination;
-use App\Models\DestinationService;
 use App\Models\DestinationServiceOrder;
 use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
 use Filament\Forms;

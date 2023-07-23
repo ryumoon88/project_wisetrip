@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Locations;
 
-use Laravolt\Indonesia\Models\City;
+use App\Models\City;
 use Filament\Tables;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -10,7 +10,8 @@ use Livewire\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms;
-use Laravolt\Indonesia\Models\Province;
+use App\Models\Province;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class CityTable extends Component implements HasTable
 {
@@ -43,6 +44,11 @@ class CityTable extends Component implements HasTable
                 ]),
             Forms\Components\TextInput::make('code'),
             Forms\Components\TextInput::make('name'),
+            Forms\Components\FileUpload::make('thumbnail'),
+            TinyEditor::make('body'),
+            Forms\Components\FileUpload::make('images')
+                ->multiple()
+
         ];
     }
 

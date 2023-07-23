@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Locations;
 
-use Laravolt\Indonesia\Models\Village;
+use App\Models\Village;
 use Filament\Tables;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -10,9 +10,9 @@ use Livewire\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms;
-use Laravolt\Indonesia\Models\City;
-use Laravolt\Indonesia\Models\District;
-use Laravolt\Indonesia\Models\Province;
+use App\Models\City;
+use App\Models\District;
+use App\Models\Province;
 
 class VillageTable extends Component implements HasTable
 {
@@ -49,14 +49,14 @@ class VillageTable extends Component implements HasTable
                             $set('city_code', null);
                         })
                         ->formatStateUsing(function ($get, $record) {
-                            if ($get('district_code') != null) {
+                            if ($record != null && $get('district_code') != null) {
                                 return $record->district->city->province->code;
                             }
                         })
                         ->reactive(),
                     Forms\Components\Select::make('city_code')
                         ->options(function ($get, $set, $context, $record) {
-                            if ($get('district_code') != null) {
+                            if ($record != null && $get('district_code') != null) {
                                 return City::where('province_code', $record->district->city->province->code)->pluck('name', 'code');
                             }
                             return City::where('province_code', $get('province_code'))->pluck('name', 'code');

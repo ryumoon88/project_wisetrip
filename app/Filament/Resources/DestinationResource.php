@@ -17,11 +17,10 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Gate;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 use Laravolt\Indonesia\Facade as Indonesia;
-use Laravolt\Indonesia\Models\City;
-use Laravolt\Indonesia\Models\District;
-use Laravolt\Indonesia\Models\Province;
-use Laravolt\Indonesia\Models\Provinsi;
-use Laravolt\Indonesia\Models\Village;
+use App\Models\City;
+use App\Models\District;
+use App\Models\Province;
+use App\Models\Village;
 
 class DestinationResource extends Resource implements HasShieldPermissions
 {

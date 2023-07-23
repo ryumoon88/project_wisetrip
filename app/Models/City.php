@@ -10,6 +10,10 @@ class City extends Model
 
     protected $searchableColumns = ['code', 'name', 'province.name'];
 
+    protected $casts = [
+        'images' => 'array',
+    ];
+
     public function province()
     {
         return $this->belongsTo('Laravolt\Indonesia\Models\Province', 'province_code', 'code');

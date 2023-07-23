@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Locations;
 
-use Laravolt\Indonesia\Models\Province;
+use App\Models\Province;
 use Filament\Tables;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;

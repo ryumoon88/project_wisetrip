@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Locations;
 
-use Laravolt\Indonesia\Models\District;
+use App\Models\District;
 use Filament\Tables;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -10,9 +10,8 @@ use Livewire\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms;
-use Laravolt\Indonesia\Models\Province;
-use Laravolt\Indonesia\Facade as Indonesia;
-use Laravolt\Indonesia\Models\City;
+use App\Models\Province;
+use App\Models\City;
 
 class DistrictTable extends Component implements HasTable
 {
