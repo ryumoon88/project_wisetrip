@@ -4,7 +4,11 @@
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
                     <a class="navbar-brand" href="#">
+<<<<<<< Updated upstream
                         <img src="images/lgo.png" alt="Logo" style="height: 80px; width: auto;">
+=======
+                        <img src="{{asset('images/lgo.png')}}" alt="Logo" style="height: 80px; width: auto;">
+>>>>>>> Stashed changes
                     </a>
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
                         there live the blind texts.</p>
@@ -61,7 +65,11 @@
         <div class="row">
             <div class="col-md-12 text-center">
 
+<<<<<<< Updated upstream
                 <p>
+=======
+                {{-- <p>
+>>>>>>> Stashed changes
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;
                     <script>
@@ -70,7 +78,11 @@
                     is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
                         target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+<<<<<<< Updated upstream
                 </p>
+=======
+                </p> --}}
+>>>>>>> Stashed changes
             </div>
         </div>
     </div>

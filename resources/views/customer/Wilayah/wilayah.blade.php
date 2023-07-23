@@ -19,7 +19,11 @@
             <div class="row">
                 <div class="col-lg-3 sidebar">
                     <div class="sidebar-wrap bg-light ftco-animate">
+<<<<<<< Updated upstream
                         <h3 class="heading mb-4">Find City</h3>
+=======
+                        <h3 class="heading mb-4">Cari Kota</h3>
+>>>>>>> Stashed changes
                         <form action="#">
                             <div class="fields">
                                 <div class="form-group">
@@ -45,6 +49,10 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="row">
+<<<<<<< Updated upstream
+=======
+                        {{-- Mulai --}}
+>>>>>>> Stashed changes
                         <div class="col-md-4 ftco-animate">
                             <div class="destination">
                                 <a href="/detailwilayah" class="img img-2 d-flex justify-content-center align-items-center"
@@ -63,8 +71,36 @@
                                 </div>
                             </div>
                         </div>
+<<<<<<< Updated upstream
                         <div class="col-md-4 ftco-animate">
                             <div class="destination">
+=======
+                        {{-- Akhir --}}
+                        {{-- @forelse ($cities as $city)
+                        <div class="col-md-4 ftco-animate">
+                            <div class="destination">
+                                <a href="{{url('/detailwilayah')}}" class="img img-2 d-flex justify-content-center align-items-center"
+                                    style="background-image: url({{asset('images/hotel-1.jp')}}g);">
+                                    <div class="icon d-flex justify-content-center align-items-center">
+                                        <span class="icon-search2"></span>
+                                    </div>
+                                </a>
+                                <div class="text p-3">
+                                    <div class="d-flex">
+                                        <div class="one">
+                                            <h3><a href="{{url('/detailwilayah')}}">$city->name</a></h3>
+                                        </div>
+                                    </div>
+                                    <p>Far far away, behind the word mountains, far from the countries</p>
+                                </div>
+                            </div>
+                        </div>
+                        @empty
+
+                        @endforelse --}}
+                        {{-- <div class="col-md-4 ftco-animate">
+                            <div class="destination">
+>>>>>>> Stashed changes
                                 <a href="/detailwilayah" class="img img-2 d-flex justify-content-center align-items-center"
                                     style="background-image: url(images/hotel-1.jpg);">
                                     <div class="icon d-flex justify-content-center align-items-center">
@@ -152,7 +188,11 @@
                                     <p>Far far away, behind the word mountains, far from the countries</p>
                                 </div>
                             </div>
+<<<<<<< Updated upstream
                         </div>
+=======
+                        </div> --}}
+>>>>>>> Stashed changes
 
                     </div>
                     <div class="row mt-5">

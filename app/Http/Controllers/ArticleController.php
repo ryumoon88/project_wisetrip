@@ -46,7 +46,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('customer.Artikel.nextartikel',['article'=>$article]);
     }
 
     /**

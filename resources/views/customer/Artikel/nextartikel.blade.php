@@ -1,6 +1,12 @@
 @extends('layout.main')
 @section('content')
+<<<<<<< Updated upstream
     <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_4.jpg');">
+=======
+<?php use Carbon\Carbon;
+?>
+    <div class="hero-wrap js-fullheight" style="background-image: url({{asset('images/bg_4.jpg')}});">
+>>>>>>> Stashed changes
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
@@ -21,6 +27,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 ftco-animate">
+<<<<<<< Updated upstream
                     <h2 class="mb-3">10 Tips For The Traveler</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, eius mollitia suscipit,
                         quisquam doloremque distinctio perferendis et doloribus unde architecto optio laboriosam porro
@@ -60,6 +67,14 @@
                         alias laborum sint dolore. Dolores, iure, reprehenderit. Error provident, pariatur cupiditate soluta
                         doloremque aut ratione. Harum voluptates mollitia illo minus praesentium, rerum ipsa debitis,
                         inventore?</p>
+=======
+                    <p>
+                        <img src="{{asset('uploads/'.$article->thumbnail)}}" alt="" class="img-fluid">
+                    </p>
+                    <h2 class="mb-3">{{$article->title}}</h2>
+                    <p style="">{!!$article->body!!}</p>
+
+>>>>>>> Stashed changes
                     <div class="tag-widget post-tag-container mb-5 mt-5">
                         <div class="tagcloud">
                             <a href="#" class="tag-cloud-link">Life</a>
@@ -71,23 +86,40 @@
 
                     <div class="about-author d-flex p-5 bg-light">
                         <div class="bio align-self-md-center mr-5">
+<<<<<<< Updated upstream
                             <img src="images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
                         </div>
                         <div class="desc align-self-md-center">
                             <h3>Lance Smith</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem
                                 necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente
+=======
+                            <img src="{{asset('images/person_1.jpg')}}" alt="Image placeholder" class="img-fluid mb-4">
+                        </div>
+                        <div class="desc align-self-md-center">
+                            <h3>{{$article->user->name}}</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem
+                                necessitatibus volupta te quod mollitia delectus aut, sunt placeat nam vero culpa sapiente
+>>>>>>> Stashed changes
                                 consectetur similique, inventore eos fugit cupiditate numquam!</p>
                         </div>
                     </div>
 
+<<<<<<< Updated upstream
 
+=======
+                    {{-- Comment --}}
+>>>>>>> Stashed changes
                     <div class="pt-5 mt-5">
                         <h3 class="mb-5">6 Comments</h3>
                         <ul class="comment-list">
                             <li class="comment">
                                 <div class="vcard bio">
+<<<<<<< Updated upstream
                                     <img src="images/person_1.jpg" alt="Image placeholder">
+=======
+                                    <img src="{{asset('images/person_1.jpg')}}" alt="Image placeholder">
+>>>>>>> Stashed changes
                                 </div>
                                 <div class="comment-body">
                                     <h3>John Doe</h3>
@@ -101,7 +133,11 @@
 
                             <li class="comment">
                                 <div class="vcard bio">
+<<<<<<< Updated upstream
                                     <img src="images/person_1.jpg" alt="Image placeholder">
+=======
+                                    <img src="{{asset('images/person_1.jpg')}}" alt="Image placeholder">
+>>>>>>> Stashed changes
                                 </div>
                                 <div class="comment-body">
                                     <h3>John Doe</h3>
@@ -115,7 +151,11 @@
                                 <ul class="children">
                                     <li class="comment">
                                         <div class="vcard bio">
+<<<<<<< Updated upstream
                                             <img src="images/person_1.jpg" alt="Image placeholder">
+=======
+                                            <img src="{{asset('images/person_1.jpg')}}" alt="Image placeholder">
+>>>>>>> Stashed changes
                                         </div>
                                         <div class="comment-body">
                                             <h3>John Doe</h3>
@@ -131,7 +171,11 @@
                                         <ul class="children">
                                             <li class="comment">
                                                 <div class="vcard bio">
+<<<<<<< Updated upstream
                                                     <img src="images/person_1.jpg" alt="Image placeholder">
+=======
+                                                    <img src="{{asset('images/person_1.jpg')}}" alt="Image placeholder">
+>>>>>>> Stashed changes
                                                 </div>
                                                 <div class="comment-body">
                                                     <h3>John Doe</h3>
@@ -146,7 +190,11 @@
                                                 <ul class="children">
                                                     <li class="comment">
                                                         <div class="vcard bio">
+<<<<<<< Updated upstream
                                                             <img src="images/person_1.jpg" alt="Image placeholder">
+=======
+                                                            <img src="{{asset('images/person_1.jpg')}}" alt="Image placeholder">
+>>>>>>> Stashed changes
                                                         </div>
                                                         <div class="comment-body">
                                                             <h3>John Doe</h3>
@@ -167,7 +215,11 @@
 
                             <li class="comment">
                                 <div class="vcard bio">
+<<<<<<< Updated upstream
                                     <img src="images/person_1.jpg" alt="Image placeholder">
+=======
+                                    <img src="{{asset('images/person_1.jpg')}}" alt="Image placeholder">
+>>>>>>> Stashed changes
                                 </div>
                                 <div class="comment-body">
                                     <h3>John Doe</h3>
@@ -208,6 +260,10 @@
                             </form>
                         </div>
                     </div>
+<<<<<<< Updated upstream
+=======
+                    {{-- Akhir --}}
+>>>>>>> Stashed changes
 
                 </div> <!-- .col-md-8 -->
                 <div class="col-md-4 sidebar ftco-animate">
@@ -231,10 +287,49 @@
                         </div>
                     </div>
 
+<<<<<<< Updated upstream
                     <div class="sidebar-box ftco-animate">
                         <h3>Recent Blog</h3>
                         <div class="block-21 mb-4 d-flex">
                             <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+=======
+                    {{-- Side Article --}}
+                    <div class="sidebar-box ftco-animate">
+                        <h3>Recent Blog</h3>
+                        {{-- Awal --}}
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4" style="background-image: url({{asset('images/image_1.jpg')}});"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about
+                                        the blind texts</a></h3>
+                                <div class="meta">
+                                    <div><a href="#"><span class="icon-calendar"></span> {{ Carbon::parse('2018-07-12')->isoFormat('dddd, D MMMM Y') }}</a></div>
+                                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- Akhir --}}
+                        {{-- Awal --}}
+                        {{-- @forelse ($articles as $article)
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4" style="background-image: url({{asset('images/image_1.jpg')}});"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="#">$article->title</a></h3>
+                                <div class="meta">
+                                    <div><a href="#"><span class="icon-calendar"></span>{{ Carbon::createFromFormat('Y-m-d', $article->created_at)->isoFormat('D MMMM Y') }}</a></div>
+                                    <div><a href="#"><span class="icon-person"></span> $article->user->name</a></div>
+                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        @empty
+
+                        @endforelse --}}
+                        {{-- Akhir --}}
+                        {{-- <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4" style="background-image: url({{asset('images/image_2.jpg')}});"></a>
+>>>>>>> Stashed changes
                             <div class="text">
                                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about
                                         the blind texts</a></h3>
@@ -246,7 +341,11 @@
                             </div>
                         </div>
                         <div class="block-21 mb-4 d-flex">
+<<<<<<< Updated upstream
                             <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+=======
+                            <a class="blog-img mr-4" style="background-image: url({{asset('images/image_3.jpg')}});"></a>
+>>>>>>> Stashed changes
                             <div class="text">
                                 <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about
                                         the blind texts</a></h3>
@@ -256,6 +355,7 @@
                                     <div><a href="#"><span class="icon-chat"></span> 19</a></div>
                                 </div>
                             </div>
+<<<<<<< Updated upstream
                         </div>
                         <div class="block-21 mb-4 d-flex">
                             <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
@@ -269,6 +369,9 @@
                                 </div>
                             </div>
                         </div>
+=======
+                        </div> --}}
+>>>>>>> Stashed changes
                     </div>
 
                     <div class="sidebar-box ftco-animate">
