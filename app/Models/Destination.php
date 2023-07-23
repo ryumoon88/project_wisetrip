@@ -22,19 +22,9 @@ class Destination extends Model
         });
     }
 
-    public function tickets()
+    public function services()
     {
-        return $this->hasMany(DestinationTicket::class);
-    }
-
-    public function orders()
-    {
-        return $this->hasMany(DestinationTicketOrder::class);
-    }
-
-    public function packages()
-    {
-        return $this->hasMany(DestinationPackage::class);
+        return $this->hasMany(DestinationService::class);
     }
 
     public function scopeOwned($query)

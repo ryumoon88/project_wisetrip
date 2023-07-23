@@ -4,8 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\DestinationResource\Pages;
 use App\Filament\Resources\DestinationResource\RelationManagers;
-use App\Filament\Resources\DestinationResource\RelationManagers\PackagesRelationManager;
-use App\Filament\Resources\DestinationResource\RelationManagers\TicketsRelationManager;
+use App\Filament\Resources\DestinationResource\RelationManagers\ServicesRelationManager;
 use App\Models\Destination;
 use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
 use Filament\Forms;
@@ -161,8 +160,9 @@ class DestinationResource extends Resource implements HasShieldPermissions
     public static function getRelations(): array
     {
         return [
-            TicketsRelationManager::class,
-            PackagesRelationManager::class
+            // TicketsRelationManager::class,
+            // PackagesRelationManager::class
+            ServicesRelationManager::class,
         ];
     }
 
