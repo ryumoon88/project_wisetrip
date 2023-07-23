@@ -51,7 +51,7 @@ return [
         'pages' => true,
         'widgets' => true,
         'resources' => true,
-        'custom_permissions' => false,
+        'custom_permissions' => true,
     ],
 
     'generator' => [
@@ -60,9 +60,10 @@ return [
 
     'exclude' => [
         'enabled' => true,
-
         'pages' => [
             'Dashboard',
+            // 'Locations',
+            // 'Orders'
         ],
 
         'widgets' => [

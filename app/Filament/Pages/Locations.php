@@ -4,6 +4,7 @@ namespace App\Filament\Pages;
 
 use App\Filament\Resources\ProvinceResource;
 use App\Filament\Widgets\ProvinceWidget;
+use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Closure;
 use Filament\Forms\Components\Tabs;
 use Filament\Pages\Page;
@@ -18,6 +19,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Locations extends Page
 {
+    use HasPageShield;
+
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
     protected static ?string $navigationGroup = 'Locations';
     protected static ?string $navigationLabel = "All Locations";
