@@ -15,13 +15,10 @@ return new class extends Migration
     {
         Schema::create('destination_services', function (Blueprint $table) {
             $table->id();
-            $table->string('thumbnail');
             $table->string('name');
             $table->longText('description');
-            $table->integer('price');
+            $table->integer('price')->nullable();
             $table->foreignId('destination_id');
-            $table->foreignId('village_code');
-            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

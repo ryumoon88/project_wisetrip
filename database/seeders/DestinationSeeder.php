@@ -26,7 +26,7 @@ class DestinationSeeder extends Seeder
                 Selain keindahan alamnya, Danau Maninjau juga memiliki nilai sejarah dan budaya. Di sekitar danau, terdapat beberapa desa yang masih melestarikan adat dan tradisi Minangkabau. Pengunjung dapat melihat rumah-rumah tradisional Minangkabau yang megah, seperti Rumah Gadang, yang merupakan ikon arsitektur unik dari suku Minangkabau.
 
                 Jika Anda mengunjungi Sumatera Barat, jangan lewatkan kesempatan untuk menjelajahi keindahan danau ini. Danau Maninjau adalah tempat yang tepat untuk bersantai, menikmati alam, dan merasakan kehangatan budaya Minangkabau.',
-                'kelurahan_id' => 130603,
+                'kelurahan_id' => 1306032003,
             ],
             [
                 'name' => 'Jam Gadang',
@@ -40,7 +40,7 @@ class DestinationSeeder extends Seeder
                 Selain menikmati keindahan menara, di sekitar Jam Gadang terdapat berbagai warung makan dan toko cenderamata yang menjual produk-produk khas Bukittinggi. Anda juga dapat mencicipi kuliner lokal seperti kue kacang dan rendang.
 
                 Jangan lewatkan kesempatan untuk mengunjungi Jam Gadang saat berada di Bukittinggi. Nikmati keindahan arsitektur dan suasana kota yang ramah.',
-                'kelurahan_id' => 137501,
+                'kelurahan_id' => 1375011005,
             ],
             [
                 'name' => 'Harau Valley',
@@ -54,7 +54,7 @@ class DestinationSeeder extends Seeder
                 Bagi pecinta olahraga alam dan petualangan, Harau Valley menawarkan berbagai aktivitas menarik seperti panjat tebing, hiking, dan bersepeda. Tidak hanya itu, tempat ini juga cocok untuk bersantai dan menikmati keheningan alam.
 
                 Nikmati liburan Anda di Harau Valley, nikmati keindahan alamnya, dan rasakan kedamaian yang langka ditemui di tempat lain.',
-                'kelurahan_id' => 130705,
+                'kelurahan_id' => 1307052005,
             ],
             [
                 'name' => 'Pantai Air Manis',
@@ -68,7 +68,7 @@ class DestinationSeeder extends Seeder
                 Jika Anda mengunjungi Pantai Air Manis saat matahari terbenam, Anda akan disuguhi pemandangan langit yang indah dengan nuansa kemerahan yang memukau.
 
                 Nikmati momen santai Anda di Pantai Air Manis dan rasakan pesona legenda dan keindahan pantainya.',
-                'kelurahan_id' => 137101,
+                'kelurahan_id' => 1371011011,
             ],
             [
                 'name' => 'Pagaruyung Palace',
@@ -82,7 +82,7 @@ class DestinationSeeder extends Seeder
                 Di sekitar Pagaruyung Palace, Anda akan menemukan panorama alam yang menakjubkan dengan sawah dan perbukitan hijau yang indah.
 
                 Jelajahi sejarah dan budaya Minangkabau di Pagaruyung Palace, rasakan pesona kerajaan masa lalu, dan nikmati keindahan alam Sumatera Barat.',
-                'kelurahan_id' => 130405,
+                'kelurahan_id' => 1304052004,
             ],
             // Tambahkan destinasi lainnya sesuai kebutuhan
         ];

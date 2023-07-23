@@ -4,6 +4,8 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\DestinationServiceOrderResource\Pages;
 use App\Filament\Resources\DestinationServiceOrderResource\RelationManagers;
+use App\Models\Destination;
+use App\Models\DestinationService;
 use App\Models\DestinationServiceOrder;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -27,6 +29,17 @@ class DestinationServiceOrderResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Select::make('destination_id')
+                    ->options(Destination::all()->pluck('name', 'id'))
+                    ->dehydrated(false)
+                    ->reactive(),
+                Forms\Components\Select::make('service_id')
+                    ->options(function ($get) {
+                        $destination = Destination::find($get('destination_id'));
+                        return $destination->services->pluck('name', 'id');
+                    })
+                    ->hidden(fn ($get) => $get('destination_id') == null)
+                    ->reactive(),
                 Forms\Components\TextInput::make('quantity'),
             ]);
     }
@@ -35,18 +48,33 @@ class DestinationServiceOrderResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('service.destination.name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('service.name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('quantity'),
+                Tables\Columns\TextColumn::make('total')
+                    ->formatStateUsing(function (DestinationServiceOrder $record) {
+                        return $record->service->price * $record->quantity;
+                    }),
+                Tables\Columns\TextColumn::make('status'),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->since(),
+                Tables\Columns\TextColumn::make('user.name'),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
+        // ->contentGrid(['default' => 1]);
     }
 
     public static function getRelations(): array

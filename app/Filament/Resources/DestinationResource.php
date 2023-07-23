@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\DestinationResource\Pages;
-use App\Filament\Resources\DestinationResource\RelationManagers;
+use App\Filament\Resources\DestinationResource\RelationManagers\OrdersRelationManager;
 use App\Filament\Resources\DestinationResource\RelationManagers\ServicesRelationManager;
 use App\Models\Destination;
 use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
@@ -17,7 +17,11 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Gate;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 use Laravolt\Indonesia\Facade as Indonesia;
+use Laravolt\Indonesia\Models\City;
+use Laravolt\Indonesia\Models\District;
+use Laravolt\Indonesia\Models\Province;
 use Laravolt\Indonesia\Models\Provinsi;
+use Laravolt\Indonesia\Models\Village;
 
 class DestinationResource extends Resource implements HasShieldPermissions
 {
@@ -75,47 +79,64 @@ class DestinationResource extends Resource implements HasShieldPermissions
                     Forms\Components\Section::make('Location')
                         ->schema([
 
-                            Forms\Components\Select::make('provinsi_id')
-                                ->options(Provinsi::all()->pluck('name', 'id'))
-                                ->required()
-                                ->reactive()
+                            Forms\Components\Select::make('province_code')
+                                ->options(Province::all()->pluck('name', 'code'))
                                 ->searchable()
-                                ->afterStateUpdated(fn ($set) => $set('kecamatan_id', null) & $set('kelurahan_id', null) & $set('kota_id', null))
-                                ->label('Provinsi')
-                                ->dehydrated(false),
-                            Forms\Components\Select::make('kota_id')
-                                ->options(function ($get) {
-                                    if ($get('provinsi_id') != null) {
-                                        return Indonesia::findProvince($get('provinsi_id'), ['cities'])->cities->pluck('name', 'id');
+                                ->dehydrated(false)
+                                ->afterStateUpdated(function ($set) {
+                                    $set('district_code', null);
+                                    $set('city_code', null);
+                                    $set('village_code', null);
+                                })
+                                ->formatStateUsing(function ($get, $record) {
+                                    if ($get('village_code') != null) {
+                                        return $record->village->district->city->province->code;
                                     }
-                                    return null;
+                                })
+                                ->reactive(),
+                            Forms\Components\Select::make('city_code')
+                                ->options(function ($get, $set, $record) {
+                                    if ($get('district_code') != null) {
+                                        return City::where('province_code', $record->village->district->city->province->code)->pluck('name', 'code');
+                                    }
+                                    return City::where('province_code', $get('province_code'))->pluck('name', 'code');
+                                })
+                                ->afterStateUpdated(function ($set) {
+                                    $set('district_code', null);
+                                    $set('village_code', null);
+                                })
+                                ->formatStateUsing(function ($record, $get) {
+                                    if ($get('village_code') != null) {
+                                        return $record->village->district->city->code;
+                                    }
                                 })
                                 ->dehydrated(false)
-                                ->afterStateUpdated(fn ($set) => $set('kecamatan_id', null) & $set('kelurahan_id', null))
-                                ->reactive()
-                                ->required()
                                 ->searchable()
-                                ->label('Kota'),
-
-                            Forms\Components\Select::make('kecamatan_id')
-                                ->options(function ($get) {
-                                    if ($get('kota_id') != null) {
-                                        return Indonesia::findCity($get('kota_id'), ['districts'])->districts->pluck('name', 'id');
+                                ->reactive(),
+                            Forms\Components\Select::make('district_code')
+                                ->options(function ($get, $set, $record) {
+                                    if ($record != null && $get('city_code') == null) {
+                                        return District::where('city_code', $record->village->district->city->code)->pluck('name', 'code');
                                     }
-                                    return null;
+                                    return District::where('city_code', $get('city_code'))->pluck('name', 'code');
                                 })
-                                ->afterStateUpdated(fn ($set) => $set('kelurahan_id', null))
-                                ->dehydrated(false)
                                 ->reactive()
-                                ->required()
-                                ->searchable()
-                                ->label('Kecamatan'),
-                            Forms\Components\Select::make('kelurahan_id')
-                                ->options(function ($get) {
-                                    if ($get('kecamatan_id') != null) {
-                                        return Indonesia::findDistrict($get('kecamatan_id'), ['villages'])->villages->pluck('name', 'id');
+                                ->afterStateUpdated(function ($set) {
+                                    $set('village_code', null);
+                                })
+                                ->formatStateUsing(function ($record, $get) {
+                                    if ($get('village_code') != null) {
+                                        return $record->village->district->code;
                                     }
-                                    return null;
+                                })
+                                ->dehydrated(false)
+                                ->searchable(),
+                            Forms\Components\Select::make('village_code')
+                                ->options(function ($get, $set, $record) {
+                                    if ($record != null && $get('district_code') == null) {
+                                        return Village::where('district_code', $record->village->district->code)->pluck('name', 'code');
+                                    }
+                                    return Village::where('district_code', $get('district_code'))->pluck('name', 'code');
                                 })
                                 ->required()
                                 ->searchable()
@@ -160,9 +181,8 @@ class DestinationResource extends Resource implements HasShieldPermissions
     public static function getRelations(): array
     {
         return [
-            // TicketsRelationManager::class,
-            // PackagesRelationManager::class
             ServicesRelationManager::class,
+            OrdersRelationManager::class
         ];
     }
 

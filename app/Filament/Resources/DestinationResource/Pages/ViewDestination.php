@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\DestinationResource\Pages;
 
 use App\Filament\Resources\DestinationResource;
+use App\Filament\Resources\DestinationResource\RelationManagers\ServicesRelationManager;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ViewRecord;
 
@@ -16,6 +17,11 @@ class ViewDestination extends ViewRecord
             Actions\EditAction::make(),
         ];
     }
+
+    // protected function getRelationManagers(): array
+    // {
+    //     return [];
+    // }
 
     public function hasCombinedRelationManagerTabsWithForm(): bool
     {

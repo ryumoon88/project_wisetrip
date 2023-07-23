@@ -29,6 +29,11 @@ class Destination extends Model
         return $this->hasMany(DestinationService::class);
     }
 
+    public function orders()
+    {
+        return $this->hasManyThrough(DestinationServiceOrder::class, DestinationService::class, 'destination_id', 'service_id');
+    }
+
     public function scopeOwned($query)
     {
         return $query->where('user_id', Auth::user()->id);

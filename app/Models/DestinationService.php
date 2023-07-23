@@ -10,6 +10,8 @@ class DestinationService extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function destination()
     {
         return $this->belongsTo(Destination::class);
