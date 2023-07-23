@@ -1,6 +1,8 @@
 <?php
 
-namespace Laravolt\Indonesia\Models;
+namespace App\Models;
+
+use Laravolt\Indonesia\Models\Model;
 
 class Village extends Model
 {
