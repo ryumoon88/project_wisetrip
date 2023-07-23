@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('thumbnail')->nullable();
             $table->boolean('visible')->default(true);
             $table->longText('description');
-            $table->foreignId('kelurahan_id');
+            $table->foreignId('village_code');
             $table->foreignId('user_id');
             $table->timestamps();
         });

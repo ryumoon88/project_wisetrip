@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Laravolt\Indonesia\Models\Kelurahan;
+use Laravolt\Indonesia\Models\Village;
 
 class Destination extends Model
 {
     use HasFactory;
-    
+
     protected $guarded = [];
 
     public static function boot()
@@ -46,8 +47,8 @@ class Destination extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function kelurahan()
+    public function village()
     {
-        return $this->belongsTo(Kelurahan::class);
+        return $this->belongsTo(Village::class, 'village_code', 'code');
     }
 }
