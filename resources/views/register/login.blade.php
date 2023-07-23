@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('content')
-    <div class="hero-wrap js-fullheight" style="background-image: url('images/taluak.jpg');">
+    <div class="hero-wrap js-fullheight" style="background-image: url({{asset('images/taluak.jpg')}});">
         <div class="custom-custom-overlay"></div>
         <div class="custom-container">
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
@@ -20,20 +20,29 @@
                     Login
                     <span class="underline"></span>
                 </button>
-                <form class="form form-login">
+                <form class="form form-login" method="POST" role="form" action="{{url('/login')}}" enctype="multipart/form-data">
+                    @csrf
                     <fieldset>
-                        <legend>Please, enter your email and password for login.</legend>
+                        <legend>Silahkan masukkan email dan password anda untuk masuk.</legend>
 
                         <div class="input-block">
-                            <label for="login-email">E-mail</label>
-                            <input id="login-email" type="email" required>
+                            <label for="login_email">E-mail</label>
+                            <input name="login_email" id="login_email" type="email" class="@error('login_email')is-invalid
+                            @enderror" required>
+                            @error('login_email')
+                                {{$message}}
+                            @enderror
                         </div>
                         <div class="input-block">
-                            <label for="login-password">Password</label>
-                            <input id="login-password" type="password" required>
+                            <label for="login_password">Password</label>
+                            <input name="login_password" id="login_password" class="@error('login_password')is-invalid
+                            @enderror" type="password" required>
+                            @error('login_password')
+                                {{$message}}
+                            @enderror
                         </div>
                     </fieldset>
-                    <button type="submit" class="btn-login">Login</button>
+                    <button type="submit" class="btn-login">Masuk</button>
                 </form>
             </div>
             <div class="form-wrapper">
@@ -41,28 +50,37 @@
                     Sign Up
                     <span class="underline"></span>
                 </button>
-                <form class="form form-signup">
+                <form class="form form-signup" method="POST" role="form" action="{{url('/register')}}" enctype="multipart/form-data">
+                    @csrf
                     <fieldset>
-                        <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+                        <legend>Silahkan masukkan nama, email, username dan password untuk daftar akun.</legend>
                         <div class="input-block">
-                            <label for="name">Name</label>
-                            <input id="name" type="text" required>
+                            <label for="name">Nama</label>
+                            <input name="name" id="name" type="text" required>
                         </div>
                         <div class="input-block">
                             <label for="username">Username</label>
-                            <input id="username" type="text" required>
+                            <input name="username" id="username" type="text" required>
                         </div>
                         <div class="input-block">
-                            <label for="signup-email">E-mail</label>
-                            <input id="signup-email" type="email" required>
+                            <label for="register_email">E-mail</label>
+                            <input name="register_email" id="register_email" lass="@error('register_email')is-invalid
+                            @enderror" type="email" required>
+                            @error('register_email')
+                                {{$message}}
+                            @enderror
                         </div>
                         <div class="input-block">
-                            <label for="signup-password">Password</label>
-                            <input id="signup-password" type="password" required>
+                            <label for="register_password">Password</label>
+                            <input name="register_password" id="register_password" lass="@error('register_password')is-invalid
+                            @enderror" type="password" required>
+                            @error('register_password')
+                                {{$message}}
+                            @enderror
                         </div>
 
                     </fieldset>
-                    <button type="submit" class="btn-signup">Continue</button>
+                    <button type="submit" class="btn-signup">Daftar</button>
                 </form>
             </div>
         </div>

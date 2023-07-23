@@ -1,11 +1,11 @@
 @extends('layout.main')
 @section('content')
-    <div class="hero-wrap js-fullheight" style="background-image: url('images/artikel.jpg');">
+    <div class="hero-wrap js-fullheight" style="background-image: url('{{asset('images/artikel.jpg')}}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
                 data-scrollax-parent="true">
-                <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }" style="text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);">
                     <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span
                             class="mr-2"><a href="index.html">Home |</a></span> <span>Artikel</span></p>
                     <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Tips &amp;
@@ -21,7 +21,7 @@
             <div class="row d-flex">
                 <div class="col-md-3 d-flex ftco-animate">
                     <div class="blog-entry align-self-stretch">
-                        <a href="/nextartikel" class="block-20" style="background-image: url('images/image_1.jpg');">
+                        <a href="/nextartikel" class="block-20" style="background-image: url('{{asset('images/image_1.jpg')}}');">
                         </a>
                         <div class="text p-4 d-block">
                             <span class="tag">Tips, Travel</span>
