@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Shield;
 use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
 use BezhanSalleh\FilamentShield\Facades\FilamentShield;
 use App\Filament\Resources\Shield\RoleResource\Pages;
+use App\Filament\Resources\Shield\RoleResource\RelationManagers\UsersRelationManager;
 use App\Forms\Components\UserTable;
 use BezhanSalleh\FilamentShield\Support\Utils;
 use Closure;
@@ -177,7 +178,7 @@ class RoleResource extends Resource implements HasShieldPermissions
     public static function getRelations(): array
     {
         return [
-            // UserResourceRelationManager::class
+            UsersRelationManager::class
         ];
     }
 
