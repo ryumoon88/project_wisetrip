@@ -1,10 +1,6 @@
 @extends('layout.main')
 @section('content')
-<<<<<<< Updated upstream
-    <div class="hero-wrap js-fullheight" style="background-image: url('images/taluak.jpg');">
-=======
     <div class="hero-wrap js-fullheight" style="background-image: url({{asset('images/taluak.jpg')}});">
->>>>>>> Stashed changes
         <div class="custom-custom-overlay"></div>
         <div class="custom-container">
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
@@ -24,22 +20,6 @@
                     Login
                     <span class="underline"></span>
                 </button>
-<<<<<<< Updated upstream
-                <form class="form form-login">
-                    <fieldset>
-                        <legend>Please, enter your email and password for login.</legend>
-
-                        <div class="input-block">
-                            <label for="login-email">E-mail</label>
-                            <input id="login-email" type="email" required>
-                        </div>
-                        <div class="input-block">
-                            <label for="login-password">Password</label>
-                            <input id="login-password" type="password" required>
-                        </div>
-                    </fieldset>
-                    <button type="submit" class="btn-login">Login</button>
-=======
                 <form class="form form-login" method="POST" role="form" action="{{url('/login')}}" enctype="multipart/form-data">
                     @csrf
                     <fieldset>
@@ -63,7 +43,6 @@
                         </div>
                     </fieldset>
                     <button type="submit" class="btn-login">Masuk</button>
->>>>>>> Stashed changes
                 </form>
             </div>
             <div class="form-wrapper">
@@ -71,30 +50,6 @@
                     Sign Up
                     <span class="underline"></span>
                 </button>
-<<<<<<< Updated upstream
-                <form class="form form-signup">
-                    <fieldset>
-                        <legend>Please, enter your email, password and password confirmation for sign up.</legend>
-                        <div class="input-block">
-                            <label for="name">Name</label>
-                            <input id="name" type="text" required>
-                        </div>
-                        <div class="input-block">
-                            <label for="username">Username</label>
-                            <input id="username" type="text" required>
-                        </div>
-                        <div class="input-block">
-                            <label for="signup-email">E-mail</label>
-                            <input id="signup-email" type="email" required>
-                        </div>
-                        <div class="input-block">
-                            <label for="signup-password">Password</label>
-                            <input id="signup-password" type="password" required>
-                        </div>
-
-                    </fieldset>
-                    <button type="submit" class="btn-signup">Continue</button>
-=======
                 <form class="form form-signup" method="POST" role="form" action="{{url('/register')}}" enctype="multipart/form-data">
                     @csrf
                     <fieldset>
@@ -126,7 +81,6 @@
 
                     </fieldset>
                     <button type="submit" class="btn-signup">Daftar</button>
->>>>>>> Stashed changes
                 </form>
             </div>
         </div>

@@ -16,8 +16,6 @@ use App\Http\Controllers\ArticleController;
 */
 Route::get('/', function () {
     return view('index');
-<<<<<<< Updated upstream
-=======
 });
 
 Route::get('/login',[LoginController::class,'login'])->name('login')->middleware('guest');
@@ -51,7 +49,6 @@ Route::get('/wilayah', function () {
 });
 Route::get('/detailwilayah', function () {
     return view('customer.Wilayah.detailwilayah');
->>>>>>> Stashed changes
 });
 Route::get('/login', function () {
     return view('register.login');

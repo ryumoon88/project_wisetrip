@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< Updated upstream
-    "content-hash": "be9e967de5930f55437bf933b6c7dbb7",
-=======
     "content-hash": "3e045601595a8f3c95bfab3931827ca6",
->>>>>>> Stashed changes
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -81,18 +77,6 @@
         },
         {
             "name": "awcodes/filament-tiptap-editor",
-<<<<<<< Updated upstream
-            "version": "v2.6.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/awcodes/filament-tiptap-editor.git",
-                "reference": "eb13fbb6363cc58f1f2cfe96bed74ca2a3f195ad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/awcodes/filament-tiptap-editor/zipball/eb13fbb6363cc58f1f2cfe96bed74ca2a3f195ad",
-                "reference": "eb13fbb6363cc58f1f2cfe96bed74ca2a3f195ad",
-=======
             "version": "v2.6.5",
             "source": {
                 "type": "git",
@@ -103,7 +87,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/awcodes/filament-tiptap-editor/zipball/13127542c29ff203c32c0a72d01f5b4638563ab2",
                 "reference": "13127542c29ff203c32c0a72d01f5b4638563ab2",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -161,11 +144,7 @@
             ],
             "support": {
                 "issues": "https://github.com/awcodes/filament-tiptap-editor/issues",
-<<<<<<< Updated upstream
-                "source": "https://github.com/awcodes/filament-tiptap-editor/tree/v2.6.4"
-=======
                 "source": "https://github.com/awcodes/filament-tiptap-editor/tree/v2.6.5"
->>>>>>> Stashed changes
             },
             "funding": [
                 {
@@ -173,11 +152,7 @@
                     "type": "github"
                 }
             ],
-<<<<<<< Updated upstream
-            "time": "2023-07-01T18:42:57+00:00"
-=======
             "time": "2023-07-09T05:10:37+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "bezhansalleh/filament-shield",
