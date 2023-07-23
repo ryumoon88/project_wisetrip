@@ -18,7 +18,9 @@ class Destination extends Model
     {
         parent::boot();
         self::creating(function ($query) {
-            $query->user_id = Auth::user()->id;
+            if ($query->user_id == null) {
+                $query->user_id = Auth::user()->id;
+            }
         });
     }
 
