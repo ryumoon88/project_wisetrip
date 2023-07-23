@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('description_tickets', function (Blueprint $table) {
+        Schema::create('destination_tickets', function (Blueprint $table) {
             $table->id();
             $table->foreignId('destination_id');
-            $table->double('price');
+            $table->text('description');
+            $table->integer('price');
             $table->timestamps();
         });
     }
