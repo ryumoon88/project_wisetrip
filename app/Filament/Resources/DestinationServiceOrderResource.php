@@ -41,7 +41,9 @@ class DestinationServiceOrderResource extends Resource implements HasShieldPermi
             'delete_any',
             'force_delete',
             'force_delete_any',
-            'view_all'
+            'view_all',
+            'accept',
+            'reject',
         ];
     }
 
@@ -98,6 +100,18 @@ class DestinationServiceOrderResource extends Resource implements HasShieldPermi
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make(),
+                    Tables\Actions\Action::make('accept')
+                        ->action(fn ($record) => $record->accept())
+                        ->requiresConfirmation()
+                        ->hidden(fn ($record) => $record->status == 'Accepted')
+                        ->icon('heroicon-o-check')
+                        ->color('success'),
+                    Tables\Actions\Action::make('reject')
+                        ->action(fn ($record) => $record->reject())
+                        ->requiresConfirmation()
+                        ->hidden(fn ($record) => $record->status == 'Rejected')
+                        ->icon('heroicon-o-x')
+                        ->color('danger'),
                 ])
             ])
             ->bulkActions([

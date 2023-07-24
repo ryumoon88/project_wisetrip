@@ -48,4 +48,14 @@ class DestinationServiceOrder extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function accept()
+    {
+        return $this->update(['status' => 'Accepted']);
+    }
+
+    public function reject()
+    {
+        return $this->update(['status' => 'Rejected']);
+    }
 }

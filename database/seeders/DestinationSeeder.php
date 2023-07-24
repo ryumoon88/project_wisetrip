@@ -93,7 +93,7 @@ class DestinationSeeder extends Seeder
                 'thumbnail' => $destination['thumbnail'],
                 'description' => $destination['description'],
                 'village_code' => $destination['kelurahan_id'],
-                'user_id' => 3,
+                'user_id' => fake()->randomElement([2, 3]),
             ]);
         }
     }

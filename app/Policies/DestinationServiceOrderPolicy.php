@@ -148,9 +148,8 @@ class DestinationServiceOrderPolicy
         return $user->can('reorder_destination::service::order');
     }
 
-
-    public function viewAll(User $user)
+    public function accept(User $user)
     {
-        return $user->can('view_all_destination::service::order');
+        return $user->can('accept_destination::service::order');
     }
 }
