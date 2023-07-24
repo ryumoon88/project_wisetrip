@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('service_id');
             $table->foreignId('user_id');
+            $table->string('invoice');
             $table->enum('status', ['Pending', 'Accepted', 'Rejected'])->default('Pending');
             $table->integer('quantity');
             $table->timestamps();

@@ -79,6 +79,7 @@ class DestinationServiceOrderResource extends Resource implements HasShieldPermi
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('invoice')->prefix('#')->inline(false),
                 Tables\Columns\TextColumn::make('service.destination.name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('service.name')
@@ -105,13 +106,15 @@ class DestinationServiceOrderResource extends Resource implements HasShieldPermi
                         ->requiresConfirmation()
                         ->hidden(fn ($record) => $record->status == 'Accepted')
                         ->icon('heroicon-o-check')
-                        ->color('success'),
+                        ->color('success')
+                        ->authorize('accept'),
                     Tables\Actions\Action::make('reject')
                         ->action(fn ($record) => $record->reject())
                         ->requiresConfirmation()
                         ->hidden(fn ($record) => $record->status == 'Rejected')
                         ->icon('heroicon-o-x')
-                        ->color('danger'),
+                        ->color('danger')
+                        ->authorize('reject'),
                 ])
             ])
             ->bulkActions([

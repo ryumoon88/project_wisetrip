@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,6 +17,7 @@ class DestinationServiceOrder extends Model
     {
         parent::boot();
         parent::creating(function ($query) {
+            $query->invoice = IdGenerator::generate(['table' => 'destination_service_orders', 'field' => 'invoice', 'length' => 16, 'prefix' => 'WT' . date('ymd') . $query->service_id, 'reset_on_prefix_change' => true]);
             if ($query->user_id == null) {
                 $query->user_id = auth()->user()->id;
             }

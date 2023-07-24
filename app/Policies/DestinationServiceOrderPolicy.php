@@ -152,4 +152,8 @@ class DestinationServiceOrderPolicy
     {
         return $user->can('accept_destination::service::order');
     }
+    public function reject(User $user)
+    {
+        return $user->can('reject_destination::service::order');
+    }
 }
