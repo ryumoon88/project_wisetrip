@@ -74,3 +74,11 @@ Route::get('/wilayah', function () {
 Route::get('/detailwilayah', function () {
     return view('customer.Wilayah.detailwilayah');
 });
+
+Route::get('/pesanan', function () {
+    return view('customer.Pesanan.pesanan');
+});
+
+Route::get('/pembayaran', function () {
+    return view('customer.Pesanan.pembayaran');
+});

@@ -19,7 +19,7 @@
                 <li class="nav-item"><a href="{{asset('/contact')}}" class="nav-link">Contact</a></li>
                 {{-- <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> --}}
                 @auth
-                <li class="nav-item"><a href="{{asset('/contact')}}" class="nav-link">Pesanan</a></li>
+                <li class="nav-item"><a href="{{asset('/pesanan')}}" class="nav-link">Pesanan</a></li>
                     <form action="{{url('/logout')}}" method="post" class="nav-item cta">
                         @csrf
                         <button class="btn">Log Out</button>
