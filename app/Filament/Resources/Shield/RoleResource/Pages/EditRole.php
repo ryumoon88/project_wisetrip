@@ -44,4 +44,9 @@ class EditRole extends EditRecord
 
         $this->record->syncPermissions($permissionModels);
     }
+
+    public function hasCombinedRelationManagerTabsWithForm(): bool
+    {
+        return true;
+    }
 }

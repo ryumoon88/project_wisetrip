@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('destinations', function (Blueprint $table) {
+        Schema::create('destination_service_orders', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('thumbnail')->nullable();
-            $table->boolean('visible')->default(true);
-            $table->longText('description');
-            $table->foreignId('village_code');
+            $table->foreignId('service_id');
             $table->foreignId('user_id');
+            $table->string('invoice');
+            $table->enum('status', ['Pending', 'Accepted', 'Rejected'])->default('Pending');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('destinations');
+        Schema::dropIfExists('destination_service_orders');
     }
 };

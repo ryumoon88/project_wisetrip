@@ -2,56 +2,80 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CultureInformationResource\Pages;
-use App\Filament\Resources\CultureInformationResource\RelationManagers;
-use App\Models\CultureInformation;
+use App\Filament\Resources\DestinationResource\Pages;
+use App\Filament\Resources\DestinationResource\RelationManagers\OrdersRelationManager;
+use App\Filament\Resources\DestinationResource\RelationManagers\ServicesRelationManager;
+use App\Models\Destination;
+use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
 use Filament\Forms;
-use Filament\Forms\Components\Card;
-use Filament\Forms\Components\Group;
-use Filament\Forms\Components\Section;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Gate;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
+use Laravolt\Indonesia\Facade as Indonesia;
 use App\Models\City;
+use App\Models\District;
 use App\Models\Province;
 use App\Models\Village;
-use App\Models\District;
-use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
-class CultureInformationResource extends Resource
+class DestinationResource extends Resource implements HasShieldPermissions
 {
-    protected static ?string $model = CultureInformation::class;
+    protected static ?string $model = Destination::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
-    protected static ?string $navigationGroup = 'Publications';
+    protected static ?string $navigationGroup = 'Trips';
+
+    protected static ?string $recordTitleAttribute = 'name';
+
+    public static function getPermissionPrefixes(): array
+    {
+        return [
+            'view',
+            'view_any',
+            'create',
+            'update',
+            'restore',
+            'restore_any',
+            'replicate',
+            'reorder',
+            'delete',
+            'delete_any',
+            'force_delete',
+            'force_delete_any',
+            'view_all'
+        ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        if (Gate::check('view_all_destination')) {
+            return parent::getEloquentQuery();
+        }
+        return parent::getEloquentQuery()->whereBelongsTo(auth()->user());
+    }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\Group::make([
-                    Forms\Components\Card::make([
-                        Forms\Components\FileUpload::make('thumbnail')
-                            ->image()
-                            ->required(),
-                        Forms\Components\TextInput::make('title')
-                            ->required()
-                            ->maxLength(255),
-                        TinyEditor::make('body')
-                            ->extraAttributes(['class' => 'h-full'])
-                            ->required()
-                            ->setRelativeUrls(false)
-                            ->setRemoveScriptHost(false)
-                            ->setConvertUrls(true),
-                    ])
+                    Forms\Components\FileUpload::make('thumbnail')
+                        ->image()
+                        ->multiple(false),
+                    Forms\Components\TextInput::make('name'),
+                    TinyEditor::make('description')
+                        ->setRelativeUrls(false)
+                        ->setConvertUrls(true)
+                        ->setRemoveScriptHost(false),
                 ])
                     ->columnSpan(['xl' => 2, 'default' => 'full']),
                 Forms\Components\Group::make([
-                    Section::make('Location')
+                    Forms\Components\Section::make('Location')
                         ->schema([
 
                             Forms\Components\Select::make('province_code')
@@ -71,7 +95,7 @@ class CultureInformationResource extends Resource
                                 ->reactive(),
                             Forms\Components\Select::make('city_code')
                                 ->options(function ($get, $set, $record) {
-                                    if ($record != null &&  $get('district_code') != null) {
+                                    if ($get('district_code') != null) {
                                         return City::where('province_code', $record->village->district->city->province->code)->pluck('name', 'code');
                                     }
                                     return City::where('province_code', $get('province_code'))->pluck('name', 'code');
@@ -109,7 +133,7 @@ class CultureInformationResource extends Resource
                             Forms\Components\Select::make('village_code')
                                 ->options(function ($get, $set, $record) {
                                     if ($record != null && $get('district_code') == null) {
-                                        return Village::where('district_code', $record->village->code)->pluck('name', 'code');
+                                        return Village::where('district_code', $record->village->district->code)->pluck('name', 'code');
                                     }
                                     return Village::where('district_code', $get('district_code'))->pluck('name', 'code');
                                 })
@@ -130,19 +154,14 @@ class CultureInformationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title'),
-                // Tables\Columns\TextColumn::make('body'),
-                Tables\Columns\TextColumn::make('kelurahan.name')
-                    ->searchable()
-                    ->getStateUsing(function (CultureInformation $record) {
-                        return $record->kelurahan->getProvinceNameAttribute() . ',' . $record->kelurahan->getCityNameAttribute() . ',' . $record->kelurahan->district->name . ', ' . $record->kelurahan->name;
-                    })
-                    ->label('Lokasi'),
-                Tables\Columns\TextColumn::make('user.name')->label('Author'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
+                Tables\Columns\ImageColumn::make('thumbnail')
+                    ->size('full'),
+                Tables\Columns\TextColumn::make('status'),
+                Tables\Columns\TextColumn::make('kelurahan.name'),
+                Tables\Columns\TextColumn::make('user.name')
+                    ->hidden(!Gate::check('view_all_destination'))
             ])
             ->filters([
                 //
@@ -152,24 +171,29 @@ class CultureInformationResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                // Tables\Actions\DeleteBulkAction::make(),
+            ])
+            ->contentGrid([
+                'md' => 2,
+                'xl' => 3
             ]);
     }
 
     public static function getRelations(): array
     {
         return [
-            //
+            ServicesRelationManager::class,
+            OrdersRelationManager::class
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCultureInformation::route('/'),
-            'create' => Pages\CreateCultureInformation::route('/create'),
-            'view' => Pages\ViewCultureInformation::route('/{record}'),
-            'edit' => Pages\EditCultureInformation::route('/{record}/edit'),
+            'index' => Pages\ListDestinations::route('/'),
+            'create' => Pages\CreateDestination::route('/create'),
+            'view' => Pages\ViewDestination::route('/{record}'),
+            'edit' => Pages\EditDestination::route('/{record}/edit'),
         ];
     }
 }

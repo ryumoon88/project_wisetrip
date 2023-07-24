@@ -4,14 +4,48 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Laravolt\Indonesia\Models\Kelurahan;
+use Laravolt\Indonesia\Models\Village;
 
 class Destination extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
 
-    public function tickets()
+    public static function boot()
     {
-        return $this->hasMany(DestinationTicket::class, 'destination_id');
+        parent::boot();
+        self::creating(function ($query) {
+            if ($query->user_id == null) {
+                $query->user_id = Auth::user()->id;
+            }
+        });
+    }
+
+    public function services()
+    {
+        return $this->hasMany(DestinationService::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasManyThrough(DestinationServiceOrder::class, DestinationService::class, 'destination_id', 'service_id');
+    }
+
+    public function scopeOwned($query)
+    {
+        return $query->where('user_id', Auth::user()->id);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function village()
+    {
+        return $this->belongsTo(Village::class, 'village_code', 'code');
     }
 }

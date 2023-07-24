@@ -24,7 +24,7 @@ return [
 
     'filament_user' => [
         'enabled' => true,
-        'name' => 'filament_user',
+        'name' => 'user',
     ],
 
     'permission_prefixes' => [
@@ -60,9 +60,10 @@ return [
 
     'exclude' => [
         'enabled' => true,
-
         'pages' => [
             'Dashboard',
+            // 'Locations',
+            // 'Orders'
         ],
 
         'widgets' => [

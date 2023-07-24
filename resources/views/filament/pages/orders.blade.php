@@ -1,17 +1,16 @@
-@props(['activeTab'])
-
 {{-- <x-filament::page>
-    @livewire('locations.province-table')
-    @livewire('locations.city-table')
-    @livewire('locations.district-table')
-    @livewire('locations.village-table')
+    <livewire:ticket-orders />
+    <livewire:package-orders />
+
+    @foreach ($tables as $table)
+        @livewire($table)
+    @endforeach
 </x-filament::page> --}}
 
 <x-filament::page :active-tab="$activeTab" :actions="null">
-
     <div class="flex justify-center">
         <x-filament::tabs>
-            @foreach ($tables as $key => $resource)
+            @foreach ($tables as $key)
                 <x-filament::tabs.item :active="$key == $activeTab" wire:click="$set('activeTab', '{{ $key }}')"
                     @class([
                         'flex h-8 items-center whitespace-nowrap rounded-lg px-5 font-medium outline-none focus:ring-2 focus:ring-inset focus:ring-primary-600',
@@ -27,9 +26,9 @@
             @endforeach
         </x-filament::tabs>
     </div>
-    @foreach ($tables as $key => $resource)
+    @foreach ($tables as $key)
         <div @if ($activeTab != $key) hidden @endif>
-            @livewire($resource, key($key))
+            @livewire($key, key($key))
         </div>
     @endforeach
 </x-filament::page>
