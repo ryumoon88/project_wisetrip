@@ -7333,11 +7333,6 @@
     ],
     "packages-dev": [
         {
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
             "name": "doctrine/cache",
             "version": "2.2.0",
             "source": {
