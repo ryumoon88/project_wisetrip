@@ -27,6 +27,23 @@ class DestinationServiceOrder extends Model
         return $this->belongsTo(DestinationService::class, 'service_id');
     }
 
+    public function destination()
+    {
+        return $this->hasOneThrough(Destination::class, DestinationService::class, 'id', 'id', 'service_id', 'destination_id');
+    }
+
+    public function scopeOwnedByUser($query, $userId)
+    {
+        return $query->whereHas('destination', function ($q) use ($userId) {
+            $q->where('user_id', $userId);
+        });
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -50,7 +50,7 @@ class DestinationServiceOrderResource extends Resource implements HasShieldPermi
         if (Gate::check('view_all_destination')) {
             return parent::getEloquentQuery();
         }
-        return parent::getEloquentQuery()->whereBelongsTo(auth()->user());
+        return parent::getEloquentQuery()->ownedByUser(auth()->user()->id);
     }
 
 

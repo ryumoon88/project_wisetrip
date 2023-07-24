@@ -159,7 +159,9 @@ class DestinationResource extends Resource implements HasShieldPermissions
                 Tables\Columns\ImageColumn::make('thumbnail')
                     ->size('full'),
                 Tables\Columns\TextColumn::make('status'),
-                Tables\Columns\TextColumn::make('kelurahan.name')
+                Tables\Columns\TextColumn::make('kelurahan.name'),
+                Tables\Columns\TextColumn::make('user.name')
+                    ->hidden(!Gate::check('view_all_destinations'))
             ])
             ->filters([
                 //
