@@ -135,7 +135,7 @@ class CultureInformationResource extends Resource
                 Tables\Columns\TextColumn::make('kelurahan.name')
                     ->searchable()
                     ->getStateUsing(function (CultureInformation $record) {
-                        return $record->kelurahan->getProvinceNameAttribute() . ',' . $record->kelurahan->getCityNameAttribute() . ',' . $record->kelurahan->district->name . ', ' . $record->kelurahan->name;
+                        return $record->village->getProvinceNameAttribute() . ',' . $record->village->getCityNameAttribute() . ',' . $record->village->district->name . ', ' . $record->village->name;
                     })
                     ->label('Lokasi'),
                 Tables\Columns\TextColumn::make('user.name')->label('Author'),

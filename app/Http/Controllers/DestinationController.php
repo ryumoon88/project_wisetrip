@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Destination;
+use App\Models\DestinationReview;
+use App\Models\DestinationService;
 use Illuminate\Http\Request;
 
 class DestinationController extends Controller
@@ -14,7 +16,9 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        //
+        $destinations = Destination::latest()->paginate(2);
+        // dump($destinations);
+        return view('customer.Destinasi.destinasi',['destinations' => $destinations]);
     }
 
     /**
@@ -46,7 +50,8 @@ class DestinationController extends Controller
      */
     public function show(Destination $destination)
     {
-        //
+        $destinations = Destination::inRandomOrder()->limit(3)->get();
+        return view('customer.Destinasi.detaildestinasi',['destination'=>$destination,'destinations'=>$destinations]);
     }
 
     /**

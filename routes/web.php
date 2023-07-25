@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +18,11 @@ use App\Http\Controllers\ArticleController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::resource('/',IndexController::class);
 
 Route::get('/login',[LoginController::class,'login'])->name('login')->middleware('guest');
 Route::post('/login',[LoginController::class,'authenticate']);
@@ -29,12 +35,12 @@ Route::post('/register',[LoginController::class,'registerStore']);
 //Article
 Route::resource('article', ArticleController::class);
 
-Route::get('/destinasi', function () {
-    return view('customer.Destinasi.destinasi');
-});
-Route::get('/detaildestinasi', function () {
-    return view('customer.Destinasi.detaildestinasi');
-});
+Route::resource('destination', DestinationController::class);
+
+Route::resource('order', OrderController::class);
+
+Route::resource('city', CityController::class);
+
 Route::get('/artikel', function () {
     return view('customer.Artikel.artikel');
 });
@@ -50,21 +56,7 @@ Route::get('/wilayah', function () {
 Route::get('/detailwilayah', function () {
     return view('customer.Wilayah.detailwilayah');
 });
-Route::get('/login', function () {
-    return view('register.login');
-});
-Route::get('/destinasi', function () {
-    return view('customer.Destinasi.destinasi');
-});
-Route::get('/detaildestinasi', function () {
-    return view('customer.Destinasi.detaildestinasi');
-});
-Route::get('/artikel', function () {
-    return view('customer.Artikel.artikel');
-});
-Route::get('/nextartikel', function () {
-    return view('customer.Artikel.nextartikel');
-});
+
 Route::get('/contact', function () {
     return view('customer.Contact.contact');
 });

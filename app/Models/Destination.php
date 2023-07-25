@@ -12,6 +12,8 @@ class Destination extends Model
 {
     use HasFactory;
 
+    protected $casts = ['images' => 'array'];
+
     protected $guarded = [];
 
     public static function boot()

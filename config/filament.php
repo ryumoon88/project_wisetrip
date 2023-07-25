@@ -266,7 +266,7 @@ return [
     |
     */
 
-    'favicon' => null,
+    'favicon' => 'http://project_wisetrip.test/public/images/icon.png',
 
     /*
     |--------------------------------------------------------------------------

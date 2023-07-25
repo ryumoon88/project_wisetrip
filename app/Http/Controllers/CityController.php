@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
+use App\Models\City;
+use App\Models\Destination;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller
+class CityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::paginate(10);
-        return view('customer.Artikel.artikel',['articles' => $articles]);
+        $cities = City::where('province_code','13')->paginate(10);
+        // dump($cities);
+        return view('customer.Wilayah.wilayah',['cities' => $cities]);
     }
 
     /**
@@ -42,23 +44,32 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show(City $city)
     {
-        $articles = Article::latest()->limit(3)->get();
-        // dump($articles);
-        return view('customer.Artikel.nextartikel',['article'=>$article, 'articles'=>$articles]);
+        $destinations = Destination::all();
+        // $destinationsCity = [];
+        // foreach ($destinations as $destination) {
+        //     if($destination->village->district->city->id == $city->id){
+        //         $destinationsCity = $destination;
+        //     }
+        // }
+
+        // $randomDestinations = collect($destinationsCity);
+
+        // dump($randomDestinations);
+        return view('customer.Wilayah.detailwilayah',['city'=>$city,'destinations'=>$destinations]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit(City $city)
     {
         //
     }
@@ -67,10 +78,10 @@ class ArticleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, City $city)
     {
         //
     }
@@ -78,10 +89,10 @@ class ArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy(City $city)
     {
         //
     }

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->longText('description');
             $table->foreignId('village_code');
             $table->foreignId('user_id');
+            $table->longText('images')->nullable();
             $table->timestamps();
         });
     }

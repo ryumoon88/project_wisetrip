@@ -13,9 +13,9 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
                 <li class="nav-item "><a href="{{asset('/')}}" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="{{asset('/wilayah')}}" class="nav-link">Wilayah</a></li>
-                <li class="nav-item"><a href="{{asset('/destinasi')}}" class="nav-link">Destinasi</a></li>
-                <li class="nav-item"><a href="{{asset('/artikel')}}" class="nav-link">Artikel</a></li>
+                <li class="nav-item"><a href="{{route('city.index')}}" class="nav-link">Wilayah</a></li>
+                <li class="nav-item"><a href="{{route('destination.index')}}" class="nav-link">Destinasi</a></li>
+                <li class="nav-item"><a href="{{route('article.index')}}" class="nav-link">Artikel</a></li>
                 <li class="nav-item"><a href="{{asset('/contact')}}" class="nav-link">Contact</a></li>
                 {{-- <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> --}}
                 @auth

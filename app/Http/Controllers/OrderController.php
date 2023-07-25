@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
+use App\Models\DestinationService;
+use App\Models\DestinationServiceOrder;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +16,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::paginate(10);
-        return view('customer.Artikel.artikel',['articles' => $articles]);
+        $DestinationOrders = DestinationOrder::paginate(10);
+        return view('customer.Pesanan.pesanan');
     }
 
     /**
@@ -34,31 +36,32 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Pesan
     public function store(Request $request)
     {
-        //
+        return view('customer.Pesanan.pembayaran');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\DestinationServiceOrder  $destinationServiceOrder
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    // Tampilkan halaman pembayaran
+    public function show(DestinationServiceOrder $destinationServiceOrder)
     {
-        $articles = Article::latest()->limit(3)->get();
-        // dump($articles);
-        return view('customer.Artikel.nextartikel',['article'=>$article, 'articles'=>$articles]);
+        return view('customer.Artikel.nextartikel');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\DestinationServiceOrder  $destinationServiceOrder
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    //Ubah
+    public function edit(DestinationServiceOrder $destinationServiceOrder)
     {
         //
     }
@@ -67,21 +70,23 @@ class ArticleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\DestinationServiceOrder  $destinationServiceOrder
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    //Bayar
+    public function update(Request $request, DestinationServiceOrder $destinationServiceOrder)
     {
-        //
+        return view('customer.Pesanan.pembayaran');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\DestinationServiceOrder  $destinationServiceOrder
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    //Batal atau hapus
+    public function destroy(DestinationServiceOrder $destinationServiceOrder)
     {
         //
     }

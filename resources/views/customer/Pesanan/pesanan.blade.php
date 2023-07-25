@@ -21,42 +21,54 @@
 
     <div class="tiket">
         <div class="header">
-            <p>Hahhah</p>
-            <p>Hahdahs</p>
+            <p>Pantai Air Manis</p>
+            <p>Padang</p>
         </div>
         <div class="isi">
             <div class="isi1">
                 <div class="keberangkatan">
-                    <h3>keberangkatan</h3>
-                    <p>, Pukul:
-                        </p>
+                    <h3>Padang, Sumatera Barat</h3>
+                    <p>21, Agustus 2023
+                    </p>
                     <p> .
                     </p>
                 </div>
-                <div class="tujuan">
+                {{-- <div class="tujuan">
                     <h3>Tujuan</h3>
                     <br>
                     <p>.
                     </p>
-                </div>
+                </div> --}}
                 <div class="harga">
-                    <h3>Rp. </h3>
-                    <p>/kursi</p>
+                    <h3>Rp. 5000</h3>
+                    <p>/tiket</p>
                 </div>
             </div>
             <div class="isi2">
                 <div class="totalharga">
-                    <h3>Jumlah Bangku :  </h3>
-                    <h1>Total : Rp. </h1>
+                    <h3>Jumlah Tiket : 5</h3>
+                    <h1>Total : Rp. 25000</h1>
                 </div>
                 <div class="button">
-                    <button class="batal" name="button" type="submit"
-                                onclick="return confirm('Yakin membatalkan pesanan ini ?')">Batal</button>
-                    <button class="ubah" type="submit" name="button">Ubah</button>
-                    <button class="bayar" name="button" type="submit" onclick="return confirm('Yakin membayar tiket ini')">Bayar</button>
-                    <button class="bayar" type="submit" name="button">Tampilkan tiket</button>
 
-                    <a href="{{url('/pembayaran')}}">Bayar</a>
+                    <form action="{{ url('order/1') }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button class="batal" name="button" type="submit"
+                            onclick="return confirm('Yakin membatalkan pesanan ini ?')">Batal</button>
+                    </form>
+                    <form action="{{ url('order/1/edit') }}" method="get">
+                        <button class="ubah" type="submit" name="button">Ubah</button>
+                    </form>
+                    <form action="{{ url('order/1') }}" method="post">
+                        @method('PUT')
+                        @csrf
+                        <button class="bayar" name="button" type="submit"
+                            onclick="return confirm('Yakin membayar tiket ini')">Bayar</button>
+                    </form>
+                    <form action="{{ url('order/1') }}" method="get">
+                        <button class="bayar" type="submit" name="button">Tampilkan tiket</button>
+                    </form>
 
                     {{-- @if ($pesanan->status == 'dipesan')
                         <form action="{{ url('order/' . $pesanan->id) }}" method="POST">

@@ -11,41 +11,24 @@
                 <div class="col-md-12">
                     <div class="destination-slider owl-carousel ftco-animate">
                         {{-- Mulai disini --}}
-                        <div class="item">
-                            <div class="destination">
-                                <a href="{{url('article/1')}}" class="img d-flex justify-content-center align-items-center"
-                                    style="background-image: url({{asset('images/pacujawi.jpg')}});">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-search2"></span>
+                        @forelse ($cultures as $culture)
+                            <div class="item">
+                                <div class="destination">
+                                    <a href="{{ url('article/' . $culture->id) }}"
+                                        class="img d-flex justify-content-center align-items-center"
+                                        style="background-image: url({{ asset('uploads/' . $culture->id) }});">
+                                        <div class="icon d-flex justify-content-center align-items-center">
+                                            <span class="icon-search2"></span>
+                                        </div>
+                                    </a>
+                                    <div class="text p-3">
+                                        <h3><a href="{{ url('article/' . $culture->id) }}">{{ $culture->title }}</a></h3>
+                                        <span class="listing">{{ $culture->village->district->city->name }}</span>
                                     </div>
-                                </a>
-                                <div class="text p-3">
-                                    <h3><a href="{{url('article/1')}}">Pacu Jawi</a></h3>
-                                    <span class="listing">Pariaman</span>
                                 </div>
                             </div>
-                        </div>
-                        {{-- akhir --}}
-                        {{-- Mulai disini --}}
-                        {{-- @forelse ($cultures as culture)
-                        <div class="item">
-                            <div class="destination">
-                                <a href="#" class="img d-flex justify-content-center align-items-center"
-                                    style="background-image: url(images/pacujawi.jpg);">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-search2"></span>
-                                    </div>
-                                </a>
-                                <div class="text p-3">
-                                    <h3><a href="#">Pacu Jawi</a></h3>
-                                    <span class="listing">Pariaman</span>
-                                </div>
-                            </div>
-                        </div>
                         @empty
-
-                        @endforelse --}}
-                        {{-- akhir --}}
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -67,52 +50,35 @@
             </div>
             <div class="row">
                 {{-- Mulai --}}
-                <div class="col-md-6 col-lg-3 ftco-animate">
-                    <div class="destination">
-                        <a href="{{url('/detaildestinasi')}}" class="img img-2 d-flex justify-content-center align-items-center"
-                            style="background-image: url({{asset('images/restaurant-1.jpg')}});">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="icon-search2"></span>
-                            </div>
-                        </a>
-                        <div class="text p-3">
-                            <h3><a href="{{url('/detaildestinasi')}}">Luxury Restaurant</a></h3>
+                @forelse ($destinations as $destination)
+                    <div class="col-md-6 col-lg-3 ftco-animate">
+                        <div class="destination">
+                            <a href="{{ url('destination/' . $destination->id) }}"
+                                class="img img-2 d-flex justify-content-center align-items-center"
+                                style="background-image: url({{ asset('uploads/' . $destination->thumbnail) }});">
+                                <div class="icon d-flex justify-content-center align-items-center">
+                                    <span class="icon-search2"></span>
+                                </div>
+                            </a>
+                            <div class="text p-3">
+                                <h3><a
+                                        href="{{ url('destination/' . $destination->id) }}">{{ ucwords($destination->name) }}</a>
+                                </h3>
 
-                            <p>Far far away, behind the word mountains, far from the countries</p>
-                            <hr>
-                            <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i> San Franciso, CA</span>
-                                <span class="ml-auto"><a href="{{url('/detaildestinasi')}}">Discover</a></span>
-                            </p>
+                                <p>{!! Str::limit(strip_tags($destination->description), 40, '...') !!}</p>
+                                <hr>
+                                <p class="bottom-area d-flex">
+                                    <span><i class="icon-map-o"></i>
+                                        {{ ucwords($destination->village->district->name) }}</span>
+                                    <span class="ml-auto"><a
+                                            href="{{ url('destination/' . $destination->id) }}">Telusuri</a></span>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                {{-- @forelse ($destinations as $destination)
-                <div class="col-md-6 col-lg-3 ftco-animate">
-                    <div class="destination">
-                        <a href="{{url('/detaildestinasi')}}" class="img img-2 d-flex justify-content-center align-items-center"
-                            style="background-image: url({{asset('uploads/'.$destination->image)}});">
-                            <div class="icon d-flex justify-content-center align-items-center">
-                                <span class="icon-search2"></span>
-                            </div>
-                        </a>
-                        <div class="text p-3">
-                            <h3><a href="{{url('/detaildestinasi')}}">{{$destination->name}}</a></h3>
-
-                            <p>{{$destination->description}}s</p>
-                            <hr>
-                            <p class="bottom-area d-flex">
-                                <span><i class="icon-map-o"></i>{{$destionation->kelurahan}}</span>
-                                <span class="ml-auto"><a href="{{url('/detaildestinasi')}}">Telusuri</a></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
                 @empty
-
-                @endforelse --}}
-                {{-- Akhir --}}
-        </div>
+                @endforelse
+            </div>
     </section>
 
     <!-- VIDEO -->
@@ -122,7 +88,7 @@
                 <div class="row">
                     <div class="col-lg-6" style="min-height: 500px;">
                         <div class="position-relative h-100">
-                            <img class="play-icon position-absolute w-10 h-10" src="{{asset('images/icon.png')}}"
+                            <img class="play-icon position-absolute w-10 h-10" src="{{ asset('images/icon.png') }}"
                                 style="width: 450px; height: 450px;">
                             {{-- <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE" target="_blank">
                                 <img class="position-absolute w-100 h-100" src="images/destination-1.jpg"
@@ -140,7 +106,7 @@
                                 labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat
                                 duo eos et erat sed diam duo</p>
 
-                            <a href="{{url('/destination')}}" class="btn btn-primary mt-1">Book Sekarang</a>
+                            <a href="{{ url('/destination') }}" class="btn btn-primary mt-1">Book Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -154,82 +120,42 @@
             <div class="container pt-5">
                 <div class="row">
                     <div class="col-md-7 heading-section ftco-animate">
-                        <h2 class="mb-4"><strong>Tips & Artikel</strong></h2>
+                        <h2 class="mb-4"><strong>Tips & Artikel ggas</strong></h2>
                         <span class="subheading">SIn publishing and graphic design, Lorem ipsum is a placeholder text
                             commonly used to demonstrate the visual form of a document or a typeface without relying on
                             meaningful content.</span>
                     </div>
                     {{-- Mulai --}}
-                    <?php $articles = Article::All(); ?>
-                    @forelse ($articles as $article)
-                        <div class="col-lg-6" style="min-height: 400px;">
-                            <div class="card">
-                                <img class="card-img-top" src="{{ asset('uploads/' . $article->thumbnail) }}"
-                                    alt="Destination Image">
-                                <div class="card-body">
-                                    <h6 class="text-primary text-uppercase" style="letter-spacing: 1px;">Budaya | Tips
-                                    </h6>
-                                    <h2 class="mb-3">{{ucwords($article->title)}}</h2>
-                                    <p class="card-text">{!!(Str::limit(strip_tags($article->body), 200, '...'))!!}
-                                    </p><br>
-                                    <a href="{{url('article/'.$article->id)}}" class="btn btn-primary mt-1">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
+                    <div class="col-lg-6" style="min-height: 400px;">
                         <div class="card">
-                            <img class="card-img-top" src="images/destination-1.jpg" alt="Destination Image">
+                            <img class="card-img-top" src="{{ asset('uploads/' . $first_article->thumbnail) }}"
+                                alt="Destination Image" style="min-height: 400px;">
                             <div class="card-body">
-                                <h6 class="text-primary text-uppercase" style="letter-spacing: 1px;">Cerita | Tips
+                                <h6 class="text-primary text-uppercase" style="letter-spacing: 1px;">Budaya | Tips
                                 </h6>
-                                <h2 class="mb-3">Travel Stories</h2>
-                                <p class="card-text">Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore
-                                    sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed
-                                    ipsum et kasd ut. Erat duo eos et erat sed diam duo Dolores lorem lorem ipsum sit et
-                                    ipsum. Sadip sea amet diam dolore sed et. Sit rebum
-                                </p>
-                                <a href="" class="btn btn-primary mt-1">Read More</a>
+                                <h2 class="mb-3">{{ ucwords($first_article->title) }}</h2>
+                                <p class="card-text">{!! Str::limit(strip_tags($first_article->body), 200, '...') !!}
+                                </p><br>
+                                <a href="{{ url('article/' . $first_article->id) }}"
+                                    class="btn btn-primary mt-1">Selengkapnya</a>
                             </div>
                         </div>
-                    @endforelse
-                    {{-- <div class="col-lg-6" style="min-height: 400px;">
-                        <div class="card">
-                            <img class="card-img-top" src="images/destination-1.jpg" alt="Destination Image">
-                            <div class="card-body">
-                                <h6 class="text-primary text-uppercase" style="letter-spacing: 1px;">Cerita | Tips
-                                </h6>
-                                <h2 class="mb-3">Travel Stories</h2>
-                                <p class="card-text">Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore
-                                    sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed
-                                    ipsum et kasd ut. Erat duo eos et erat sed diam duo Dolores lorem lorem ipsum sit et
-                                    ipsum. Sadip sea amet diam dolore sed et. Sit rebum
-                                </p>
-                                <a href="" class="btn btn-primary mt-1">Read More</a>
-                            </div>
-                        </div>
-                    </div> --}}
+                    </div>
                     {{-- Akhir --}}
                     <div class="col-lg-6">
                         {{-- Mulai --}}
-                        <div class="bg-white p-4 p-lg-5 ">
-                            <h6 class="text-primary text-uppercase" style="letter-spacing: 1px;">Destinasi | Travel
-                            </h6>
-                            <h2 class="mb-3">We Provide Best Tour Packages In Your Budget</h2>
-                            <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum
-                                labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat
-                                duo eos et erat sed diam duo</p>
+                        @forelse ($other_article as $article)
+                            <div class="bg-white p-4 p-lg-5 ">
+                                <h6 class="text-primary text-uppercase" style="letter-spacing: 1px;">Destinasi | Travel
+                                </h6>
+                                <h2 class="mb-3">{{ ucwords($article->title) }}</h2>
+                                <p>{!! Str::limit(strip_tags($article->body), 200, '...') !!}</p>
 
-                            <a href="" class="btn btn-primary mt-1">Read More</a>
-                        </div> <br>
-                        <div class="bg-white p-4 p-lg-5 ">
-                            <h6 class="text-primary text-uppercase" style="letter-spacing: 1px;">Tips | Travel</h6>
-                            <h2 class="mb-3">We Provide Best Tour Packages In Your Budget</h2>
-                            <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum
-                                labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat
-                                duo eos et erat sed diam duo</p>
-
-                            <a href="" class="btn btn-primary mt-1">Read More</a>
-                        </div>
+                                <a href="{{ url('article/' . $article->id) }}"
+                                    class="btn btn-primary mt-1">Selengkapnya</a>
+                            </div> <br>
+                        @empty
+                        @endforelse
                         {{-- Akhir --}}
                     </div>
                 </div>

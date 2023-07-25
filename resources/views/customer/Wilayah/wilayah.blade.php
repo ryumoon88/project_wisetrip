@@ -46,154 +46,32 @@
                 <div class="col-lg-9">
                     <div class="row">
                         {{-- Mulai --}}
-                        <div class="col-md-4 ftco-animate">
-                            <div class="destination">
-                                <a href="/detailwilayah" class="img img-2 d-flex justify-content-center align-items-center"
-                                    style="background-image: url(images/hotel-1.jpg);">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-search2"></span>
-                                    </div>
-                                </a>
-                                <div class="text p-3">
-                                    <div class="d-flex">
-                                        <div class="one">
-                                            <h3><a href="/detailwilayah">Padang</a></h3>
+                        @forelse ($cities as $city)
+                            <div class="col-md-4 ftco-animate" >
+                                <div class="destination">
+                                    <a href="{{url('city/'.$city->id)}}"
+                                        class="img img-2 d-flex justify-content-center align-items-center"
+                                        style="background-image: url({{ asset('uploads/' . $city->thumbnail) }});">
+                                        <div class="icon d-flex justify-content-center align-items-center">
+                                            <span class="icon-search2"></span>
                                         </div>
+                                    </a>
+                                    <div class="text p-3">
+                                        <div class="d-flex">
+                                            <div class="one">
+                                                <h3><a href="{{url('city/'.$city->id)}}">{{ ucwords($city->name) }}</a></h3>
+                                            </div>
+                                        </div>
+                                        <p>{!! Str::limit(strip_tags($city->body), 200, '...') !!}</p>
                                     </div>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
                                 </div>
                             </div>
-                        </div>
-                        {{-- Akhir --}}
-                        {{-- @forelse ($cities as $city)
-                        <div class="col-md-4 ftco-animate">
-                            <div class="destination">
-                                <a href="{{url('/detailwilayah')}}" class="img img-2 d-flex justify-content-center align-items-center"
-                                    style="background-image: url({{asset('images/hotel-1.jp')}}g);">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-search2"></span>
-                                    </div>
-                                </a>
-                                <div class="text p-3">
-                                    <div class="d-flex">
-                                        <div class="one">
-                                            <h3><a href="{{url('/detailwilayah')}}">$city->name</a></h3>
-                                        </div>
-                                    </div>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
-                                </div>
-                            </div>
-                        </div>
                         @empty
-
-                        @endforelse --}}
-                        {{-- <div class="col-md-4 ftco-animate">
-                            <div class="destination">
-                                <a href="/detailwilayah" class="img img-2 d-flex justify-content-center align-items-center"
-                                    style="background-image: url(images/hotel-1.jpg);">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-search2"></span>
-                                    </div>
-                                </a>
-                                <div class="text p-3">
-                                    <div class="d-flex">
-                                        <div class="one">
-                                            <h3><a href="/detailwilayah">Solok</a></h3>
-                                        </div>
-                                    </div>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 ftco-animate">
-                            <div class="destination">
-                                <a href="/detailwilayah" class="img img-2 d-flex justify-content-center align-items-center"
-                                    style="background-image: url(images/hotel-1.jpg);">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-search2"></span>
-                                    </div>
-                                </a>
-                                <div class="text p-3">
-                                    <div class="d-flex">
-                                        <div class="one">
-                                            <h3><a href="/detailwilayah">Padang Panjang</a></h3>
-                                        </div>
-                                    </div>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 ftco-animate">
-                            <div class="destination">
-                                <a href="/detailwilayah" class="img img-2 d-flex justify-content-center align-items-center"
-                                    style="background-image: url(images/hotel-1.jpg);">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-search2"></span>
-                                    </div>
-                                </a>
-                                <div class="text p-3">
-                                    <div class="d-flex">
-                                        <div class="one">
-                                            <h3><a href="/detailwilayah">Payakumbuh</a></h3>
-                                        </div>
-                                    </div>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 ftco-animate">
-                            <div class="destination">
-                                <a href="/detailwilayah" class="img img-2 d-flex justify-content-center align-items-center"
-                                    style="background-image: url(images/hotel-1.jpg);">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-search2"></span>
-                                    </div>
-                                </a>
-                                <div class="text p-3">
-                                    <div class="d-flex">
-                                        <div class="one">
-                                            <h3><a href="/detailwilayah">Bukittinggi</a></h3>
-                                        </div>
-                                    </div>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 ftco-animate">
-                            <div class="destination">
-                                <a href="/detailwilayah" class="img img-2 d-flex justify-content-center align-items-center"
-                                    style="background-image: url(images/hotel-1.jpg);">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <span class="icon-search2"></span>
-                                    </div>
-                                </a>
-                                <div class="text p-3">
-                                    <div class="d-flex">
-                                        <div class="one">
-                                            <h3><a href="/detailwilayah">Alahan Panjang</a></h3>
-                                        </div>
-                                    </div>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
-                                </div>
-                            </div>
-                        </div> --}}
+                        @endforelse
+                        {{-- Akhir --}}
 
                     </div>
-                    <div class="row mt-5">
-                        <div class="col text-center">
-                            <div class="block-27">
-                                <ul>
-                                    <li><a href="#">&lt;</a></li>
-                                    <li class="active"><span>1</span></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">&gt;</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    {{$cities->links()}}
                 </div> <!-- .col-md-8 -->
             </div>
         </div>
