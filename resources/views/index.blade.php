@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
     <?php use App\Models\Article; ?>
-    <div class="hero-wrap js-fullheight" style="background-image: url('images/Museum_Adityawarman_20211213.jpg');">
+    <div class="hero-wrap js-fullheight" style="background-image: url({{asset('images/bg_home.png')}});">
         <div class="overlay"></div>
     </div>
     <!-- INFORMASI ADAT -->

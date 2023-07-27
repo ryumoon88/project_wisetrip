@@ -16,16 +16,21 @@
     </div>
     <div class="title">
         <p>Tata Cara Pembayaran</p>
+        <p>1. Cara 1</p>
+        <p>2. Cara 2</p>
+        <p>3. Cara 3</p>
     </div>
-    <hr>
 
     <div class="tiket">
         <div class="header">
-            <p>Hahhah</p>
-            <p>Hahdahs</p>
+            {{-- <p>Hahhah</p>
+            <p>Hahdahs</p> --}}
         </div>
         <div class="isi">
-            <div class="isi1">
+            <p>Input Gambar</p>
+            <p>Tampilan Gambar</p>
+            <p>Tombol Kirim</p>
+            {{-- <div class="isi1">
                 <div class="keberangkatan">
                     <h3>keberangkatan</h3>
                     <p>, Pukul:
@@ -56,7 +61,7 @@
                     <button class="bayar" name="button" type="submit" onclick="return confirm('Yakin membayar tiket ini')">Bayar</button>
                     <button class="bayar" type="submit" name="button">Tampilkan tiket</button>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 

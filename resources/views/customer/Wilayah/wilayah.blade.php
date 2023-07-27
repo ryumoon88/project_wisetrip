@@ -20,18 +20,20 @@
                 <div class="col-lg-3 sidebar">
                     <div class="sidebar-wrap bg-light ftco-animate">
                         <h3 class="heading mb-4">Cari Kota</h3>
-                        <form action="#">
+                        <form method="GET" role="form" action="{{url('/city')}}" enctype="multipart/form-data">
+                            @csrf
                             <div class="fields">
                                 <div class="form-group">
                                     <div class="select-wrap one-third">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                         <select name="" id="" class="form-control"
-                                            placeholder="Keyword search">
-                                            <option value="">Select Location</option>
-                                            <option value="">Padang</option>
-                                            <option value="">Solok</option>
-                                            <option value="">Bukit Tinggi</option>
-                                            <option value="">Payakumbuh</option>
+                                            placeholder="Keyword search" required>
+                                            <option value="">Pilih Kota</option>
+                                            @forelse ($cities as $city)
+                                            <option value="{{$city->id}}">{{$city->name}}</option>
+                                            @empty
+
+                                            @endforelse
                                         </select>
                                     </div>
                                 </div>

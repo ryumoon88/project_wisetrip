@@ -27,11 +27,10 @@
         <div class="isi">
             <div class="isi1">
                 <div class="keberangkatan">
-                    <h3>Padang, Sumatera Barat</h3>
+                    <h3>PAM02PDG</h3>
                     <p>21, Agustus 2023
                     </p>
-                    <p> .
-                    </p>
+                    <p> Padang, Sumatera Barat.</p>
                 </div>
                 {{-- <div class="tujuan">
                     <h3>Tujuan</h3>
@@ -40,7 +39,7 @@
                     </p>
                 </div> --}}
                 <div class="harga">
-                    <h3>Rp. 5000</h3>
+                    <h3>Rp.5000</h3>
                     <p>/tiket</p>
                 </div>
             </div>

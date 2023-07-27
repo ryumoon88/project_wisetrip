@@ -40,31 +40,14 @@ Route::resource('destination', DestinationController::class);
 Route::resource('order', OrderController::class);
 
 Route::resource('city', CityController::class);
-
-Route::get('/artikel', function () {
-    return view('customer.Artikel.artikel');
-});
-Route::get('/nextartikel', function () {
-    return view('customer.Artikel.nextartikel');
-});
-Route::get('/contact', function () {
-    return view('customer.Contact.contact');
-});
-Route::get('/wilayah', function () {
-    return view('customer.Wilayah.wilayah');
-});
-Route::get('/detailwilayah', function () {
-    return view('customer.Wilayah.detailwilayah');
-});
+Route::get('/search-city',[CityController::class,'search']);
 
 Route::get('/contact', function () {
     return view('customer.Contact.contact');
 });
-Route::get('/wilayah', function () {
-    return view('customer.Wilayah.wilayah');
-});
-Route::get('/detailwilayah', function () {
-    return view('customer.Wilayah.detailwilayah');
+
+Route::get('/contact', function () {
+    return view('customer.Contact.contact');
 });
 
 Route::get('/pesanan', function () {

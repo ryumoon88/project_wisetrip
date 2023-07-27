@@ -16,7 +16,6 @@ class CityController extends Controller
     public function index()
     {
         $cities = City::where('province_code','13')->paginate(10);
-        // dump($cities);
         return view('customer.Wilayah.wilayah',['cities' => $cities]);
     }
 
@@ -50,16 +49,6 @@ class CityController extends Controller
     public function show(City $city)
     {
         $destinations = Destination::all();
-        // $destinationsCity = [];
-        // foreach ($destinations as $destination) {
-        //     if($destination->village->district->city->id == $city->id){
-        //         $destinationsCity = $destination;
-        //     }
-        // }
-
-        // $randomDestinations = collect($destinationsCity);
-
-        // dump($randomDestinations);
         return view('customer.Wilayah.detailwilayah',['city'=>$city,'destinations'=>$destinations]);
     }
 
@@ -93,6 +82,11 @@ class CityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(City $city)
+    {
+        //
+    }
+
+    public function search(Request $request)
     {
         //
     }
