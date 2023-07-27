@@ -116,6 +116,16 @@ hr {
     cursor: pointer;
 }
 
+.isi2 a {
+    border: none;
+    padding: 7px 25px;
+    font-size: 1em;
+    border-radius: 7px;
+    margin-left: 15px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
 .isi2 .button .batal {
     background-color: rgb(255, 0, 0);
     color: white;
@@ -140,6 +150,15 @@ hr {
 }
 
 .isi2 .button .bayar:hover {
+    background-color: rgb(173, 51, 24);
+}
+
+.isi2 a .bayar {
+    background-color: rgb(221, 63, 31);
+    color: white;
+}
+
+.isi2 a .bayar:hover {
     background-color: rgb(173, 51, 24);
 }
 

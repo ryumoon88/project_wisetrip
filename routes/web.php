@@ -47,6 +47,3 @@ Route::get('/contact', function () {
     return view('customer.Contact.contact');
 });
 
-Route::get('/contact', function () {
-    return view('customer.Contact.contact');
-});

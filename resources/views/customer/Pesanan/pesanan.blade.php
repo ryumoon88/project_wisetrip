@@ -64,15 +64,15 @@
                                 <form action="{{ url('order/' . $order->id . '/edit') }}" method="get">
                                     <button class="ubah" type="submit" name="button">Ubah</button>
                                 </form>
-                                <form action="{{ url('order/' . $order->id) }}" method="post">
-                                    @method('PUT')
-                                    @csrf
-                                    <button class="bayar" name="button" type="submit"
-                                        onclick="return confirm('Yakin membayar tiket ini')">Bayar</button>
-                                </form>
+                                {{-- <form action="{{ url('order/' . $order->id) }}" method="get">
+                                    <button class="bayar" name="button" type="submit">Bayar</button>
+                                </form> --}}
+                                <a href="{{ url('order/' . $order->id) }}" class="bayar">Bayar</a>
+
+
                             @else
                                 <form action="{{ url('order/' . $order->id) }}" method="get">
-                                    <button class="bayar" type="submit" name="button">Tampilkan tiket</button>
+                                    <button class="bayar" type="submit" name="button">Bukti Pembayaran</button>
                                 </form>
                             @endif
                         </div>
