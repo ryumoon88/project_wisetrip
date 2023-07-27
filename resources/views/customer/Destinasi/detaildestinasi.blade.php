@@ -25,15 +25,21 @@
                     <div class="row">
                         <div class="col-md-12 ftco-animate">
                             <div class="single-slider owl-carousel">
-                                <div class="item">
-                                    <div class="hotel-img" style="background-image: url(images/hotel-2.jpg);"></div>
-                                </div>
-                                <div class="item">
+                                @forelse($images??[] as $image)
+                                    <div class="item">
+                                        <div class="hotel-img" style="background-image: url({{ asset('uploads/' . $image) }});">
+                                        </div>
+                                    </div>
+
+                                @empty
+
+                                @endforelse
+                                {{-- <div class="item">
                                     <div class="hotel-img" style="background-image: url(images/hotel-3.jpg);"></div>
                                 </div>
                                 <div class="item">
                                     <div class="hotel-img" style="background-image: url(images/hotel-4.jpg);"></div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
@@ -77,7 +83,7 @@
                             <div class="block-16">
                                 <figure>
                                     <iframe style="height: 500px"
-                                        src="https://maps.google.com/maps?q={{$destination->village->district->city->meta['lat']}},{{$destination->village->district->city->meta['long']}}&hl=en&z=14&amp;output=embed"
+                                        src="https://maps.google.com/maps?q={{ $destination->village->district->city->meta['lat'] }},{{ $destination->village->district->city->meta['long'] }}&hl=en&z=14&amp;output=embed"
                                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </figure>
@@ -144,15 +150,17 @@
                             <div class="row">
                                 {{-- Mulai --}}
                                 @forelse ($destinations as $related)
-                                <div class="col-md-4">
-                                    <div class="destination">
-                                        <a href="{{ url('destination/' . $related->id) }}" class="img img-2"
-                                            style="background-image: url({{ asset('uploads/'.$related->thumbnail) }});"></a>
-                                        <div class="text p-3">
-                                            <div class="d-flex">
-                                                <div class="one">
-                                                    <h3><a href="{{ url('destination/' . $related->id) }}">{{ucwords($related->name)}}</a></h3>
-                                                    {{-- <p class="rate">
+                                    <div class="col-md-4">
+                                        <div class="destination">
+                                            <a href="{{ url('destination/' . $related->id) }}" class="img img-2"
+                                                style="background-image: url({{ asset('uploads/' . $related->thumbnail) }});"></a>
+                                            <div class="text p-3">
+                                                <div class="d-flex">
+                                                    <div class="one">
+                                                        <h3><a
+                                                                href="{{ url('destination/' . $related->id) }}">{{ ucwords($related->name) }}</a>
+                                                        </h3>
+                                                        {{-- <p class="rate">
                                                         <i class="icon-star"></i>
                                                         <i class="icon-star"></i>
                                                         <i class="icon-star"></i>
@@ -160,22 +168,23 @@
                                                         <i class="icon-star-o"></i>
                                                         <span>8 Rating</span>
                                                     </p> --}}
-                                                </div>
-                                                {{-- <div class="two">
+                                                    </div>
+                                                    {{-- <div class="two">
                                                     <span class="price per-price">$40<br><small>/night</small></span>
                                                 </div> --}}
+                                                </div>
+                                                <p>{!! ucwords(Str::limit(strip_tags($destination->description), 200, '...')) !!}</p>
+                                                <hr>
+                                                <p class="bottom-area d-flex">
+                                                    <span><i class="icon-map-o"></i>
+                                                        {{ ucwords($related->village->district->name . ', ' . $related->village->district->city->name) }}</span>
+                                                    <span class="ml-auto"><a
+                                                            href="{{ url('destination/' . $related->id) }}">Telusuri</a></span>
+                                                </p>
                                             </div>
-                                            <p>{!! ucwords(Str::limit(strip_tags($destination->description), 200, '...')) !!}</p>
-                                            <hr>
-                                            <p class="bottom-area d-flex">
-                                                <span><i class="icon-map-o"></i> {{ucwords($related->village->district->name.', '.$related->village->district->city->name)}}</span>
-                                                <span class="ml-auto"><a href="{{ url('destination/' . $related->id) }}">Telusuri</a></span>
-                                            </p>
                                         </div>
                                     </div>
-                                </div>
                                 @empty
-
                                 @endforelse
                                 {{-- Akhir --}}
                             </div>
@@ -188,7 +197,7 @@
                         <center>
                             <h3 class="heading mb-4">Pemesanan</h3>
                         </center>
-                        <form action="{{url('order')}}" method="POST" role="form" enctype="multipart/form-data">
+                        <form action="{{ url('order') }}" method="POST" role="form" enctype="multipart/form-data">
                             @csrf
                             <div class="fields">
                                 <div class="form-group">
@@ -201,8 +210,7 @@
                                     <input type="text" class="form-control" placeholder="Phone Number">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" id="checkin_date" class="form-control"
-                                        placeholder="Date from">
+                                    <input type="text" id="checkin_date" class="form-control" placeholder="Date from">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" id="checkin_date" class="form-control" placeholder="Date to">

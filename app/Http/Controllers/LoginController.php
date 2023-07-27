@@ -51,13 +51,13 @@ class LoginController extends Controller
             'username' => ['required'],
             'register_email' => ['required','email','unique:users,email'],
             'register_password' => ['required'],
+            'phonenumber' => ['required','unique:users,phonenumber']
         ]);
         unset($validatedData['register_password']);
         unset($validatedData['register_email']);
         $validatedData['email'] = $request->register_email;
         $validatedData['remember_token'] = Str::random(10);
         $validatedData['password'] = Hash::make($request->register_password);
-        // dump($validatedData);
         User::create($validatedData);
         return redirect('/login');
     }

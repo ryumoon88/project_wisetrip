@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/pesanan.css') }}">
+<link rel="stylesheet" href="{{ asset('css/pembayaran.css') }}">
     <div class="hero-wrap js-fullheight" style="background-image: url({{ asset('images/taluak.jpg') }});">
         <div class="custom-custom-overlay"></div>
         <div class="custom-container">

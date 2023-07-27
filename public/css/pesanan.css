@@ -58,6 +58,7 @@ hr {
 
 .isi .isi1 {
     display: flex;
+    justify-content: space-between;
     padding: 25px;
     padding-bottom: 0px;
     color: rgb(76, 76, 76);
@@ -77,6 +78,7 @@ hr {
 .isi .isi1 .harga {
     flex-basis: 40%;
     padding: 10px;
+    text-align: end;
 }
 
 .isi2 {

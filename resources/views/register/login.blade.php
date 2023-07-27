@@ -78,6 +78,14 @@
                                 {{$message}}
                             @enderror
                         </div>
+                        <div class="input-block">
+                            <label for="phonenumber">No. HP</label>
+                            <input name="phonenumber" id="phonenumber" lass="@error('phonenumber')is-invalid
+                            @enderror" type="phonenumber" required>
+                            @error('phonenumber')
+                                {{$message}}
+                            @enderror
+                        </div>
 
                     </fieldset>
                     <button type="submit" class="btn-signup">Daftar</button>
