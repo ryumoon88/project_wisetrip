@@ -51,7 +51,7 @@
                         @forelse ($cities as $city)
                             <div class="col-md-4 ftco-animate" >
                                 <div class="destination">
-                                    <a href="{{url('city/'.$city->id)}}"
+                                    <a href="{{route('city.show',['city'=>$city])}}"
                                         class="img img-2 d-flex justify-content-center align-items-center"
                                         style="background-image: url({{ asset('uploads/' . $city->thumbnail) }});">
                                         <div class="icon d-flex justify-content-center align-items-center">
@@ -61,7 +61,7 @@
                                     <div class="text p-3">
                                         <div class="d-flex">
                                             <div class="one">
-                                                <h3><a href="{{url('city/'.$city->id)}}">{{ ucwords($city->name) }}</a></h3>
+                                                <h3><a href="{{route('city.show',['city'=>$city])}}">{{ ucwords($city->name) }}</a></h3>
                                             </div>
                                         </div>
                                         <p>{!! Str::limit(strip_tags($city->body), 200, '...') !!}</p>
@@ -69,6 +69,7 @@
                                 </div>
                             </div>
                         @empty
+
                         @endforelse
                         {{-- Akhir --}}
 

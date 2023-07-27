@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/pembayaran.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pembayaran.css') }}">
     <div class="hero-wrap js-fullheight" style="background-image: url({{ asset('images/taluak.jpg') }});">
         <div class="custom-custom-overlay"></div>
         <div class="custom-container">
@@ -27,9 +27,44 @@
             <p>Hahdahs</p> --}}
         </div>
         <div class="isi">
-            <p>Input Gambar</p>
-            <p>Tampilan Gambar</p>
-            <p>Tombol Kirim</p>
+            <form action="{{ url('order/' . $order->id) }}" method="post" enctype="multipart/form-data">
+                @method('PUT')
+                @csrf
+                <input type="file" name="payment_proof" @error('payment_proof')is-invalid
+                @enderror" id="imageInput">
+
+                <img src="" alt="Bukti Pembayaran" id="previewImage">
+
+                <button type="submit" onclick="return confirm('Yakin kirim ini?')">Kirim</button>
+
+
+                <p>Input Gambar</p>
+
+                <p>Tampilan Gambar</p>
+                <p>Tombol Kirim</p>
+            </form>
+
+            <script>
+                // Dapatkan elemen input file dan elemen gambar preview
+                const imageInput = document.getElementById('imageInput');
+                const previewImage = document.getElementById('previewImage');
+
+                // Tambahkan event listener untuk peristiwa pemilihan file
+                imageInput.addEventListener('change', function() {
+                    // Pastikan ada file yang dipilih
+                    if (imageInput.files && imageInput.files[0]) {
+                        const reader = new FileReader();
+
+                        // Ketika file gambar selesai dibaca, tampilkan di elemen gambar preview
+                        reader.onload = function(e) {
+                            previewImage.src = e.target.result;
+                        }
+
+                        // Baca file gambar sebagai URL data
+                        reader.readAsDataURL(imageInput.files[0]);
+                    }
+                });
+            </script>
             {{-- <div class="isi1">
                 <div class="keberangkatan">
                     <h3>keberangkatan</h3>

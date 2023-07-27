@@ -53,7 +53,8 @@ class DestinationController extends Controller
         $destinations = Destination::inRandomOrder()->limit(3)->get();
         $images = $destination->images;
         // dump($images);
-        return view('customer.Destinasi.detaildestinasi',['destination'=>$destination,'destinations'=>$destinations,'images'=>$images]);
+        $services = DestinationService::all();
+        return view('customer.Destinasi.detaildestinasi',['destination'=>$destination,'destinations'=>$destinations,'images'=>$images, 'services' => $services]);
     }
 
     /**

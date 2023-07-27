@@ -132,30 +132,34 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Email"
-                                        value="{{ Auth::user()->email }}" disabled>
+                                        value="{{Auth::user()->email}}" disabled>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Nomor HP"
-                                        value="{{ Auth::user()->phonenumber }}" disabled>
+                                        value="{{Auth::user()->phonenumber}}" disabled>
                                 </div>
                                 <div class="form-group">
                                     <input type="date" class="form-control" placeholder="Tanggal Pesan"
-                                        name="date_booking" value="{{'date_booking' }}">
+                                        name="date_booking" value="{{old('date_booking',$order->date_booking)}}">
                                 </div>
                                 <div class="form-group">
                                     <select name="service_id" class="form-control" required>
                                         <option value="">Pilih Tiket/Layanan</option>
                                         @forelse ($services as $service)
+                                        @if (old('service_id', $order->service_id) == $service->id)
+                                        <option value="{{ $service->id }}" selected>{{ $service->name }}, Rp.
+                                            {{ number_format($service->price, 2, ',', '.') }}</option>
+                                            @else
                                             <option value="{{ $service->id }}">{{ $service->name }}, Rp.
                                                 {{ number_format($service->price, 2, ',', '.') }}</option>
+                                        @endif
 
                                         @empty
                                         @endforelse
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" placeholder="Jumlah Ticket" name="quantity"
-                                        value="{{ old('quantity') }}">
+                                    <input type="number" class="form-control" placeholder="Jumlah Ticket" name="quantity" value="{{old('quantity',$order->quantity)}}">
                                 </div>
                                 <a> Total: </a><br>
                                 <div class="form-group">

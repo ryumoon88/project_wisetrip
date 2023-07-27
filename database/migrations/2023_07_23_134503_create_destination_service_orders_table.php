@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('invoice');
             $table->enum('status', ['Pending', 'Accepted', 'Rejected'])->default('Pending');
             $table->integer('quantity');
+            $table->timestamp('date_booking');
+            $table->timestamp('date_payment')->nullable();
+            $table->string('payment_proof')->nullable();
             $table->timestamps();
         });
     }

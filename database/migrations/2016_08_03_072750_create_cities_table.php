@@ -24,6 +24,7 @@ class CreateCitiesTable extends Migration
             $table->string('thumbnail')->nullable();
             $table->longText('images')->nullable();
             $table->longText('body')->nullable();
+            $table->string('slug');
 
             $table->foreign('province_code')
                 ->references('code')
