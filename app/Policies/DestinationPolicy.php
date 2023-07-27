@@ -152,4 +152,13 @@ class DestinationPolicy
     {
         return $user->can('view_all_destination');
     }
+
+    public function approve(User $user)
+    {
+        return $user->can('approve_destination');
+    }
+    public function reject(User $user)
+    {
+        return $user->can('reject_destination');
+    }
 }

@@ -34,7 +34,10 @@ class DestinationResource extends Resource implements HasShieldPermissions
 
     public static function getPermissionPrefixes(): array
     {
-        return ['view', 'view_any', 'create', 'update', 'restore', 'restore_any', 'replicate', 'reorder', 'delete', 'delete_any', 'force_delete', 'force_delete_any', 'view_all'];
+        return [
+            'view', 'view_any', 'create', 'update', 'restore', 'restore_any', 'replicate', 'reorder', 'delete', 'delete_any', 'force_delete', 'force_delete_any', 'view_all',
+            'approve', 'reject'
+        ];
     }
 
     public static function getEloquentQuery(): Builder
@@ -147,14 +150,35 @@ class DestinationResource extends Resource implements HasShieldPermissions
                     ->extraAttributes(['style' => 'aspect-ratio: 16/9; overflow: hidden;', 'class' => 'w-full'], true)
                     ->extraImgAttributes(['style' => 'object-fit: cover;'])
                     ->square(),
-                Tables\Columns\TextColumn::make('status'),
+                Tables\Columns\BadgeColumn::make('status')
+                    ->colors([
+                        'warning' => 'Need review',
+                        'danger' => 'Rejected',
+                        'success' => 'Approved'
+                    ]),
                 Tables\Columns\TextColumn::make('kelurahan.name'),
                 Tables\Columns\TextColumn::make('user.name')->hidden(!Gate::check('view_all_destination')),
             ])
             ->filters([
                 //
             ])
-            ->actions([Tables\Actions\ViewAction::make(), Tables\Actions\EditAction::make()])
+            ->actions([
+                Tables\Actions\ViewAction::make(),
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('approve')
+                    ->action(fn ($record) => $record->approve())
+                    ->requiresConfirmation()
+                    ->color('success')
+                    ->button()
+                    ->hidden(function () {
+                        return Gate::check('approve_destination');
+                    }),
+                Tables\Actions\Action::make('reject')
+                    ->action(fn ($record) => $record->reject())
+                    ->requiresConfirmation()
+                    ->color('danger')
+                    ->button(),
+            ])
             ->bulkActions([
                 // Tables\Actions\DeleteBulkAction::make(),
             ])
@@ -166,7 +190,7 @@ class DestinationResource extends Resource implements HasShieldPermissions
 
     public static function getRelations(): array
     {
-        return [ServicesRelationManager::class, OrdersRelationManager::class];
+        return [ServicesRelationManager::class, OrdersRelationManager::class,];
     }
 
     public static function getPages(): array

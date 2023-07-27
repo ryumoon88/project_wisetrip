@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('thumbnail')->nullable();
             $table->boolean('visible')->default(true);
+            $table->enum('status', ['Need review', 'Approved', 'Rejected'])->default('Need review');
             $table->longText('description');
             $table->foreignId('village_code');
             $table->foreignId('user_id');
