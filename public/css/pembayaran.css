@@ -193,7 +193,7 @@ hr {
 
 .proof-form {
     padding-top: 20px;
-    display:  flex;
+    display: flex;
     flex-direction: column;
     gap: 20px;
     max-width: 400px;
@@ -201,6 +201,18 @@ hr {
 }
 
 .isi form button.bayar {
+    border: none;
+    padding: 7px 25px;
+    font-size: 1em;
+    border-radius: 7px;
+    margin-left: 15px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background-color: rgb(24, 145, 13);
+    color: white;
+}
+
+.isi form input {
     background-color: rgb(24, 145, 13);
     color: white;
 }

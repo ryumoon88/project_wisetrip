@@ -16,7 +16,7 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        $destinations = Destination::latest()->paginate(2);
+        $destinations = Destination::latest()->paginate(10);
         // dump($destinations);
         return view('customer.Destinasi.destinasi',['destinations' => $destinations]);
     }

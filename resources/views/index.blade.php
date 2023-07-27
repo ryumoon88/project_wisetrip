@@ -16,7 +16,7 @@
                                 <div class="destination">
                                     <a href="{{ url('article/' . $culture->id) }}"
                                         class="img d-flex justify-content-center align-items-center"
-                                        style="background-image: url({{ asset('uploads/' . $culture->id) }});">
+                                        style="background-image: url({{ asset('uploads/' . $culture->thumbnail) }});">
                                         <div class="icon d-flex justify-content-center align-items-center">
                                             <span class="icon-search2"></span>
                                         </div>
@@ -88,25 +88,25 @@
                 <div class="row">
                     <div class="col-lg-6" style="min-height: 500px;">
                         <div class="position-relative h-100">
-                            <img class="play-icon position-absolute w-10 h-10" src="{{ asset('images/icon.png') }}"
-                                style="width: 450px; height: 450px;">
-                            {{-- <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE" target="_blank">
-                                <img class="position-absolute w-100 h-100" src="images/destination-1.jpg"
+                            {{-- <img class="play-icon position-absolute w-10 h-10" src="{{ asset('images/icon.png') }}"
+                                style="width: 450px; height: 450px;"> --}}
+                            <a href="https://www.youtube.com/watch?v=kX-yZtVd5Sg" target="_blank">
+                                <img class="position-absolute w-100 h-100" src="{{asset('images/Museum_Adityawarman_20211213.jpg')}}"
                                     style="object-fit: cover;">
                                 <img class="play-icon position-absolute w-10 h-10" src="images/playbutton.png "
                                     style="width: 80px; height: 80px;">
-                            </a> --}}
+                            </a>
                         </div>
                     </div>
-                    <div class="col-lg-6 pt-5 pb-lg-5">
+                    <div class="col-lg-6 pt-5 pb-lg-5" id="Kami">
                         <div class="video bg-white p-4 p-lg-5 my-lg-5">
-                            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
-                            <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
-                            <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum
-                                labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat
-                                duo eos et erat sed diam duo</p>
+                            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Tentang Kami</h6>
+                            <h1 class="mb-3">Kami Menyediakan destinasi Sumatera Barat yang jarang dikunjungi</h1>
+                            <p>Sumatera Barat masih banyak rahasia destinasi yang menarik dan menakjubkan, sehingga pemandangannya masih asli dan asri.
+                                Dengan layanan Wise Trip, kami antarkan anda ke tempat yang tak terduga.
+                            </p>
 
-                            <a href="{{ url('/destination') }}" class="btn btn-primary mt-1">Book Sekarang</a>
+                            <a href="{{ url('/destination') }}" class="btn btn-primary mt-1">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -120,10 +120,8 @@
             <div class="container pt-5">
                 <div class="row">
                     <div class="col-md-7 heading-section ftco-animate">
-                        <h2 class="mb-4"><strong>Tips & Artikel ggas</strong></h2>
-                        <span class="subheading">SIn publishing and graphic design, Lorem ipsum is a placeholder text
-                            commonly used to demonstrate the visual form of a document or a typeface without relying on
-                            meaningful content.</span>
+                        <h2 class="mb-4"><strong>Tips & Artikel Budaya</strong></h2>
+                        <span class="subheading">Menyajikan konten artikel dan tips untuk pengguna mendapatkan referensi terbaru dan unik. Artikel dibuat dan dikurasi langsung oleh kurator terkenal.</span>
                     </div>
                     {{-- Mulai --}}
                     <div class="col-lg-6" style="min-height: 400px;">

@@ -140,13 +140,14 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="date" class="form-control" placeholder="Tanggal Pesan"
-                                        name="date_booking" value="{{'date_booking' }}">
+                                        name="date_booking" value="{{ 'date_booking' }}">
                                 </div>
                                 <div class="form-group">
-                                    <select name="service_id" class="form-control" required>
+                                    <select name="service_id" class="form-control" id="priceService" required>
                                         <option value="">Pilih Tiket/Layanan</option>
                                         @forelse ($services as $service)
-                                            <option value="{{ $service->id }}">{{ $service->name }}, Rp.
+                                            <option value="{{ $service->id }}" name="{{ $service->price }}">
+                                                {{ $service->name }}, Rp.
                                                 {{ number_format($service->price, 2, ',', '.') }}</option>
 
                                         @empty
@@ -155,15 +156,41 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="number" class="form-control" placeholder="Jumlah Ticket" name="quantity"
-                                        value="{{ old('quantity') }}">
+                                        value="{{ old('quantity') }}" id="sumTicket">
                                 </div>
-                                <a> Total: </a><br>
+                                <a id="total" style="font-size: 48px"> Total: </a><br>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary py-3 px-5">Pesan</button>
                                 </div>
                             </div>
                         </form>
                     </div>
+
+                    <script>
+                        const priceService = document.getElementById('priceService');
+                        const sumTicket = document.getElementById('sumTicket');
+                        const total = document.getElementById('total');
+
+                        priceService.addEventListener('change', function() {
+                            const selectedOption = priceService.selectedOptions[0];
+                            const price = selectedOption.getAttribute('name');
+                            const sum = sumTicket.value;
+
+                            const result = sum*price;
+
+                            total.textContent = "Total : Rp." + result;
+                        })
+
+                        sumTicket.addEventListener('change', function() {
+                            const selectedOption = priceService.selectedOptions[0];
+                            const price = selectedOption.getAttribute('name');
+                            const sum = sumTicket.value;
+
+                            const result = sum*price;
+
+                            total.textContent = "Total : Rp." + result;
+                        })
+                    </script>
 
                 </div>
             </div>

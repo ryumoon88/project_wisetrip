@@ -28,16 +28,12 @@ Route::get('/login',[LoginController::class,'login'])->name('login')->middleware
 Route::post('/login',[LoginController::class,'authenticate']);
 Route::post('/logout',[LoginController::class,'logout']);
 Route::post('/register',[LoginController::class,'registerStore']);
-// Route::get('/login', function () {
-//     return view('register.login');
-// });
 
-//Article
 Route::resource('article', ArticleController::class);
 
 Route::resource('destination', DestinationController::class);
 
-Route::resource('order', OrderController::class);
+Route::resource('order', OrderController::class)->middleware('auth');
 
 Route::resource('city', CityController::class);
 

@@ -16,9 +16,12 @@
     </div>
     <div class="title">
         <p>Tata Cara Pembayaran</p>
-        <p>1. Cara 1</p>
-        <p>2. Cara 2</p>
-        <p>3. Cara 3</p>
+        <p>1. Transfer pembayaran ke nomor rekening </p>
+        <p>Bank Nagari: 3020192310 A.N Wise Trip</p>
+        <p>Bank BRI: 3508298820 A.N Wise Trip</p>
+        <p>2. Screen shoot atau salin atau foto hasil transfer pembayaran.</p>
+        <p>3. Kirim hasil pembayaran dengan menekan tombol "Choose File", lalu pilih gambar atau foto hasil pembayaran.</p>
+        <p>4. Setelah sesuai, lalu tekan kirim untuk konfirmasi pembayaran.</p>
     </div>
 
     <div class="tiket">
@@ -32,140 +35,32 @@
                 @csrf
                 <input type="file" name="payment_proof" @error('payment_proof')is-invalid
                 @enderror"
-                    id="imageInput">
+                    id="imageInput" required>
 
                 <img src="" alt="Bukti Pembayaran" id="previewImage">
 
                 <button class="bayar" type="submit" onclick="return confirm('Yakin kirim ini?')">Kirim</button>
 
-
-                <p>Input Gambar</p>
-
-                <p>Tampilan Gambar</p>
-                <p>Tombol Kirim</p>
             </form>
 
             <script>
-                // Dapatkan elemen input file dan elemen gambar preview
                 const imageInput = document.getElementById('imageInput');
                 const previewImage = document.getElementById('previewImage');
 
-                // Tambahkan event listener untuk peristiwa pemilihan file
                 imageInput.addEventListener('change', function() {
-                    // Pastikan ada file yang dipilih
                     if (imageInput.files && imageInput.files[0]) {
                         const reader = new FileReader();
 
-                        // Ketika file gambar selesai dibaca, tampilkan di elemen gambar preview
                         reader.onload = function(e) {
                             previewImage.src = e.target.result;
                         }
 
-                        // Baca file gambar sebagai URL data
                         reader.readAsDataURL(imageInput.files[0]);
                     }
                 });
             </script>
-            {{-- <div class="isi1">
-                <div class="keberangkatan">
-                    <h3>keberangkatan</h3>
-                    <p>, Pukul:
-                        </p>
-                    <p> .
-                    </p>
-                </div>
-                <div class="tujuan">
-                    <h3>Tujuan</h3>
-                    <br>
-                    <p>.
-                    </p>
-                </div>
-                <div class="harga">
-                    <h3>Rp. </h3>
-                    <p>/kursi</p>
-                </div>
-            </div>
-            <div class="isi2">
-                <div class="totalharga">
-                    <h3>Jumlah Bangku :  </h3>
-                    <h1>Total : Rp. </h1>
-                </div>
-                <div class="button">
-                    <button class="batal" name="button" type="submit"
-                                onclick="return confirm('Yakin membatalkan pesanan ini ?')">Batal</button>
-                    <button class="ubah" type="submit" name="button">Ubah</button>
-                    <button class="bayar" name="button" type="submit" onclick="return confirm('Yakin membayar tiket ini')">Bayar</button>
-                    <button class="bayar" type="submit" name="button">Tampilkan tiket</button>
-                </div>
-            </div> --}}
         </div>
     </div>
 
     <!-- end-tiket -->
-
-    {{-- @forelse ($pesanans as $pesanan)
-        <div class="tiket">
-            <div class="header">
-                <p>{{ ucwords($pesanan->jadwal->rute->bus->nama) }}</p>
-                <p>{{ ucwords($pesanan->jadwal->rute->bus->class_bus->nama) }}</p>
-            </div>
-            <div class="isi">
-                <div class="isi1">
-                    <div class="keberangkatan">
-                        <h3>keberangkatan</h3>
-                        <p>{{ Carbon::parse($pesanan->jadwal->keberangkatan)->isoFormat('dddd, D MMMM Y') }}, Pukul:
-                            {{ strftime('%H:%M', strtotime($pesanan->jadwal->keberangkatan)) }}</p>
-                        <p> {{ ucwords($pesanan->jadwal->rute->awal->nama . ', ' . $pesanan->jadwal->rute->awal->alamat . ', ' . $pesanan->jadwal->rute->awal->kelurahan->nama . ', ' . $pesanan->jadwal->rute->awal->kelurahan->kecamatan->nama . ', ' . $pesanan->jadwal->rute->awal->kelurahan->kecamatan->kabupaten->nama . ', ' . $pesanan->jadwal->rute->awal->kelurahan->kecamatan->kabupaten->provinsi->nama) }}.
-                        </p>
-                    </div>
-                    <div class="tujuan">
-                        <h3>Tujuan</h3>
-                        <br>
-                        <p>{{ ucwords($pesanan->jadwal->rute->tujuan->nama . ', ' . $pesanan->jadwal->rute->tujuan->alamat . ', ' . $pesanan->jadwal->rute->tujuan->kelurahan->nama . ', ' . $pesanan->jadwal->rute->tujuan->kelurahan->kecamatan->nama . ', ' . $pesanan->jadwal->rute->tujuan->kelurahan->kecamatan->kabupaten->nama . ', ' . $pesanan->jadwal->rute->tujuan->kelurahan->kecamatan->kabupaten->provinsi->nama) }}.
-                        </p>
-                    </div>
-                    <div class="harga">
-                        <h3>Rp. {{ number_format($pesanan->jadwal->harga, 2, ',', '.') }}</h3>
-                        <p>/kursi</p>
-                    </div>
-                </div>
-                <div class="isi2">
-                    <div class="totalharga">
-                        <h3>Jumlah Bangku : {{ $pesanan->jumlah }} </h3>
-                        <h1>Total : Rp. {{ number_format($pesanan->total, 2, ',', '.') }}</h1>
-                    </div>
-                    <div class="button">
-                        @if ($pesanan->status == 'dipesan')
-                            <form action="{{ url('order/' . $pesanan->id) }}" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <button class="batal" name="button" type="submit"
-                                    onclick="return confirm('Yakin membatalkan pesanan ini ?')">Batal</button>
-                            </form>
-                            <form action="{{ url('order/' . $pesanan->id . '/edit') }}" method="get">
-                                <button class="ubah" type="submit" name="button">Ubah</button>
-                            </form>
-                            {{-- <a href="{{url('order/'.$pesanan->id.'/edit')}}">Ubah</a> --}}
-    {{-- <form action="{{ url('bayar/' . $pesanan->id) }}" method="post">
-                                @method('PUT')
-                                @csrf
-                                <button class="bayar" name="button" type="submit" onclick="return confirm('Yakin membayar tiket ini')">Bayar</button>
-                            </form>
-                        @else
-                            <form action="{{ url('tiketku/' . $pesanan->id) }}" method="get">
-                                <button class="bayar" type="submit" name="button">Tampilkan tiket</button>
-                            </form>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end-tiket -->
-        <br>
-
-    @empty
-        <div class="tiket">
-            Sepertinya kamu belum pesan tiketnya... <a href="{{ url('/') }}">Yuk pesan!!! </a>
-        </div>
-    @endforelse --}}
 @endsection
