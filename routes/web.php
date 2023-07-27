@@ -40,6 +40,7 @@ Route::resource('destination', DestinationController::class);
 Route::resource('order', OrderController::class);
 
 Route::resource('city', CityController::class);
+
 Route::get('/search-city',[CityController::class,'search']);
 
 Route::get('/contact', function () {
@@ -48,12 +49,4 @@ Route::get('/contact', function () {
 
 Route::get('/contact', function () {
     return view('customer.Contact.contact');
-});
-
-Route::get('/pesanan', function () {
-    return view('customer.Pesanan.pesanan');
-});
-
-Route::get('/pembayaran', function () {
-    return view('customer.Pesanan.pembayaran');
 });
