@@ -190,3 +190,17 @@ hr {
         padding: 10px;
     }
 }
+
+.proof-form {
+    padding-top: 20px;
+    display:  flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+    margin: auto;
+}
+
+.isi form button.bayar {
+    background-color: rgb(24, 145, 13);
+    color: white;
+}

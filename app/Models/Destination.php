@@ -50,4 +50,14 @@ class Destination extends Model
     {
         return $this->belongsTo(Village::class, 'village_code', 'code');
     }
+
+    public function approve()
+    {
+        return $this->update(['status' => 'Approved']);
+    }
+
+    public function reject()
+    {
+        return $this->update(['status' => 'Rejected']);
+    }
 }
