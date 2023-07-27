@@ -32,5 +32,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Article::factory(100)->create([
             'user_id' => 2,
         ]);
+
+        \App\Models\City::where('slug',null)->update(['updated_at'=>now()]);
     }
 }

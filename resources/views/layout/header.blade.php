@@ -19,7 +19,7 @@
                 <li class="nav-item"><a href="{{url('/contact')}}" class="nav-link">Contact</a></li>
                 {{-- <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> --}}
                 @auth
-                <li class="nav-item"><a href="{{url('/pesanan')}}" class="nav-link">Pesanan</a></li>
+                <li class="nav-item"><a href="{{url('order')}}" class="nav-link">Pesanan</a></li>
                 @if (Auth::user()->canAccessFilament())
                 <li class="nav-item"><a href="{{route('filament.pages.dashboard')}}" class="nav-link">Dashboard</a></li>
                 @endif

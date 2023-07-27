@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use Laravolt\Indonesia\Models\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class City extends Model
 {
+    // use HasSlug;
+
     protected $table = 'cities';
 
     protected $searchableColumns = ['code', 'name', 'province.name'];
@@ -13,6 +17,13 @@ class City extends Model
     protected $casts = [
         'images' => 'array',
     ];
+
+    // public function getSlugOptions() : SlugOptions
+    // {
+    //     return SlugOptions::create()
+    //         ->generateSlugsFrom('name')
+    //         ->saveSlugsTo('slug');
+    // }
 
     public function province()
     {
@@ -52,5 +63,15 @@ class City extends Model
 
             return url($folder . $logo_name);
         }
+    }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'code';
     }
 }
