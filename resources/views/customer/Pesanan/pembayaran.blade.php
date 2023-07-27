@@ -30,6 +30,7 @@
             <p>Hahdahs</p> --}}
         </div>
         <div class="isi">
+            @if ($order->status != 'Accepted')
             <form action="{{ url('order/' . $order->id) }}" class="proof-form" method="post" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
@@ -42,6 +43,21 @@
                 <button class="bayar" type="submit" onclick="return confirm('Yakin kirim ini?')">Kirim</button>
 
             </form>
+            @else
+            <img class="proof-form" src="{{asset('/uploads/'.$order->payment_proof)}}" alt="Bukti Pembayaran" id="previewImage">
+            @endif
+            {{-- <form action="{{ url('order/' . $order->id) }}" class="proof-form" method="post" enctype="multipart/form-data">
+                @method('PUT')
+                @csrf
+                <input type="file" name="payment_proof" @error('payment_proof')is-invalid
+                @enderror"
+                    id="imageInput" required>
+
+                <img src="" alt="Bukti Pembayaran" id="previewImage">
+
+                <button class="bayar" type="submit" onclick="return confirm('Yakin kirim ini?')">Kirim</button>
+
+            </form> --}}
 
             <script>
                 const imageInput = document.getElementById('imageInput');

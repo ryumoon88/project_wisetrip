@@ -99,7 +99,7 @@ class OrderController extends Controller
     //Bayar
     public function update(Request $request, $id)
     {
-        dump($id);
+        // dump($id);
         $validatedData = $request->validate([
             'payment_proof' => 'required|mimes:jpeg,svg,png,jpg',
         ]);

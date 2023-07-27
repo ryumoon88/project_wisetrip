@@ -146,9 +146,11 @@
                                     <select name="service_id" class="form-control" id="priceService" required>
                                         <option value="">Pilih Tiket/Layanan</option>
                                         @forelse ($services as $service)
-                                            <option value="{{ $service->id }}" name="{{ $service->price }}">
-                                                {{ $service->name }}, Rp.
-                                                {{ number_format($service->price, 2, ',', '.') }}</option>
+                                            @if ($service->destination->id == $destination->id)
+                                                <option value="{{ $service->id }}" name="{{ $service->price }}">
+                                                    {{ $service->name }}, Rp.
+                                                    {{ number_format($service->price, 2, ',', '.') }}</option>
+                                            @endif
 
                                         @empty
                                         @endforelse
@@ -176,7 +178,7 @@
                             const price = selectedOption.getAttribute('name');
                             const sum = sumTicket.value;
 
-                            const result = sum*price;
+                            const result = sum * price;
 
                             total.textContent = "Total : Rp." + result;
                         })
@@ -186,7 +188,7 @@
                             const price = selectedOption.getAttribute('name');
                             const sum = sumTicket.value;
 
-                            const result = sum*price;
+                            const result = sum * price;
 
                             total.textContent = "Total : Rp." + result;
                         })
