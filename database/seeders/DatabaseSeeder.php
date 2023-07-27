@@ -28,5 +28,9 @@ class DatabaseSeeder extends Seeder
 
             DestinationSeeder::class,
         ]);
+
+        \App\Models\Article::factory(100)->create([
+            'user_id' => 2,
+        ]);
     }
 }

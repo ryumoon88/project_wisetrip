@@ -6,6 +6,7 @@ use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -18,69 +19,59 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-
     protected static ?string $navigationGroup = 'Management';
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('username')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('password')
-                    ->password()
-                    ->dehydrateStateUsing(fn ($state) => Hash::make($state))
-                    ->dehydrated(fn ($state) => filled($state))
-                    ->required(fn (string $context): bool => $context === 'create')
-                    ->maxLength(255),
-                Forms\Components\Select::make('roles')
-                    ->relationship('roles', 'name')
-                    ->searchable()
-                    ->multiple()
-                    ->preload()
-            ]);
+        return $form->schema([
+            Forms\Components\TextInput::make('name')
+                ->required()
+                ->maxLength(255),
+            Forms\Components\TextInput::make('username')
+                ->required()
+                ->maxLength(255),
+            Forms\Components\TextInput::make('email')
+                ->email()
+                ->required()
+                ->maxLength(255),
+            Forms\Components\TextInput::make('password')
+                ->password()
+                ->dehydrateStateUsing(fn($state) => Hash::make($state))
+                ->dehydrated(fn($state) => filled($state))
+                ->required(fn(string $context): bool => $context === 'create')
+                ->maxLength(255),
+            Forms\Components\Select::make('roles')
+                ->relationship('roles', 'name')
+                ->searchable()
+                ->multiple()
+                ->preload(),
+            Forms\Components\TextInput::make('phonenumber')
+                ->mask(function (TextInput\Mask $mask){
+                    return $mask->numeric();
+                })
+                ->required()
+                ->maxLength(13),
+        ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
-                Tables\Columns\TextColumn::make('name')->searchable(),
-                Tables\Columns\TextColumn::make('username')->searchable(),
-                Tables\Columns\TextColumn::make('email')->searchable(),
-                Tables\Columns\BadgeColumn::make('roles.name'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
-            ])
+            ->columns([Tables\Columns\TextColumn::make('name')->searchable(), Tables\Columns\TextColumn::make('username')->searchable(), Tables\Columns\TextColumn::make('email')->searchable(), Tables\Columns\BadgeColumn::make('roles.name'), Tables\Columns\TextColumn::make('email')->searchable(), Tables\Columns\BadgeColumn::make('phonenumber'), Tables\Columns\TextColumn::make('created_at')->dateTime(), Tables\Columns\TextColumn::make('updated_at')->dateTime()])
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-            ]);
+            ->actions([Tables\Actions\ViewAction::make(), Tables\Actions\EditAction::make()])
+            ->bulkActions([Tables\Actions\DeleteBulkAction::make()]);
     }
 
     public static function getRelations(): array
     {
         return [
-            //
-        ];
+                //
+            ];
     }
 
     public static function getPages(): array

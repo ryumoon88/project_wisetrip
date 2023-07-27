@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('culture_information', function (Blueprint $table) {
             $table->id();
             $table->string('thumbnail');
-            $table->integer('kelurahan_id');
+            $table->foreignId('village_code');
             $table->string('title');
             $table->longText('body');
             $table->foreignId('user_id');

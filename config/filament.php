@@ -240,7 +240,7 @@ return [
             'have_inline_labels' => false,
         ],
         'footer' => [
-            'should_show_logo' => true,
+            'should_show_logo' => false,
         ],
         'max_content_width' => 'xxl',
         'notifications' => [
@@ -266,7 +266,7 @@ return [
     |
     */
 
-    'favicon' => null,
+    'favicon' => 'http://project_wisetrip.test/images/icon.png',
 
     /*
     |--------------------------------------------------------------------------

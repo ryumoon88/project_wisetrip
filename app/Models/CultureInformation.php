@@ -19,8 +19,15 @@ class CultureInformation extends Model
     {
         parent::boot();
         self::creating(function ($query) {
-            $query->user_id = Auth::user()->id;
+            if($query->user_id == null){
+                $query->user_id = Auth::user()->id;
+            }
         });
+    }
+
+    public function scopeOwned($query)
+    {
+        return $query->where('user_id', Auth::user()->id);
     }
 
     public function user()
@@ -28,8 +35,8 @@ class CultureInformation extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function kelurahan()
+    public function village()
     {
-        return $this->belongsTo(Village::class, 'kelurahan_id');
+        return $this->belongsTo(Village::class, 'village_code', 'code');
     }
 }

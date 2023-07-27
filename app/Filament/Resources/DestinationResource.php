@@ -34,21 +34,7 @@ class DestinationResource extends Resource implements HasShieldPermissions
 
     public static function getPermissionPrefixes(): array
     {
-        return [
-            'view',
-            'view_any',
-            'create',
-            'update',
-            'restore',
-            'restore_any',
-            'replicate',
-            'reorder',
-            'delete',
-            'delete_any',
-            'force_delete',
-            'force_delete_any',
-            'view_all'
-        ];
+        return ['view', 'view_any', 'create', 'update', 'restore', 'restore_any', 'replicate', 'reorder', 'delete', 'delete_any', 'force_delete', 'force_delete_any', 'view_all'];
     }
 
     public static function getEloquentQuery(): Builder
@@ -72,12 +58,13 @@ class DestinationResource extends Resource implements HasShieldPermissions
                         ->setRelativeUrls(false)
                         ->setConvertUrls(true)
                         ->setRemoveScriptHost(false),
-                ])
-                    ->columnSpan(['xl' => 2, 'default' => 'full']),
+                    Forms\Components\FileUpload::make('images')
+                        ->image()
+                        ->multiple()
+                ])->columnSpan(['xl' => 2, 'default' => 'full']),
                 Forms\Components\Group::make([
                     Forms\Components\Section::make('Location')
                         ->schema([
-
                             Forms\Components\Select::make('province_code')
                                 ->options(Province::all()->pluck('name', 'code'))
                                 ->searchable()
@@ -144,7 +131,7 @@ class DestinationResource extends Resource implements HasShieldPermissions
                         ->columns(1)
                         ->columnSpan('xs')
                         ->label('Location Information')
-                        ->inlineLabel(true)
+                        ->inlineLabel(true),
                 ])->columnSpan(['default' => 'full', 'xl' => 1]),
             ])
             ->columns(3);
@@ -154,37 +141,32 @@ class DestinationResource extends Resource implements HasShieldPermissions
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\ImageColumn::make('thumbnail')
-                    ->size('full'),
+                    ->size('100%')
+                    ->extraAttributes(['style' => 'aspect-ratio: 16/9; overflow: hidden;', 'class' => 'w-full'], true)
+                    ->extraImgAttributes(['style' => 'object-fit: cover;'])
+                    ->square(),
                 Tables\Columns\TextColumn::make('status'),
                 Tables\Columns\TextColumn::make('kelurahan.name'),
-                Tables\Columns\TextColumn::make('user.name')
-                    ->hidden(!Gate::check('view_all_destination'))
+                Tables\Columns\TextColumn::make('user.name')->hidden(!Gate::check('view_all_destination')),
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-            ])
+            ->actions([Tables\Actions\ViewAction::make(), Tables\Actions\EditAction::make()])
             ->bulkActions([
                 // Tables\Actions\DeleteBulkAction::make(),
             ])
             ->contentGrid([
                 'md' => 2,
-                'xl' => 3
+                'xl' => 3,
             ]);
     }
 
     public static function getRelations(): array
     {
-        return [
-            ServicesRelationManager::class,
-            OrdersRelationManager::class
-        ];
+        return [ServicesRelationManager::class, OrdersRelationManager::class];
     }
 
     public static function getPages(): array
